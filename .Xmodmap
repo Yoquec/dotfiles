@@ -1,0 +1,4 @@
+keycode 66 = Escape
+keycode 9 = Caps_Lock
+clear lock
+keycode 163 = less greater
