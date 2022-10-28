@@ -1,0 +1,8 @@
+map <C-i> recolor
+
+#Make the keyboard work
+set selection-clipboard clipboard
+
+# set recolor true
+# set recolor_darkcolor #BDE090
+# set recolor_lightcolor #000000

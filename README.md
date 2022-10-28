@@ -1,8 +1,6 @@
-# dotfiles
----
-This is where im going to store all of my dotfiles
+# My own Dotfiles
+Repo containing my dotfiles for both my laptop and my desktop
 
-### In .config
-- [ ] Alacritty
-- [ ] Dunst
-- [ ] i3
+Pull request are welcome!
+
+Thanks to people like [Luke Smith](https://github.com/LukeSmithxyz) for sharing amazing configuration files freely.

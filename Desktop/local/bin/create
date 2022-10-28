@@ -1,0 +1,71 @@
+#!/usr/bin/python3
+import sys
+import os
+import subprocess
+
+time = subprocess.getoutput("date")
+user = "Yoquec"
+
+PYHEADER=f"""'''
+Created on {time}
+
+@file: TMP
+
+@author: USER
+'''
+"""
+
+CHEADER=f'''/*
+Created on {time}
+
+@file: TMP
+
+@author: USER
+*/
+'''
+
+HTMLHEADER=f'''<!--
+Created on {time}
+
+@file: TMP
+
+@author: USER
+-->
+'''
+
+OTHERHEADER=f'''
+##########################################
+# Created on {time}
+
+# @file: TMP
+
+# @author: USER
+##########################################
+'''
+
+
+def main(user):
+    #GET the file name
+    FILENAMES = sys.argv[1:]
+
+    if len(FILENAMES) == 0:
+        print("You probably haven't specified a file name")
+        sys.exit()
+
+    for filename in FILENAMES:
+        extention = filename.split(".")[-1]
+        if "py" == extention:
+            header = PYHEADER
+        elif "c" in extention:
+            header = CHEADER
+        elif "html" in extention:
+            header = HTMLHEADER
+        else:
+            header = OTHERHEADER
+
+        to_write = header.replace("TMP", filename).replace("USER",user)
+
+        os.system(f'echo "{to_write}" >> {filename}')
+
+if __name__ == "__main__":
+    main(user)

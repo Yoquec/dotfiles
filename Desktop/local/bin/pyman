@@ -1,0 +1,8 @@
+# !/usr/bin/bash
+if [ -z "$1" ]; then
+	python3 -c "help()"
+
+else
+	python3 -c "help('${1}')"
+
+fi
