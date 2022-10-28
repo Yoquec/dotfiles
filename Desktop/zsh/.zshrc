@@ -6,10 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/yoquec/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -30,14 +30,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -52,8 +51,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -77,9 +77,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
+plugins=(
+	git
 	zsh-autosuggestions
-	zsh-syntax-highlighting)
+	zsh-syntax-highlighting
+	)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,7 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
+export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -104,25 +107,41 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
+# cd_with_fzf() {
+#     cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+# }#
+alias cf='cd "$(fd -t d -L -E snap -E anaconda3 -E dotfiles -E wekafiles -E tmp -E cache -E ~/R -E go -E disk/SteamLibrary -E /home/yoquec/disk/Lutris/origin/dosdevices -E disk/code -E disk/Documents -E disk/Downloads -E disk/Lutris -E code/python/math | fzf --preview="fd -L --full-path {}|as-tree --color always" --bind="space:toggle-preview" --preview-window=:hidden)"; clear'
+
+# set vi mode
+set -o vi
+
+bindkey -s '^f' 'cf^M'
+bindkey -s '^F' 'cf^M'
+# bindkey -s '^o' 'nvim $(fd -t f -E anaconda3 -H | fzf)^M'
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias q='exit'
-alias c='clear'
-alias 'chmac'='sudo sh ~/.macchanger'
-alias 'disk'='cd /mnt/SharedSpace/'
-alias b='batcat'
+alias ls="exa --icons"
+alias la="exa -lah --icons --color-scale"
+alias vi=nvim
+alias "tw"="fd|as-tree"
+alias "ac"="source /home/yoquec/anaconda3/bin/activate"
+alias "yt"="youtube-dl --add-metadata -i"
+alias "yta"="yt -x -f bestaudio/best"
+alias "readpdf"="zathura"
+alias "xclip"="xclip -sel c"
+alias "lf"="lfub"
+alias "nv"="neovide"
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
 
-alias tmux="TERM=screen-256color-bce tmux"
 
-source ~/.zsh_profile
-
-export PATH="$PATH:/home/yoquec/anaconda3/bin"
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/yoquec/.sdkman"
-[[ -s "/home/yoquec/.sdkman/bin/sdkman-init.sh" ]] && source "/home/yoquec/.sdkman/bin/sdkman-init.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-fpath+=${ZDOTDIR:-~}/.zsh_functions
