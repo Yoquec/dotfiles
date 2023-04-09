@@ -115,8 +115,8 @@ alias fdhome="fd . $HOME -t d -L -E git-themes -E AndroidStudioProjects -E disk/
     -E disk/Documents -E disk/Downloads -E Dropbox -E disk/Lutris -E code/python/math"
 
 cd_with_fzf() {
-    cd $HOME; cd $(fdhome | fzf --bind=space:toggle-preview  --preview-window=:hidden \
-        --preview="fd -L --max-results 5 --full-path {} | as-tree --color always");
+    cd $HOME; cd "$(fdhome | fzf --bind=space:toggle-preview  --preview-window=:hidden \
+        --preview="fd -L --max-results 5 --full-path {} | as-tree --color always")";
 }
 
 bindkey -s '^f' 'cd_with_fzf^M'
