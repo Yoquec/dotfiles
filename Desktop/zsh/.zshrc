@@ -85,60 +85,43 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Set vim mode
+set -o vi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-# cd_with_fzf() {
-#     cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
-# }#
-alias cf='cd "$(fd -t d -L -E snap -E anaconda3 -E dotfiles -E wekafiles -E tmp -E cache -E ~/R -E go -E disk/SteamLibrary -E /home/yoquec/disk/Lutris/origin/dosdevices -E disk/code -E disk/Documents -E disk/Downloads -E disk/Lutris -E code/python/math | fzf --preview="fd -L --full-path {}|as-tree --color always" --bind="space:toggle-preview" --preview-window=:hidden)"; clear'
-
-# set vi mode
-set -o vi
-
-bindkey -s '^f' 'cf^M'
-bindkey -s '^F' 'cf^M'
 # bindkey -s '^o' 'nvim $(fd -t f -E anaconda3 -H | fzf)^M'
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#Key aliases
 alias ls="exa --icons"
 alias la="exa -lah --icons --color-scale"
-alias vi=nvim
-alias "tw"="fd|as-tree"
-alias "ac"="source /home/yoquec/anaconda3/bin/activate"
-alias "yt"="youtube-dl --add-metadata -i"
-alias "yta"="yt -x -f bestaudio/best"
-alias "readpdf"="zathura"
-alias "xclip"="xclip -sel c"
-alias "lf"="lfub"
-alias "nv"="neovide"
+alias vi="nvim"
+alias ac="source /store/yoquec/miniconda3/bin/activate"
+alias yt="yt-dlp --add-metadata -i"
+alias yta="yt -x -f bestaudio/best"
+alias lf="lfub"
 alias rm="rm -i"
 alias cp="cp -i"
+alias bat="bat --theme gruvbox-dark"
 alias mv="mv -i"
 
+# Quick jump around folders
+alias fdhome="fd . $HOME -t d -L -E git-themes -E AndroidStudioProjects -E disk/todo -E disk/Nextcloud \
+    -E disk/VirtualBox\ VMs -E VirtualBox\ VMs -E disk/Calibre\ Library -E disk/WebApps \
+    -E disk/Pictures -E snap -E USB -E disk/miniconda3 -E Android -E Zettlr\ Tutorial \
+    -E wekafiles -E flowy -E tmp -E cache -E R -E go -E disk/SteamLibrary -E disk/Lutris/ -E disk/code -E disk/Videos\
+    -E disk/Documents -E disk/Downloads -E Dropbox -E disk/Lutris -E code/python/math"
 
+cd_with_fzf() {
+    cd $HOME; cd $(fdhome | fzf --bind=space:toggle-preview  --preview-window=:hidden \
+        --preview="fd -L --max-results 5 --full-path {} | as-tree --color always");
+}
+
+bindkey -s '^f' 'cd_with_fzf^M'
+
+# NVM configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -1,7 +1,20 @@
 . "$HOME/.cargo/env"
 
-export PAGER='bat'
+# User configuration
 
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+export PAGER='bat --theme gruvbox-dark'
+export PYTHONSTARTUP="$HOME/.config/python/pythonreplrc"
+export PTPYTHON_CONFIG_HOME="$HOME/.config/ptpython/"
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR='nvim'
 export LF_ICONS="\
 di=:\
 fi=:\
