@@ -1,0 +1,17 @@
+#!/usr/bin/sh
+
+otps=$(find $HOME/.password-store/ |\
+    grep gpg | grep otp)
+
+opts=$(dirname $(echo $otps | tr "\n" " ") | sed "s#\(\S\)*/\(\w*\)#\2#")
+
+selected=$(echo $opts | tr " " "\n" | rofi -dmenu)
+
+
+if [[ ! -z "$selected" ]]; then
+    otppath=$(echo $otps | tr " " "\n" | grep $selected)
+
+    otpfile=$(echo $otppath | sed "s#.*\(.password-store/\)\(\S*\)\.gpg#\2#g")
+
+    pass otp -c $otpfile && notify-send "Copied otp code ⏱" "Copied OTP code for $selected to clipboard. Will clear in 45 seconds."
+fi
