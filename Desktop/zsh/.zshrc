@@ -5,8 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -92,39 +90,35 @@ set -o vi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-# bindkey -s '^o' 'nvim $(fd -t f -E anaconda3 -H | fzf)^M'
 
 #Key aliases
 alias ls="exa --icons"
 alias la="exa -lah --icons --color-scale"
-alias vi="nvim"
-alias ac="source /store/yoquec/miniconda3/bin/activate"
+alias p1="ping 1.1.1.1"
+alias ta="tmux attach"
+
 alias yt="yt-dlp --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
+alias gtw="git worktree"
+
+alias vi="nvim"
 alias lf="lfub"
+alias mamba="micromamba"
+
 alias rm="rm -i"
 alias cp="cp -i"
-alias bat="bat --theme gruvbox-dark"
+alias bat="bat --theme base16"
 alias mv="mv -i"
 
-# Quick jump around folders
-alias fdhome="fd . $HOME -t d -L -E git-themes -E AndroidStudioProjects -E disk/todo -E disk/Nextcloud \
-    -E disk/VirtualBox\ VMs -E VirtualBox\ VMs -E disk/Calibre\ Library -E disk/WebApps \
-    -E disk/Pictures -E snap -E USB -E disk/miniconda3 -E Android -E Zettlr\ Tutorial \
-    -E wekafiles -E flowy -E tmp -E cache -E R -E go -E disk/SteamLibrary -E disk/Lutris/ -E disk/code -E disk/Videos\
-    -E disk/Documents -E disk/Downloads -E Dropbox -E disk/Lutris -E code/python/math"
+alias ac="source /store/yoquec/miniconda3/bin/activate"
+alias th="tmux new -s 'Home 🏠'"
 
-cd_with_fzf() {
-    cd $HOME; cd "$(fdhome | fzf --bind=space:toggle-preview  --preview-window=:hidden \
-        --preview="fd -L --max-results 5 --full-path {} | as-tree --color always")";
-}
 
-bindkey -s '^f' 'cd_with_fzf^M'
-
-# NVM configuration
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Special command to search between all the folders in the system
+bindkey -s '^f' 'fdhome^M'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# activate rtx
+eval "$(rtx activate zsh)"

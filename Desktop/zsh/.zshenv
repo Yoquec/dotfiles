@@ -1,7 +1,5 @@
 . "$HOME/.cargo/env"
 
-# User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -9,8 +7,8 @@
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-export PAGER='bat --theme gruvbox-dark'
+export WIKI_HOME="$HOME/Nextcloud/Notes/"
+export PAGER='bat --theme base16'
 export PYTHONSTARTUP="$HOME/.config/python/pythonreplrc"
 export PTPYTHON_CONFIG_HOME="$HOME/.config/ptpython/"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -173,6 +171,21 @@ ex=:\
 *.opus=:\
 *.spx=:\
 *.xspf=:\
-*.pdf=:\
+*.pdf=󰈦:\
+*.xml=󰗀:\
 *.nix=:\
 "
+
+export MAMBA_EXE="/usr/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/store/yoquec/micromamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/store/yoquec/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/store/yoquec/micromamba/etc/profile.d/micromamba.sh"
+    else
+        export  PATH="/store/yoquec/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+    fi
+fi
+unset __mamba_setup

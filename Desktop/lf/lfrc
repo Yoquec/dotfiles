@@ -44,7 +44,7 @@ cmd openDef ${{
 			*.jpg) feh "$f" & ;;
 			*.svg) feh "$f" & ;;
 			*.ipynb) chromium "$f" & ;;
-			*) neovide "$f" ;;
+			*) neovide "$f" & ;;
 		esac
 	}}
 
@@ -72,8 +72,20 @@ cmd open_neovide ${{
 		neovide &
 	}}
 
-cmd open_code ${{
-		code . &
+cmd open_atom ${{
+		atom . &
+	}}
+
+# cmd open_code ${{
+# 		code . &
+# 	}}
+
+cmd open_vscodium ${{
+		vscodium . &
+	}}
+
+cmd open_vim ${{
+		vi
 	}}
 
 cmd open_thunar ${{
@@ -82,6 +94,10 @@ cmd open_thunar ${{
 
 cmd open_alacritty ${{
 		alacritty &
+	}}
+
+cmd open_okular ${{
+		okular "$f" &
 	}}
 
 # Jump fzf
@@ -99,6 +115,14 @@ cmd fzf_jump ${{
 
 cmd openZathura ${{
 		zathura "$f" &
+	}}
+
+cmd chmodExec ${{
+		chmod +x "$f"
+	}}
+
+cmd open_surf ${{
+	surf -a @ -S "$f" &
 	}}
 
 
@@ -132,7 +156,6 @@ map mf mkfile
 map md mkdir
 map bg setwallpaper
 map C clear
-# map Z openZathura
 map L openDef
 map ZQ quit
 
@@ -141,15 +164,20 @@ map ZQ quit
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/Pictures
-map gt cd ~/todo
-map gw cd ~/code/web/onyxnotes
+map gt cd "~/Nextcloud/Personal/todo/"
+map gW cd ~/Projects/
+map gm cd ~/disk/Music/
 map gc cd ~/code
-map gb cd ~/Nextcloud
+map gL cd ~/Nextcloud/Universidad/Labs
+map gn cd ~/Nextcloud
+map gH cd /store/yoquec/
 map gN cd ~/Nextcloud/Universidad/Notebooks
-map go cd "~/Nextcloud/Personal/Obsidian vaults/My Own Digital Garden"
+map go cd "~/Nextcloud/Personal/My Own Digital Garden"
 map gC cd "~/Nextcloud/Personal/Particulares"
-map gP cd "~/Nextcloud/Universidad/Proyects"
-map gu cd "~/Nextcloud/Personal/Obsidian vaults/My Own Digital Garden/Uni"
+map gP cd "~/Nextcloud/Universidad/Projects"
+map gu cd "~/Nextcloud/Personal/My Own Digital Garden/Uni"
+map gv cd "~/disk/Videos/"
+map gT cd "~/Nextcloud/Personal/todo/"
 map gl cd ~/.local
 # map gr cd ~/repos
 map S shell
@@ -159,5 +187,12 @@ map gS cd ~/Nextcloud/Universidad/Slides
 map gs cd ~/.local/bin
 map on open_neovide
 map oa open_alacritty
-map oc open_code
+map oc open_vscodium
+# map oC open_vscodium
 map ot open_thunar
+# map oV open_vscodium
+map ov open_vim
+map oA open_atom
+map ok open_okular
+map os open_surf
+map X chmodExec

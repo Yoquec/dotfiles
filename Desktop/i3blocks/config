@@ -1,0 +1,33 @@
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+color=#ddc7a1
+markup=pango
+
+[cpu]
+command=echo "🧠 "$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"% "
+interval=5
+
+[ram]
+command=free -m | awk 'FNR==2{ print "%i\n", $7 }' | sed -e "s/^%i//" | tr -d "\n" | awk '{ printf "%i / 1000\n", $1 }' | bc -l | xargs printf "%.2fGb \n"
+label=<span color="#f1fa8c">💾 </span>
+interval=5
+
+[volume]
+command=pactl get-sink-volume @DEFAULT_SINK@ | awk '{printf "🔊 %s \n", $5}'
+interval=1
+
+[arch-update]
+command=pacman -Qu | wc -l | awk '{ printf "%s \n", $1 }'
+label=<span color="#1793d1"><b></b> </span>
+interval=once
+
+[calendar]
+command=date '+%Y %B %d %A' | awk '{ printf "📅 %s, %s of %s %s \n", $4, $3, $2, $1 }'
+interval=120
+
+[time]
+command=date '+%H:%M' | awk '{ printf "⏰ %s \n", $1}'
+interval=1
