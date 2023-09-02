@@ -15,6 +15,10 @@ command=free -m | awk 'FNR==2{ print "%i\n", $3 }' | sed -e "s/^%i//" | tr -d "\
 label=<span color="#f1fa8c">💾 </span>
 interval=5
 
+[battery]
+command=echo $(battery-i3blocks) ""
+interval=5
+
 [volume]
 command=volume-i3blocks
 interval=1
