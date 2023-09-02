@@ -325,7 +325,6 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id /home/yoquec/scripts/loadzpool.sh
 exec --no-startup-id nextcloud
 exec --no-startup-id xgamma -gamma 0.8
-exec udiskie
 exec mpd
 exec redshift
 exec breakTimer
