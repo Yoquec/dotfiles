@@ -11,7 +11,7 @@ command=echo "🧠 "$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"% "
 interval=5
 
 [ram]
-command=free -m | awk 'FNR==2{ print "%i\n", $7 }' | sed -e "s/^%i//" | tr -d "\n" | awk '{ printf "%i / 1000\n", $1 }' | bc -l | xargs printf "%.2fGb \n"
+command=free -m | awk 'FNR==2{ print "%i\n", $3 }' | sed -e "s/^%i//" | tr -d "\n" | awk '{ printf "%i / 1000\n", $1 }' | bc -l | xargs printf "%.2fGb \n"
 label=<span color="#f1fa8c">💾 </span>
 interval=5
 
