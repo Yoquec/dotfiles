@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+
+import os
+from sys import exit
+import datetime
+import subprocess
+from math import ceil
+
+WEEKLY_DIR = "personal/weekly"
+WIKI_HOME = os.environ["WIKI_HOME"]
+
+def week_of_month(dt: datetime.date) -> int:
+    """ 
+    Returns the week of the month for the specified date.
+    """
+    first_day = dt.replace(day=1)
+
+    dom = dt.day
+    adjusted_dom = dom + first_day.weekday()
+
+    return int(ceil(adjusted_dom/7.0))
+
+def main():
+    weekly_path = os.path.join(WIKI_HOME, WEEKLY_DIR)
+
+    if not os.path.exists(weekly_path):
+        os.makedirs(weekly_path)
+
+    today = datetime.datetime.today()
+    weekly_file_name = f"W{week_of_month(today)}-{today.strftime('%b')}.md"
+    weekly_full_path = os.path.join(weekly_path, weekly_file_name)
+
+    if not os.path.exists(weekly_full_path):
+        subprocess.run(f"echo '# 📅 {today.strftime('%B')}, Week {week_of_month(today)}' > {weekly_full_path}", shell=True)
+        print(f"🌟 Created file '{weekly_full_path}'")
+        exit(0)
+    else:
+        exit(1)
+
+if __name__ == "__main__":
+    main()
