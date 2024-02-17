@@ -43,7 +43,7 @@ keymap = [
     { on = [ "C" ],         exec = "escape",                                 desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = [ "y" ],         exec = "yank",                                   desc = "Copy the selected files" },
 	{ on = [ "Y" ],         exec = "unyank",                                 desc = "Copy the selected characters" },
-	{ on = [ "x" ],         exec = "yank --cut",                             desc = "Cut the selected files" },
+	{ on = [ "d" ],         exec = "yank --cut",                             desc = "Cut the selected files" },
 	{ on = [ "p" ],         exec = "paste",                                  desc = "Paste the files" },
 	{ on = [ "P" ],         exec = "paste --force",                          desc = "Paste the files (overwrite if the destination exists)" },
 	{ on = [ "-" ],         exec = "link",                                   desc = "Symlink the absolute path of files" },
