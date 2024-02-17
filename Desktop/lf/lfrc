@@ -1,11 +1,10 @@
-# Basic Settings
-# set hidden true
+# basic settings
 set ignorecase true 
 set icons true
-set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+# set cleaner ~/.config/lf/cleaner
+# set previewer ~/.config/lf/preview
 
-# Custom Functions
+# functions
 cmd mkdir ${{
   printf "Directory Name: "
   read ans
@@ -18,89 +17,35 @@ cmd mkfile ${{
   $EDITOR "$ans"
 }}
 
-cmd setwallpaper %cp "$f" ~/.config/wall.jpg && xwallpaper --zoom "$f"
-
-# Archive bindings
-cmd unarchive ${{
-  case "$f" in
-      *.zip) unzip "$f" ;;
-      *.tar.gz) tar -xzvf "$f" ;;
-      *.tar.bz2) tar -xjvf "$f" ;;
-      *.tar) tar -xvf "$f" ;;
-      *) echo "Unsupported format" ;;
-  esac
-}}
-
 cmd drag_and_drop ${{
-		dragon-drop -a -x "$f"
-	}}
-
-cmd openDef ${{
-		case "$f" in
-			*.pdf) zathura "$f" & ;;
-			*.html) surf "$f" & ;;
-			*.png) feh "$f" & ;;
-			*.jpeg) feh "$f" & ;;
-			*.jpg) feh "$f" & ;;
-			*.svg) feh "$f" & ;;
-			*.ipynb) chromium "$f" & ;;
-			*) neovide "$f" & ;;
-		esac
-	}}
-
-# Execute exe
-cmd execute ${{
-	wine "$f"
+    dragon-drop -a -x "$f"
 }}
 
-# Open a terminal in current folder
-cmd terminal ${{
-		zsh
+cmd open_def ${{
+    case "$f" in
+        *.pdf) zathura "$f" & ;;
+        *.html) surf "$f" & ;;
+        *.png) feh "$f" & ;;
+        *.jpeg) feh "$f" & ;;
+        *.jpg) feh "$f" & ;;
+        *.svg) feh "$f" & ;;
+        *.ipynb) chromium "$f" & ;;
+        *) neovide "$f" & ;;
+    esac
 	}}
-
-# go back to last dir
-# cmd goback ${{
-# 		res="$(dirs | awk '{print \"\", $2;exit }')"
-#     if [ -d "$res" ] ; then
-#     		lf -remote "cd \"$res\""
-#     else
-#         exit 0
-#     fi
-# 	}}
-
-cmd open_neovide ${{
-		neovide &
-	}}
-
-cmd open_atom ${{
-		atom . &
-	}}
-
-# cmd open_code ${{
-# 		code . &
-# 	}}
 
 cmd open_vscodium ${{
-		vscodium . &
-	}}
-
-cmd open_vim ${{
-		vi
-	}}
+    vscodium . &
+}}
 
 cmd open_thunar ${{
-		thunar . &
-	}}
+    thunar . &
+}}
 
-cmd open_alacritty ${{
-		alacritty &
-	}}
+cmd open_nvim ${{
+    nvim
+}}
 
-cmd open_okular ${{
-		okular "$f" &
-	}}
-
-# Jump fzf
 cmd fzf_jump ${{
     res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
@@ -113,36 +58,20 @@ cmd fzf_jump ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd openZathura ${{
-		zathura "$f" &
-	}}
+cmd chmodx ${{
+    chmod +x "$f"
+}}
 
-cmd chmodExec ${{
-		chmod +x "$f"
-	}}
-
-cmd open_surf ${{
-	surf -a @ -S "$f" &
-	}}
-
-
-# Bindings
-# Remove some defaults
+# bindings
+## remove some defaults
 map m
 map o
 map n
 map "'"
 map '"'
-map T terminal
-# map d
-
-#map c $vscodium "$f"
-
-map au unarchive
+map az unarchive
 map ae execute
 
-# Basic Functions
-map <c-f> :fzf_jump
 map f :fzf_jump
 map . set hidden!
 map DD delete
@@ -154,17 +83,14 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map bg setwallpaper
 map C clear
-map L openDef
+map L open_def
 map ZQ quit
 
-
-# Movement
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/Pictures
-map gt cd "~/Nextcloud/Personal/todo/"
+map gt cd "~/Nextcloud/Universidad/TFG"
 map gW cd ~/Projects/
 map gm cd ~/disk/Music/
 map gc cd ~/code
@@ -179,20 +105,9 @@ map gu cd "~/Nextcloud/Personal/My Own Digital Garden/Uni"
 map gv cd "~/disk/Videos/"
 map gT cd "~/Nextcloud/Personal/todo/"
 map gl cd ~/.local
-# map gr cd ~/repos
-map S shell
-# map gv cd ~/videos/recordings
 map g. cd ~/.config
 map gS cd ~/Nextcloud/Universidad/Slides
 map gs cd ~/.local/bin
-map on open_neovide
-map oa open_alacritty
-map oc open_vscodium
-# map oC open_vscodium
-map ot open_thunar
-# map oV open_vscodium
-map ov open_vim
-map oA open_atom
-map ok open_okular
-map os open_surf
-map X chmodExec
+map X chmodx
+map oV open_vscodium
+map ov open_nvim
