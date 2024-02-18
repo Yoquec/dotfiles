@@ -14,8 +14,11 @@ keymap = [
 	{ on = [ "k" ], exec = "arrow -1", desc = "Move cursor up" },
 	{ on = [ "j" ], exec = "arrow 1",  desc = "Move cursor down" },
 
-	{ on = [ "<C-u>" ], exec = "arrow -50%",  desc = "Move cursor up half page" },
-	{ on = [ "<C-d>" ], exec = "arrow 50%",   desc = "Move cursor down half page" },
+	{ on = [ "<A-k>" ], exec = "arrow -50%",  desc = "Move cursor up half page" },
+	{ on = [ "<A-j>" ], exec = "arrow 50%",   desc = "Move cursor down half page" },
+
+	{ on = [ "<C-u>" ], exec = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = [ "<C-d>" ], exec = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	{ on = [ "h" ], exec = "leave", desc = "Go back to the parent directory" },
 	{ on = [ "l" ], exec = "enter", desc = "Enter the child directory" },
