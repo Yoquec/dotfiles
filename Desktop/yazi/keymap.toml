@@ -132,6 +132,7 @@ keymap = [
 	{ on = [ "g", "W" ],       exec = "cd ~/Projects",                        desc = "Go to the Projects directory" },
 	{ on = [ "g", "m" ],       exec = "cd ~/Music",                           desc = "Go to the Music directory" },
 	{ on = [ "g", "c" ],       exec = "cd ~/code",                            desc = "Go to the Code directory" },
+	{ on = [ "g", "C" ],       exec = "cd ~/Nextcloud/Personal/Code",         desc = "Go to the Nextcloud Code directory" },
 	{ on = [ "g", "n" ],       exec = "cd ~/Nextcloud",                       desc = "Go to the Nextcloud directory" },
 	{ on = [ "g", "l" ],       exec = "cd ~/.local",                          desc = "Go to the .local directory" },
 	{ on = [ "g", "s" ],       exec = "cd ~/.local/bin",                      desc = "Go to the local scripts directory" },
