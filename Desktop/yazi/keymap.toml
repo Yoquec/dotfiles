@@ -43,9 +43,8 @@ keymap = [
 
 	# Operation
 	{ on = [ "e" ],         exec = "open",                                   desc = "Open the selected files" },
-	{ on = [ "E" ],         exec = "open --interactive",                     desc = "Open the selected files interactively" },
+	{ on = [ "O" ],         exec = "open --interactive",                     desc = "Open the selected files interactively" },
 	{ on = [ "<Enter>" ],   exec = "open",                                   desc = "Open the selected files" },
-	{ on = [ "<C-Enter>" ], exec = "open --interactive",                     desc = "Open the selected files interactively" },
     { on = [ "C" ],         exec = "escape",                                 desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = [ "y" ],         exec = "yank",                                   desc = "Copy the selected files" },
 	{ on = [ "Y" ],         exec = "unyank",                                 desc = "Copy the selected characters" },

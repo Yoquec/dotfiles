@@ -29,6 +29,10 @@ edit = [
 	{ exec = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 	{ exec = 'code "%*"',          orphan = true, for = "windows" },
 ]
+read = [
+    { exec = 'okular "$@"', desc = "Okular", for = "linux" },
+    { exec = 'zathura "$@"', desc = "Zathura", for = "unix" },
+]
 open = [
 	{ exec = 'xdg-open "$@"',                desc = "Open", for = "linux" },
 	{ exec = 'open "$@"',                    desc = "Open", for = "macos" },
@@ -58,6 +62,8 @@ rules = [
 	{ mime = "video/*", use = [ "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "play", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+
+	{ mime = "application/pdf", use = [ "read" ] },
 
 	{ mime = "application/json", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript",     use = [ "edit", "reveal" ] },
