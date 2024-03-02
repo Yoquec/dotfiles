@@ -144,7 +144,7 @@ keymap = [
 	{ on = [ "g", "t" ],       exec = "cd /tmp",                              desc = "Go to the temporary directory" },
 
     # Dragon drop
-    { on = [ "D", "d" ], exec = ''' shell 'dragon--drop -a -x "$1"' --confirm --block ''', desc = "Dragon drop" },
+    { on = [ "D", "d" ], exec = ''' shell 'dragon-drop -a -x "$1"' --confirm --block ''', desc = "Dragon drop" },
 
 	# Help
 	{ on = [ "~" ], exec = "help", desc = "Open help" },
