@@ -64,7 +64,7 @@ keymap = [
 	{ on = [ "<C-s>" ],     exec = "search none",                            desc = "Cancel the ongoing search" },
 	{ on = [ "f" ],         exec = "cd --interactive",                       desc = "Go to a directory interactively" },
     { on = [ "F" ],         exec = "filter --smart",                         desc = "Filter the files" },
-    { on = [ "X" ],         exec = ''' shell 'chmod -x "$1"' --confirm''',   desc = "Make the selected file Executable" },
+    { on = [ "X" ],         exec = ''' shell 'chmod +x "$1"' --confirm''',   desc = "Make the selected file Executable" },
 	{ on = [ "i" ],         exec = ''' shell 'bat --paging=always "$1"' --confirm --block ''', desc = "Copy the selected files" },
 
     # Open a shell
