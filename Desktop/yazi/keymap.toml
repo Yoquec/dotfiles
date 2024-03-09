@@ -130,7 +130,6 @@ keymap = [
 	{ on = [ "g", "d" ],       exec = "cd ~/Documents",                       desc = "Go to the Documents directory" },
 	{ on = [ "g", "D" ],       exec = "cd ~/Downloads",                       desc = "Go to the Downloads directory" },
 	{ on = [ "g", "p" ],       exec = "cd ~/Pictures",                        desc = "Go to the Pictures directory" },
-	{ on = [ "g", "P" ],       exec = "cd ~/PicturesHDD",                     desc = "Go to the Pictures directory (hard disk)" },
 	{ on = [ "g", "W" ],       exec = "cd ~/Projects",                        desc = "Go to the Projects directory" },
 	{ on = [ "g", "m" ],       exec = "cd ~/Music",                           desc = "Go to the Music directory" },
 	{ on = [ "g", "c" ],       exec = "cd ~/code",                            desc = "Go to the Code directory" },
