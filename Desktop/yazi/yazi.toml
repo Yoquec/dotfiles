@@ -30,8 +30,8 @@ edit = [
 	{ exec = 'code "%*"',          orphan = true, for = "windows" },
 ]
 read = [
-    { exec = 'okular "$@"', desc = "Okular", for = "linux" },
     { exec = 'zathura "$@"', desc = "Zathura", for = "unix" },
+    { exec = 'okular "$@"', desc = "Okular", for = "linux" },
 ]
 open = [
 	{ exec = 'xdg-open "$@"',                desc = "Open", for = "linux" },
