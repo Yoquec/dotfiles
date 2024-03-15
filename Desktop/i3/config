@@ -24,27 +24,26 @@ set $mod Mod4
 # /////////////////////////////////////
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMonoNL Nerd Font Propo ExtraBold 10
+font pango:JetBrainsMonoNL NFP ExtraBold 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --color 475263
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i $HOME/Pictures/Wallpapers/mountains-dark-blurred.png --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # /////////////////////////////////////
              # SOUND
 # /////////////////////////////////////
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -65,7 +64,7 @@ floating_modifier $mod
           # TERMINAL
 # /////////////////////////////////////
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # /////////////////////////////////////
       # CLOSING WINDOWS
@@ -129,39 +128,22 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
-# make a bindsym for nvim
-bindsym $mod+n exec --no-startup-id alacritty -e nvim
-
 # bindings for otp and pass
 bindsym $mod+p exec pass-choose
 bindsym $mod+o exec otp-choose
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-# set $ws1 "1"
-# set $ws2 "2"
-# set $ws3 "3"
-# set $ws4 "4"
-# set $ws5 "5"
-# set $ws6 "6"
-# set $ws7 "7"
-# set $ws8 "8"
-# set $ws9 "9"
-# set $ws10 "10"
-
-set $ws1 "1 󰈙"
+set $ws1 "1 󰸗"
 set $ws2 "2 󰈹"
-set $ws3 "3 "
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
+set $ws3 "3 󰷉"
+set $ws4 "4 󰈦"
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
 set $ws8 "8 󰎆"
-set $ws9 "9 󰵅"
-set $ws10 "10 "
+set $ws9 "9 󰍩"
+set $ws10 "10 󱆖"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -263,23 +245,23 @@ gaps outer 1px
 
 # smart_gaps on
 smart_borders on
-# for_window [class = '^.*'] border pixel 2
-# hide_edge_borders both
 
-for_window [class="Alacritty"] floating enable
+for_window [class="kitty"] floating enable
 for_window [class="R_x11"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="gnome-calculator"] floating enable
 
 #My key bindings
-bindsym $mod+shift+x exec dm-tool lock
+bindsym $mod+control+q exec --no-startup-id i3lock -i $HOME/Pictures/Wallpapers/mountains-dark-blurred.png
+bindsym $mod+control+shift+q exec --no-startup-id systemctl suspend
+bindsym $mod+shift+tab exec rofi -show drun
 bindsym $mod+shift+d exec rofi -show drun
-bindsym $mod+shift+s exec spectacle 
+bindsym $mod+shift+s exec --no-startup-id spectacle -r 
 
 
 # Wallpaper
-exec_always feh --bg-fill $HOME/Pictures/Wallpapers/mountains-light.jpg
+exec_always feh --bg-center $HOME/Pictures/Wallpapers/nord-sea.jpg
 
 # I3 gaps keybindings
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
