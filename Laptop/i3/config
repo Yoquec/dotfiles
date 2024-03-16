@@ -51,8 +51,15 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
-bindsym XF86Calculator exec gnome-calculator
+
+
+# /////////////////////////////////////
+          # FUNCTION KEYS
+# /////////////////////////////////////
 bindsym XF86Search exec rofi
+bindsym XF86Calculator exec gnome-calculator
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo light -s sysfs/backlight/radeon_bl0 -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo light -s sysfs/backlight/radeon_bl0 -U 5
 
 
 # /////////////////////////////////////
@@ -65,7 +72,7 @@ floating_modifier $mod
           # TERMINAL
 # /////////////////////////////////////
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # /////////////////////////////////////
       # CLOSING WINDOWS
@@ -247,7 +254,7 @@ bar {
 }
 
 #Gaps
-gaps inner 30px
+gaps inner 15px
 gaps outer 1px
 
 # smart_gaps on
@@ -255,7 +262,7 @@ smart_borders on
 # for_window [class = '^.*'] border pixel 2
 # hide_edge_borders both
 
-for_window [class="Alacritty"] floating enable
+for_window [class="kitty"] floating enable
 for_window [class="R_x11"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Lxappearance"] floating enable
@@ -264,11 +271,11 @@ for_window [class="gnome-calculator"] floating enable
 #My key bindings
 bindsym $mod+shift+x exec dm-tool lock
 bindsym $mod+shift+d exec rofi -show drun
-bindsym $mod+shift+s exec spectacle 
+bindsym $mod+shift+s exec --no-startup-id spectacle -r
 
 
 # Wallpaper
-exec_always feh --bg-fill $HOME/Pictures/Wallpapers/mountains-light.jpg
+exec_always feh --bg-fill $HOME/Pictures/Wallpapers/nord-sea.jpg
 
 # I3 gaps keybindings
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
@@ -311,9 +318,8 @@ mode "$mode_gaps_outer" {
 
 
 # Start initial programs
-exec --no-startup-id /home/yoquec/scripts/loadzpool.sh
-exec --no-startup-id nextcloud
 exec --no-startup-id xgamma -gamma 0.8
+exec nextcloud
 exec mpd
 exec redshift
 exec breakTimer
