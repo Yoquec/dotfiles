@@ -149,6 +149,7 @@ keymap = [
 	{ on = [ "~" ], exec = "help", desc = "Open help" },
 
     # Open things
+	{ on = [ "o", "s" ], exec = "shell mktms --confirm --block",        desc = "Create a new tmux sessionizer session" },
 	{ on = [ "o", "v" ], exec = "shell nvim --confirm --block",         desc = "Open neovim" },
 	{ on = [ "o", "V" ], exec = "shell 'vscodium .' --confirm --block", desc = "Open vscodium" },
 
