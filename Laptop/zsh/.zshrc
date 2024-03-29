@@ -99,10 +99,10 @@ alias ta="tmux attach"
 
 alias yt="yt-dlp --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
-alias gtw="git worktree"
 
 alias vi="nvim"
-alias lf="lfub"
+alias yz="yazi"
+alias lf="yazi"
 alias mamba="micromamba"
 
 alias rm="rm -i"
@@ -111,21 +111,17 @@ alias bat="bat --theme base16"
 alias mv="mv -i"
 
 alias ac="source $HOME/miniconda3/bin/activate"
-alias th="tmux new -s 'Home 🏠'"
+alias th="tmux new-session -s 'Home 🏠' -c '$HOME' "
+alias tw="tmux new-session -s 'Wiki 📚' -c '$WIKI_HOME'"
 
+alias prn="poetry run"
 
 # Special command to search between all the folders in the system
 bindkey -s '^f' 'fdhome^M'
 
+# Copilot like autosuggest
+bindkey '^y' autosuggest-accept
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# activate rtx
-eval "$(rtx activate zsh)"
-
-# bun completions
-[ -s "/home/yoquec/.bun/_bun" ] && source "/home/yoquec/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
