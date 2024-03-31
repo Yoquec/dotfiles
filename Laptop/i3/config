@@ -271,7 +271,7 @@ for_window [class="gnome-calculator"] floating enable
 #My key bindings
 bindsym $mod+shift+x exec dm-tool lock
 bindsym $mod+shift+d exec rofi -show drun
-bindsym $mod+shift+s exec --no-startup-id spectacle -r
+bindsym $mod+shift+s exec --no-startup-id screengrab -r
 
 
 # Wallpaper
