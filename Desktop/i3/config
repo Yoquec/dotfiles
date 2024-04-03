@@ -257,7 +257,7 @@ bindsym $mod+control+q exec --no-startup-id i3lock -i $HOME/Pictures/Wallpapers/
 bindsym $mod+control+shift+q exec --no-startup-id systemctl suspend
 bindsym $mod+shift+tab exec rofi -show drun
 bindsym $mod+shift+d exec rofi -show drun
-bindsym $mod+shift+s exec --no-startup-id spectacle -r 
+bindsym $mod+shift+s exec --no-startup-id screengrab -r 
 
 
 # Wallpaper
