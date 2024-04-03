@@ -1,17 +1,11 @@
 #!/usr/bin/sh
 
-otps=$(find $HOME/.password-store/ |\
-    grep gpg | grep otp)
+paths=$(find $HOME/.password-store/ | grep gpg | grep otp)
+names=$(echo $paths | xargs dirname | rev | cut -d "/" -f 1 | rev)
+selected_name=$(echo $names | tr " " "\n" | rofi -dmenu)
 
-opts=$(dirname $(echo $otps | tr "\n" " ") | sed "s#\(\S\)*/\(\w*\)#\2#")
-
-selected=$(echo $opts | tr " " "\n" | rofi -dmenu)
-
-
-if [[ ! -z "$selected" ]]; then
-    otppath=$(echo $otps | tr " " "\n" | grep $selected)
-
-    otpfile=$(echo $otppath | sed "s#.*\(.password-store/\)\(\S*\)\.gpg#\2#g")
-
-    pass otp -c $otpfile && notify-send "Copied otp code ⏱" "Copied OTP code for $selected to clipboard. Will clear in 45 seconds."
+if [[ ! -z "$selected_name" ]]; then
+    selected_path=$(echo $paths | tr " " "\n" | grep $selected_name | tr "\n" " " | cut -d " " -f 1 )
+    selected_otp=$(echo $selected_path | cut -d "/" -f 5- | rev | cut -d "." -f 2 | rev)
+    pass otp -c $selected_otp && notify-send "Copied otp code ⏱" "Copied OTP code for $selected_name to clipboard. Will clear in 45 seconds."
 fi
