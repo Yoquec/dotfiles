@@ -81,7 +81,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
+
 # rofi emoji menu
 bindsym $mod+b exec rofi -modi emoji -show emoji
 
