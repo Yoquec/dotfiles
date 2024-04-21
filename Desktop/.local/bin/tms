@@ -9,6 +9,7 @@ elif [[ $# -eq 2 ]]; then
 
 if [[ -z $selected ]]; then
     exit 0
+fi
 
 elif [[ -z $selected_name ]]; then
     selected_name=$(basename "$selected" | tr . _ | tr " " _)
