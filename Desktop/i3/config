@@ -74,9 +74,10 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
+# rofi window selector
+bindsym $mod+period exec rofi -show window
 # rofi emoji menu
 bindsym $mod+b exec rofi -modi emoji -show emoji
-
 
 # /////////////////////////////////////
      # WINDOWS AND WORKSPACES
