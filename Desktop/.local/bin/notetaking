@@ -1,0 +1,20 @@
+#!/usr/bin/sh
+
+# Inspired by Calin Leaf Shade's dotfiles:
+# https://github.com/calinleafshade/dots
+
+filename=$WIKI_HOME/zk/note-$(date +%d-%m-%Y).md
+
+if [ ! -f $filename ]; then
+    echo "# Notes for $(date +%d-%m-%Y)" > $filename
+fi
+
+nvim -c "norm Go" \
+    -c "norm S" \
+    -c "norm Go## $(date +%H:%M)" \
+    -c "norm Go" \
+    -c "norm S" \
+    -c "norm Go" \
+    -c "norm zz" \
+    -c "startinsert" $filename
+
