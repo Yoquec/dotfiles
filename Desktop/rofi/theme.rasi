@@ -8,7 +8,7 @@
  */
 
 configuration {
-  font: "JetBrains Mono Medium 13";
+  font: "JetBrainsMonoNL Nerd Font Propo Bold 12";
 
   drun {
     display-name: "";
