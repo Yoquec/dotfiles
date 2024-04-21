@@ -8,7 +8,7 @@
  */
 
 configuration {
-  font: "iMWritingMono Nerd Font Bold 11";
+  font: "JetBrainsMonoNL Nerd Font Propo Bold 11";
 
   drun {
     display-name: "";
@@ -30,7 +30,7 @@ configuration {
 
 * {
   border: 0;
-  margin: 1;
+  margin: 0;
   padding: 0;
   spacing: 0;
 
