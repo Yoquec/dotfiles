@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    export PATH=$HOME/.local/bin:$PATH:$HOME/go/bin
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -12,8 +15,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -93,7 +94,7 @@ set -o vi
 
 #Key aliases
 alias ls="exa --icons"
-alias la="exa -lah --icons --color-scale"
+alias la="exa -lah --icons"
 alias p1="ping 1.1.1.1"
 alias ta="tmux attach"
 
@@ -102,7 +103,8 @@ alias yta="yt -x -f bestaudio/best"
 alias gtw="git worktree"
 
 alias vi="nvim"
-alias lf="lfub"
+alias lf="yazi"
+alias yz="yazi"
 alias mamba="micromamba"
 
 alias rm="rm -i"
@@ -112,7 +114,11 @@ alias mv="mv -i"
 
 alias ac="source /store/yoquec/miniconda3/bin/activate"
 alias th="tmux new -s 'Home 🏠'"
+alias tw="tmux new -s 'Wiki 📚' -c '$WIKI_HOME'"
 
+alias prn="poetry run"
+
+bindkey '^y' autosuggest-accept
 
 # Special command to search between all the folders in the system
 bindkey -s '^f' 'fdhome^M'
@@ -121,4 +127,8 @@ bindkey -s '^f' 'fdhome^M'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # activate rtx
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
+
+# Activate new powerlevel10k theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
