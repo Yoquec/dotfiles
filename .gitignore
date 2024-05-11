@@ -2,3 +2,6 @@ Desktop/.config/mpd/*
 !Desktop/.config/mpd/mpd.conf
 
 Desktop/.config/ncmpcpp/error.log
+
+Laptop/.config/mpd/*
+!Laptop/.config/mpd/mpd.conf
