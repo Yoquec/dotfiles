@@ -120,9 +120,6 @@ alias prn="poetry run"
 
 bindkey '^y' autosuggest-accept
 
-# Special command to search between all the folders in the system
-bindkey -s '^f' 'fdhome^M'
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
