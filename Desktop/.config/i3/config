@@ -254,7 +254,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="gnome-calculator"] floating enable
 
 #My key bindings
-bindsym $mod+control+q exec --no-startup-id i3lock -i $HOME/Pictures/Wallpapers/mountains-dark-blurred.png
+bindsym $mod+control+q exec --no-startup-id i3lock --color 000000
 bindsym $mod+control+shift+q exec --no-startup-id systemctl suspend
 bindsym $mod+shift+tab exec rofi -show drun
 bindsym $mod+shift+d exec rofi -show drun
