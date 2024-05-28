@@ -80,6 +80,8 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+control+q exec --no-startup-id i3lock --color 000000
+
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
 
