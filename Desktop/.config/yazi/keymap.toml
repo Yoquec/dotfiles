@@ -131,7 +131,7 @@ keymap = [
 	{ on = [ "g", "d" ],       run = "cd ~/Documents",                       desc = "Go to the Documents directory" },
 	{ on = [ "g", "D" ],       run = "cd ~/Downloads",                       desc = "Go to the Downloads directory" },
 	{ on = [ "g", "p" ],       run = "cd ~/Pictures",                        desc = "Go to the Pictures directory" },
-	{ on = [ "g", "W" ],       run = "cd ~/Projects",                        desc = "Go to the Projects directory" },
+	{ on = [ "g", "w" ],       run = "cd ~/Projects",                        desc = "Go to the Projects directory" },
 	{ on = [ "g", "m" ],       run = "cd ~/Music",                           desc = "Go to the Music directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/code",                            desc = "Go to the Code directory" },
 	{ on = [ "g", "C" ],       run = "cd ~/Nextcloud/Personal/Code",         desc = "Go to the Nextcloud Code directory" },
