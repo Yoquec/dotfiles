@@ -4,7 +4,7 @@ userresources=$HOME/.Xresources usermodmap=$HOME/scripts/xmodmap  sysresources=/
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
-setxkbmap es
+setxkbmap eu
 xset r rate 350 70
 
 if [ -f $sysresources ]; then
