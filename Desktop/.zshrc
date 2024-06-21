@@ -20,6 +20,7 @@ alias ls="exa --icons"
 alias la="exa -lah --icons"
 alias p1="ping 1.1.1.1"
 alias ta="tmux attach"
+alias lg=lazygit
 
 alias yt="yt-dlp --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
