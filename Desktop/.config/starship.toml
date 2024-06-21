@@ -170,4 +170,4 @@ symbol = " "
 [custom.lf]
 command = 'echo $LF_LEVEL'
 when = ''' test -n "$LF_LEVEL" '''
-format = "[ $output](bold green)"
+format = "[ $output ](bold green)"
