@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     export PATH=$HOME/.local/bin:$PATH:$HOME/go/bin
 fi
@@ -45,16 +38,12 @@ alias mv="mv -i"
 alias ac="source /store/yoquec/miniconda3/bin/activate"
 alias th="tmux new -s 'Home 🏠'"
 alias tw="tmux new -s 'Wiki 📚' -c '$WIKI_HOME'"
-
 alias prn="poetry run"
 
 bindkey '^y' autosuggest-accept
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # activate mise
 eval "$(mise activate zsh)"
 
-# Activate new powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# activate starship
+eval "$(starship init zsh)"
