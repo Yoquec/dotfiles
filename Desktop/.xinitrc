@@ -44,5 +44,4 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Start window manager
 /usr/lib/xfce-polkit/xfce-polkit &
-picom --config $HOME/.config/picom/picom.conf &
 exec i3
