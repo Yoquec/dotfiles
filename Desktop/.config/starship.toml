@@ -1,3 +1,5 @@
+format = "$hostname :: $all"
+
 [aws]
 symbol = "  "
 
@@ -58,6 +60,9 @@ symbol = " "
 
 [hostname]
 ssh_symbol = " "
+ssh_only = false
+format = '[$ssh_symbol$hostname]($style)'
+style = 'bold #fcd783'
 
 [java]
 symbol = " "
