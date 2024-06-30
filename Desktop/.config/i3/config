@@ -220,11 +220,11 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #bf616a
 
 # window colors
-#                         title border    window border      text                 indicator
-client.focused            $black          $accent-indicator  $text-color          $accent-indicator
-client.unfocused          $black	      $accent-dim        $inactive-text-color $accent-indicator
-client.focused_inactive   $black 	      $accent-dim        $inactive-text-color $accent-indicator
-client.urgent             $black          $urgent-bg-color   $text-color          $accent-indicator
+#                         title border    window border      text          indicator
+client.focused            $black          $accent-indicator  $black        $accent-indicator
+client.unfocused          $black	      $accent-dim        $text-color   $accent-indicator
+client.focused_inactive   $black 	      $accent-dim        $text-color   $accent-indicator
+client.urgent             $black          $urgent-bg-color   $black        $accent-indicator
 
 # bublebee status{{{
 # Start i3bar to display a workspace bar (plus the system information i3status
