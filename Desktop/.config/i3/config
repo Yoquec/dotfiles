@@ -208,8 +208,8 @@ default_border pixel 3
 default_floating_border pixel 3
 
 #colors:
-set $accent-dim          #fde7b5
-set $accent-indicator    #fcd783
+set $accent-dim          #e5dcc3
+set $accent-indicator    #f3b65b
 set $black               #000000
 
 set $bg-color 	         #4c566a
@@ -221,7 +221,7 @@ set $urgent-bg-color     #bf616a
 # window colors
 #                         title border    window border      text          indicator
 client.focused            $black          $accent-indicator  $black        $accent-indicator
-client.unfocused          $black	      $accent-dim        $text-color   $accent-indicator
+client.unfocused          $black	      $accent-dim        $black        $accent-indicator
 client.focused_inactive   $black 	      $accent-dim        $text-color   $accent-indicator
 client.urgent             $black          $urgent-bg-color   $black        $accent-indicator
 
