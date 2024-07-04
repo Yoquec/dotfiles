@@ -204,7 +204,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#No window borders:
 default_border pixel 3
 default_floating_border pixel 3
 
