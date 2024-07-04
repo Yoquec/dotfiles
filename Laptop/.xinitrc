@@ -30,7 +30,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 xset r rate 300 50
-picom --config $HOME/.config/picom/picom.conf &
 udiskie & # start usb automounter
 eval $(ssh-agent) > /dev/null
 exec i3

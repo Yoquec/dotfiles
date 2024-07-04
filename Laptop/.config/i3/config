@@ -220,10 +220,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#No window borders:
-default_border pixel 1
+default_border pixel 3
+default_floating_border pixel 3
 
 #colors:
+set $accent-dim          #e5dcc3
+set $accent-indicator    #f3b65b
+set $black               #000000
+
 set $bg-color 	         #4c566a
 set $inactive-bg-color   #041216
 set $text-color          #ddc7a1
@@ -231,13 +235,13 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #bf616a
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $inactive-bg-color  $inactive-bg-color $text-color          $bg-color
-client.unfocused        $inactive-bg-color	$inactive-bg-color $inactive-text-color $bg-color
-client.focused_inactive $inactive-bg-color 	$inactive-bg-color $inactive-text-color $bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
+#                         title border    window border      text          indicator
+client.focused            $black          $accent-indicator  $black        $accent-indicator
+client.unfocused          $black	      $accent-dim        $black        $accent-indicator
+client.focused_inactive   $black 	      $accent-dim        $text-color   $accent-indicator
+client.urgent             $black          $urgent-bg-color   $black        $accent-indicator
 
-# bublebee status{{{
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -247,21 +251,19 @@ bar {
         padding 0 0 0 10px
 
         colors {
-                background $inactive-bg-color
-                separator $inactive-bg-color
-                #                  border             background         text
-                focused_workspace  $inactive-bg-color $inactive-bg-color $text-color
-                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+                background $black
+                separator $black
+                #                  border             background        text
+                focused_workspace  $black             $black            $text-color
+                inactive_workspace $black             $black            $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color  $text-color
         }
 }
 
-#Gaps
+# gaps
 gaps inner 15px
 gaps outer 1px
 
-# smart_gaps on
-smart_borders on
 # for_window [class = '^.*'] border pixel 2
 # hide_edge_borders both
 
@@ -278,7 +280,7 @@ bindsym $mod+shift+s exec --no-startup-id screengrab -r
 
 
 # Wallpaper
-exec_always feh --bg-fill $HOME/Pictures/Wallpapers/mountains-light.jpg
+exec_always feh --bg-fill $HOME/Pictures/Wallpapers/kanagawa-ramen.png
 
 # I3 gaps keybindings
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.

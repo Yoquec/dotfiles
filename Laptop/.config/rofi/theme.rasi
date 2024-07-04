@@ -44,7 +44,9 @@ configuration {
 }
 
 window {
+  border: 3;
   transparency: "real";
+  border-color: #f3b65b;
 }
 
 mainbox {
