@@ -103,6 +103,7 @@ alias yta="yt -x -f bestaudio/best"
 alias vi="nvim"
 alias yz="yazi"
 alias lf="yazi"
+alias lg=lazygit
 alias mamba="micromamba"
 
 alias rm="rm -i"
