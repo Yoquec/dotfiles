@@ -6,18 +6,18 @@ set -eu
 notes_folder=$WIKI_HOME/dailies
 date_format="+%d-%m-%Y"
 
-if [ $# -eq 1 ]; then
-    year=$(date --date="$1" +%Y)
-    month=$(date --date="$1" +%m)
-    day=$(date --date="$1" +%d)
+if [ $# -ne 0 ]; then
+    year=$(date --date="$*" +%Y)
+    month=$(date --date="$*" +%m)
+    day=$(date --date="$*" +%d)
+    fulldate=$(date --date="$*" ${date_format})
     filename=${notes_folder}/${year}/${month}/${day}.md
-    fulldate=$(date --date="$1" ${date_format})
 else
     year=$(date +%Y)
     month=$(date +%m)
     day=$(date +%d)
-    filename=${notes_folder}/${year}/${month}/${day}.md
     fulldate=$(date ${date_format})
+    filename=${notes_folder}/${year}/${month}/${day}.md
 fi
 
 mkdir -p $(dirname $filename)
