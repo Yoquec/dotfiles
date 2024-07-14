@@ -220,8 +220,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
 
 #colors:
 set $accent-dim          #e5dcc3

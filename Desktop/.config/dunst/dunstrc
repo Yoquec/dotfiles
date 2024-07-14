@@ -1,5 +1,5 @@
 [global]
-    frame_width = 3
+    frame_width = 2
     frame_color = "#f3b65b"
     
     font = JetBrainsMonoNL Nerd Font Propo Bold 10

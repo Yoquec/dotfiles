@@ -44,7 +44,7 @@ configuration {
 }
 
 window {
-  border: 3;
+  border: 2;
   transparency: "real";
   border-color: #f3b65b;
 }
