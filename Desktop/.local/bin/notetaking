@@ -1,20 +1,29 @@
 #!/usr/bin/sh
-
 # Inspired by Calin Leaf Shade's dotfiles:
 # https://github.com/calinleafshade/dots
+set -eu
 
-filename=$WIKI_HOME/zk/note-$(date +%d-%m-%Y).md
+notes_folder=$WIKI_HOME/dailies
+date_format="+%d-%m-%Y"
 
-if [ ! -f $filename ]; then
-    echo "# Notes for $(date +%d-%m-%Y)" > $filename
+if [ $# -eq 1 ]; then
+    year=$(date --date="$1" +%Y)
+    month=$(date --date="$1" +%m)
+    day=$(date --date="$1" +%d)
+    filename=${notes_folder}/${year}/${month}/${day}.md
+    fulldate=$(date --date="$1" ${date_format})
+else
+    year=$(date +%Y)
+    month=$(date +%m)
+    day=$(date +%d)
+    filename=${notes_folder}/${year}/${month}/${day}.md
+    fulldate=$(date ${date_format})
 fi
 
-nvim -c "norm Go" \
-    -c "norm S" \
-    -c "norm Go## $(date +%H:%M)" \
-    -c "norm Go" \
-    -c "norm S" \
-    -c "norm Go" \
-    -c "norm zz" \
-    -c "startinsert" $filename
+mkdir -p $(dirname $filename)
 
+if [ ! -f $filename ]; then
+    echo "# 📓 Notes for ${fulldate}" > $filename
+fi
+
+nvim $filename
