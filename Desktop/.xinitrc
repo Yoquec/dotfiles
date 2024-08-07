@@ -1,7 +1,8 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources usermodmap=$HOME/scripts/xmodmap  sysresources=/etc/X11/xinit/.Xresources
+userresources=$HOME/.Xresources  sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+# usermodmap=$HOME/scripts/xmodmap
 
 # merge in defaults and keymaps
 setxkbmap eu
