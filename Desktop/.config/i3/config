@@ -266,7 +266,7 @@ bindsym $mod+shift+s exec --no-startup-id screengrab -r
 
 
 # Wallpaper
-exec_always feh --bg-scale $HOME/Pictures/Wallpapers/kanagawa_ramen.png
+exec_always feh --bg-center $HOME/Pictures/Wallpapers/commodore_wallpaper_gruvbox.png
 
 # I3 gaps keybindings
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
