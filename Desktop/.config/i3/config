@@ -208,8 +208,8 @@ default_border pixel 3
 default_floating_border pixel 3
 
 #colors:
-set $accent-dim          #e5dcc3
-set $accent-indicator    #f3b65b
+set $accent-dim          #808080
+set $accent-indicator    #fbf1c7
 set $black               #000000
 
 set $bg-color 	         #4c566a
