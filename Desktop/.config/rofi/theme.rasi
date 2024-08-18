@@ -35,7 +35,7 @@ configuration {
 
   bg: #000000;
   bg-alt: #000000;
-  fg: #d5c4a1;
+  fg: #fbf1c7;
   fg-alt: #424242;
 
   background-color: @bg;
@@ -45,7 +45,7 @@ configuration {
 window {
   border: 3;
   transparency: "real";
-  border-color: #f3b65b;
+  border-color: #fbf1c7;
 }
 
 mainbox {
