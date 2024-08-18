@@ -15,7 +15,7 @@ configuration {
   }
 
   run {
-    display-name: "";
+    display-name: "";
   }
 
   window {
