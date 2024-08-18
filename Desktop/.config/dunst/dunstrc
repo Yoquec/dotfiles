@@ -2,7 +2,7 @@
     frame_width = 2
     frame_color = "#fbf1c7"
     
-    font = JetBrainsMonoNL Nerd Font Propo Bold 10
+    font = IosevkaTerm Nerd Font Propo ExtraBold 10
     
     # Allow a small subset of html markup:
     markup = yes
@@ -121,15 +121,13 @@
     max_icon_size=64
 
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
     background = "#000000"
-    foreground = "#D8DEE9"
+    foreground = "#fbf1c7"
     timeout = 8
 
 [urgency_normal]
     background = "#000000"
-    foreground = "#ECEFF4"
+    foreground = "#fbf1c7"
     timeout = 8
 
 [urgency_critical]
