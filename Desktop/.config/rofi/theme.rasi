@@ -8,14 +8,14 @@
  */
 
 configuration {
-  font: "JetBrainsMonoNL Nerd Font Propo Bold 12";
+  font: "IosevkaTerm Nerd Font Propo Bold 12";
 
   drun {
     display-name: "";
   }
 
   run {
-    display-name: "";
+    display-name: "";
   }
 
   window {
