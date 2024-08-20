@@ -68,7 +68,7 @@ keymap = [
 	{ on = [ "i" ],         run = ''' shell 'bat --paging=always "$1"' --confirm --block ''', desc = "Copy the selected files" },
 
     # Open a shell
-    { on = [ "w" ],         run = ''' shell 'LF_LEVEL=$(if [[ -n "$LF_LEVEL" ]]; then echo "$LF_LEVEL" + 1 | bc; else echo 1; fi) $SHELL' --confirm --block ''', desc = "Open a new shell" },
+    { on = [ "w" ],         run = ''' shell '$SHELL' --confirm --block ''', desc = "Open a shell in the current directory" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Set linemode to size" },
