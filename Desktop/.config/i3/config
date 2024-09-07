@@ -135,16 +135,16 @@ bindsym $mod+o exec otp-choose
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 󰸗"
-set $ws2 "2 󰈹"
-set $ws3 "3 󰈦"
-set $ws4 "4 󰷉"
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 󰎆"
-set $ws9 "9 󰍩"
-set $ws10 "10 󱆖"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -266,7 +266,7 @@ bindsym $mod+shift+s exec --no-startup-id screengrab -r
 
 
 # Wallpaper
-exec_always feh --bg-center $HOME/Pictures/Wallpapers/commodore_wallpaper_gruvbox.png
+exec_always feh --bg-center $HOME/Pictures/Wallpapers/trees_high_angle_wallpaper.jpeg
 
 # I3 gaps keybindings
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
