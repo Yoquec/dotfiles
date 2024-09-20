@@ -143,6 +143,10 @@ keymap = [
 	{ on = [ "g", "L" ],       run = "cd ~/Nextcloud/Universidad/Labs",      desc = "Go to the Uni projects directory" },
 	{ on = [ "g", "t" ],       run = "cd /tmp",                              desc = "Go to the temporary directory" },
 
+    # Archive
+    { on = ["a", "z"], run = ''' shell 'zip -r "$1.zip" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a zip format"},
+    { on = ["a", "t"], run = ''' shell 'tar czf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format"},
+
     # Dragon drop
     { on = [ "D", "d" ], run = ''' shell 'dragon-drop -a -x "$1"' --confirm --block ''', desc = "Dragon drop" },
 
