@@ -1,23 +1,13 @@
 #!/usr/bin/env sh
 
-THRESHOLD_LOW="20"
 BATTERY="/org/freedesktop/UPower/devices/battery_BAT1"
-
-BATTERY_ICON="🔋"
-BATTERY_LOW_ICON="🪫"
-BATTERY_CHARGING_ICON="🔌"
 
 battery_info=$(upower -i $BATTERY | grep -E "icon|percentage" | awk '{ printf "%s\n", $2 }')
 battery_status=$(echo "${battery_info}" | grep -v '%')
 battery_percentage=$(echo "${battery_info}" | grep '%')
-battery_percentage_number=$(echo ${battery_percentage} | tr -d '%')
 
 if [[ -z $(echo $battery_status | grep charg) ]]; then
-    if [[ $(echo "$battery_percentage_number <= $THRESHOLD_LOW" | bc) -eq 1 ]]; then
-        echo "${BATTERY_LOW_ICON} ${battery_percentage}"
-    else
-        echo "${BATTERY_ICON} ${battery_percentage}"
-    fi
+    echo  "${battery_percentage} UNPG"
 else
-    echo "${BATTERY_CHARGING_ICON} ${battery_percentage}"
+    echo "${battery_percentage} CHRG"
 fi
