@@ -37,7 +37,6 @@ keymap = [
 	# Selection
 	{ on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
 	{ on = [ "v" ],       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
-	# { on = [ "V" ],       run = "visual_mode --unset",                desc = "Enter visual mode (unset mode)" },
 	{ on = [ "<C-a>" ],   run = "select_all --state=true",            desc = "Select all files" },
 	{ on = [ "<C-r>" ],   run = "select_all --state=none",            desc = "Inverse selection of all files" },
 
@@ -124,7 +123,7 @@ keymap = [
 	# Tasks
 	{ on = [ "T" ], run = "tasks_show", desc = "Show the tasks manager" },
 
-	# Goto
+	# Go to
 	{ on = [ "g", "h" ],       run = "cd ~",                                 desc = "Go to the home directory" },
 	{ on = [ "g", "." ],       run = "cd ~/.config",                         desc = "Go to the config directory" },
 	{ on = [ "g", ":" ],       run = "cd ~/.local/share/dotfiles",           desc = "Go to the dotfiles directory" },
@@ -136,6 +135,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/code",                            desc = "Go to the Code directory" },
 	{ on = [ "g", "C" ],       run = "cd ~/Nextcloud/Personal/Code",         desc = "Go to the Nextcloud Code directory" },
 	{ on = [ "g", "n" ],       run = "cd ~/Nextcloud",                       desc = "Go to the Nextcloud directory" },
+	{ on = [ "g", "N" ],       run = "cd ~/Nextcloud/Notes",                 desc = "Go to the Nextcloud notes directory" },
 	{ on = [ "g", "l" ],       run = "cd ~/.local",                          desc = "Go to the .local directory" },
 	{ on = [ "g", "s" ],       run = "cd ~/.local/bin",                      desc = "Go to the local scripts directory" },
 	{ on = [ "g", "S" ],       run = "cd ~/Nextcloud/Universidad/Slides",    desc = "Go to the Uni slides directory" },
