@@ -145,9 +145,11 @@ keymap = [
 
     # Archives
     { on = ["a", "z"], run = ''' shell 'zip -r "$1.zip" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a zip format"},
-    { on = ["a", "t"], run = ''' shell 'tar czf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format"},
+    { on = ["a", "t"], run = ''' shell 'tar cf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format"},
+    { on = ["a", "g"], run = ''' shell 'tar czf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format (gzip)"},
     { on = ["u", "z"], run = ''' shell 'unzip "$1"' --confirm ''', desc = "Unrchive the selected zip archive"},
-    { on = ["u", "t"], run = ''' shell 'tar xvzf "$1" "$(basename $1)"' --confirm ''', desc = "Unrchive the selected tar.gz archive"},
+    { on = ["u", "t"], run = ''' shell 'tar xf "$1"' --confirm ''', desc = "Unrchive the selected tar.gz archive"},
+    { on = ["u", "g"], run = ''' shell 'tar xzf "$1"' --confirm ''', desc = "Unrchive the selected tar.gz archive (gzip)"},
 
     # Dragon drop
     { on = [ "D", "d" ], run = ''' shell 'dragon-drop -a -x "$1"' --confirm --block ''', desc = "Dragon drop" },
