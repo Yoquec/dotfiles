@@ -224,22 +224,17 @@ default_border pixel 2
 default_floating_border pixel 2
 
 #colors:
-set $accent-dim          #808080
-set $accent-indicator    #fbf1c7
-set $black               #000000
-
-set $bg-color 	         #4c566a
-set $inactive-bg-color   #041216
-set $text-color          #ddc7a1
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #bf616a
+set $accent       #ebdbb2
+set $accent-dim   #32302f
+set $urgent       #cc241d
+set $black        #000000
 
 # window colors
 #                         title border    window border      text          indicator
-client.focused            $black          $accent-indicator  $black        $accent-indicator
-client.unfocused          $black	      $accent-dim        $black        $accent-indicator
-client.focused_inactive   $black 	      $accent-dim        $text-color   $accent-indicator
-client.urgent             $black          $urgent-bg-color   $black        $accent-indicator
+client.focused            $accent-dim     $accent            $accent-dim   $accent
+client.unfocused          $accent-dim	  $accent-dim        $accent       $accent-dim
+client.focused_inactive   $accent-dim 	  $accent-dim        $accent       $accent-dim
+client.urgent             $accent-dim     $urgent            $accent-dim   $urgent
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -263,9 +258,6 @@ bar {
 # gaps
 gaps inner 15px
 gaps outer 1px
-
-# for_window [class = '^.*'] border pixel 2
-# hide_edge_borders both
 
 for_window [class="kitty"] floating enable
 for_window [class="R_x11"] floating enable
