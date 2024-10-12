@@ -249,9 +249,9 @@ bar {
                 background $black
                 separator $black
                 #                  border             background        text
-                focused_workspace  $black             $black            $text-color
-                inactive_workspace $black             $black            $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color  $text-color
+                focused_workspace  $black             $black            $accent
+                inactive_workspace $black             $black            $accent-dim
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color  $accent-dim
         }
 }
 
