@@ -1,0 +1,113 @@
+# basic settings
+set ignorecase true 
+set icons true
+# set cleaner ~/.config/lf/cleaner
+# set previewer ~/.config/lf/preview
+
+# functions
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir "$ans"
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR "$ans"
+}}
+
+cmd drag_and_drop ${{
+    dragon-drop -a -x "$f"
+}}
+
+cmd open_def ${{
+    case "$f" in
+        *.pdf) zathura "$f" & ;;
+        *.html) surf "$f" & ;;
+        *.png) feh "$f" & ;;
+        *.jpeg) feh "$f" & ;;
+        *.jpg) feh "$f" & ;;
+        *.svg) feh "$f" & ;;
+        *.ipynb) chromium "$f" & ;;
+        *) neovide "$f" & ;;
+    esac
+	}}
+
+cmd open_vscodium ${{
+    vscodium . &
+}}
+
+cmd open_thunar ${{
+    thunar . &
+}}
+
+cmd open_nvim ${{
+    nvim
+}}
+
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd chmodx ${{
+    chmod +x "$f"
+}}
+
+# bindings
+## remove some defaults
+map m
+map o
+map n
+map "'"
+map '"'
+map az unarchive
+map ae execute
+
+map f :fzf_jump
+map . set hidden!
+map DD delete
+map Dd drag_and_drop
+map p paste
+map x cut
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map C clear
+map L open_def
+map ZQ quit
+
+map gd cd ~/Documents
+map gD cd ~/Downloads
+map gp cd ~/Pictures
+map gt cd "~/Nextcloud/Universidad/TFG"
+map gW cd ~/Projects/
+map gm cd ~/disk/Music/
+map gc cd ~/code
+map gL cd ~/Nextcloud/Universidad/Labs
+map gn cd ~/Nextcloud
+map gH cd /store/yoquec/
+map gN cd ~/Nextcloud/Universidad/Notebooks
+map go cd "~/Nextcloud/Personal/My Own Digital Garden"
+map gC cd "~/Nextcloud/Personal/Particulares"
+map gP cd "~/Nextcloud/Universidad/Projects"
+map gu cd "~/Nextcloud/Personal/My Own Digital Garden/Uni"
+map gv cd "~/disk/Videos/"
+map gT cd "~/Nextcloud/Personal/todo/"
+map gl cd ~/.local
+map g. cd ~/.config
+map gS cd ~/Nextcloud/Universidad/Slides
+map gs cd ~/.local/bin
+map X chmodx
+map oV open_vscodium
+map ov open_nvim

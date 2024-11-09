@@ -1,0 +1,53 @@
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+color=#fbf1c7
+markup=pango
+
+# define separator
+full_text=<span color="#776955">󱋱</span>
+separator=false
+
+[cpu]
+command=echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%"
+label=<span color="#a89984">CPU </span>
+interval=5
+
+[separator]
+
+[ram]
+command=free -m | awk 'FNR==2{ print "%i\n", $3 }' | sed -e "s/^%i//" | tr -d "\n" | awk '{ printf "%i / 1000\n", $1 }' | bc -l | xargs printf "%.2fGB\n"
+label=<span color="#a89984">RAM </span>
+interval=5
+
+[separator]
+
+[volume]
+command=volume-i3blocks
+label=<span color="#a89984">VOL </span>
+interval=1
+
+[separator]
+
+[keyboard_layout]
+command=setxkbmap -query | grep layout | cut -d ':' -f 2 | tr a-z A-Z | xargs -I {} printf "{}\n"
+label=<span color="#a89984">KBD </span>
+interval=5
+
+[separator]
+
+[arch-update]
+command=pacman -Qu | wc -l | awk '{ printf "%s\n", $1 }'
+label=<span color="#a89984">UPD </span>
+interval=once
+
+[separator]
+
+[calendar]
+command=date "+%d/%m/%Y %H:%M"
+color=#a89984
+interval=10
+
+[separator]

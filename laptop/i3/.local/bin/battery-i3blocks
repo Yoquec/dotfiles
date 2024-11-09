@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+BATTERY="/org/freedesktop/UPower/devices/battery_BAT1"
+
+battery_info=$(upower -i $BATTERY | grep -E "icon|percentage" | awk '{ printf "%s\n", $2 }')
+battery_status=$(echo "${battery_info}" | grep -v '%')
+battery_percentage=$(echo "${battery_info}" | grep '%')
+
+if [[ -z $(echo $battery_status | grep charg) ]]; then
+    echo  "${battery_percentage} UNPG"
+else
+    echo "${battery_percentage} CHRG"
+fi

@@ -1,0 +1,9 @@
+#!/usr/bin/zsh
+
+passes=$(find $HOME/.password-store/ | grep gpg | grep -v "otp" | grep -v "gpg-id")
+opts=$(echo "$passes" | rev | cut -d "." -f "2-" | rev | cut -d "/" -f "5-")
+selected=$(echo "$opts" | rofi -dmenu)
+
+if [[ ! -z "$selected" ]]; then
+    pass -c $selected && notify-send "Copied password 🔑" "Copied password for "$selected" to clipboard. Will clear in 45 seconds."
+fi

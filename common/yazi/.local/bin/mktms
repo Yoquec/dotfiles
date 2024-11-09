@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+dir=$(pwd)
+dirname=$(basename $dir | tr _ " " | tr . _)
+
+tms "$dir" "$dirname"
