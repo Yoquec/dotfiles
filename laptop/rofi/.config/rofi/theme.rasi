@@ -1,0 +1,80 @@
+configuration {
+  font: "IosevkaTerm Nerd Font Propo ExtraBold 11";
+
+  drun {
+    display-name: "";
+  }
+
+  run {
+    display-name: "";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  bg: #000000;
+  bg-alt: #000000;
+  fg: #fbf1c7;
+  fg-alt: #424242;
+
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+  border: 3;
+  transparency: "real";
+  border-color: #fbf1c7;
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+inputbar {
+  background-color: @bg-alt;
+  children: [prompt, entry];
+}
+
+entry {
+  background-color: inherit;
+  padding: 12px 3px;
+}
+
+prompt {
+  background-color: inherit;
+  padding: 12px;
+}
+
+listview {
+  lines: 8;
+}
+
+element {
+  children: [ element-text];
+}
+
+element-icon {
+  padding: 10px 10px;
+}
+
+element-text {
+  padding: 10px 20px;
+  text-color: @fg-alt;
+}
+
+element-text selected {
+  text-color: @fg;
+}
