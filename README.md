@@ -13,7 +13,7 @@ My personal dotfiles repository managed by [GNU stow](https://www.gnu.org/softwa
 1. Download GNU Stow
 2. Clone the repo into your local computer
   ```bash
-  git clone --depth 1 https://github.com/yoquec/dotfiles $HOME/.local/share/dotfiles
+  git clone https://github.com/yoquec/dotfiles $HOME/.local/share/dotfiles
   ```
 3. Install the common configs using stow
   ```bash
