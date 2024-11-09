@@ -17,7 +17,7 @@ if [ -f "$userresources" ]; then
 fi
 
 if [ -f $usermodmap ]; then
-    setxkbmap es
+    setxkbmap eu
     xmodmap $usermodmap
 fi
 
