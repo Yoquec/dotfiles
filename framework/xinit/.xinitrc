@@ -43,6 +43,9 @@ xiccd &
 /usr/bin/pipewire-pulse &
 /usr/bin/wireplumber &
 
+# bluetooth
+/usr/bin/blueberry-tray &
+
 # some other nice programs
 nextcloud &
 mpd &
