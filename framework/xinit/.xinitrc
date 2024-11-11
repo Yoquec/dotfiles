@@ -38,6 +38,11 @@ xrandr --output eDP-1 --scale 0.85x0.85
 # x color management daemon
 xiccd &
 
+# pipewire
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
+
 # some other nice programs
 nextcloud &
 mpd &
