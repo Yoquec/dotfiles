@@ -158,7 +158,7 @@ keymap = [
 	{ on = [ "~" ], run = "help", desc = "Open help" },
 
     # Open things
-	{ on = [ "o", "s" ], run = "shell mktms --confirm --block",        desc = "Create a new tmux sessionizer session" },
+	{ on = [ "o", "s" ], run = "shell mktms --confirm",                desc = "Create a new tmux sessionizer session" },
 	{ on = [ "o", "v" ], run = "shell nvim --confirm --block",         desc = "Open neovim" },
 	{ on = [ "o", "g" ], run = "shell lazygit --confirm --block",      desc = "Open lazygit" },
 	{ on = [ "o", "c" ], run = "shell 'vscodium .' --confirm --block", desc = "Open vscodium" },
