@@ -1,6 +1,4 @@
 configuration {
-  font: "IosevkaTerm Nerd Font Propo ExtraBold 16";
-
   drun {
     display-name: "";
   }
@@ -20,7 +18,7 @@ configuration {
 }
 
 * {
-  font:   "IosevkaTerm Nerd Font ExtraBold 16";
+  font:   "IosevkaTerm Nerd Font ExtraBold 14";
 
   bg0     : #000000;
   bg1     : #1a1b26;

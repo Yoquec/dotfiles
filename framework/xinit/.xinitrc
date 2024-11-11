@@ -33,6 +33,8 @@ fi
 xset r rate 300 50 &
 # usb automounter
 udiskie &
+# increase screen dpi
+xrandr --output eDP-1 --scale 0.85x0.85
 # x color management daemon
 xiccd &
 
