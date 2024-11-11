@@ -30,13 +30,13 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # decrease keyboard repeat delay
-xset r rate 300 50 &
+/usr/bin/xset r rate 300 50 &
 # usb automounter
-udiskie &
+/usr/bin/udiskie &
 # increase screen dpi
-xrandr --output eDP-1 --scale 0.85x0.85
+/usr/bin/xrandr --output eDP-1 --scale 0.85x0.85
 # x color management daemon
-xiccd &
+/usr/bin/xiccd &
 
 # pipewire
 /usr/bin/pipewire &
@@ -47,10 +47,9 @@ xiccd &
 /usr/bin/blueberry-tray &
 
 # some other nice programs
-nextcloud &
-mpd &
-redshift &
+/usr/bin/nextcloud &
+/usr/bin/redshift &
 
 
-eval $(ssh-agent) > /dev/null
-exec i3
+eval $(/usr/bin/ssh-agent) > /dev/null
+exec /usr/bin/i3
