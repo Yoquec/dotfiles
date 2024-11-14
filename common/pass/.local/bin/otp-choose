@@ -1,11 +1,11 @@
 #!/usr/bin/sh
 
-paths=$(find $HOME/.password-store/ | grep gpg | grep otp)
-names=$(echo $paths | xargs dirname | rev | cut -d "/" -f 1 | rev)
-selected_name=$(echo $names | tr " " "\n" | rofi -dmenu)
+otp_paths=$(find $HOME/.password-store/ | grep gpg | grep otp)
+otp_names=$(echo $otp_paths | xargs dirname | xargs -n1 basename)
+selected_name=$(echo "$otp_names" | rofi -dmenu)
 
 if [[ ! -z "$selected_name" ]]; then
-    selected_path=$(echo $paths | tr " " "\n" | grep $selected_name | tr "\n" " " | cut -d " " -f 1 )
+    selected_path=$(echo "$otp_paths" | grep $selected_name | sort | head -n 1)
     selected_otp=$(echo $selected_path | cut -d "/" -f 5- | rev | cut -d "." -f 2 | rev)
     pass otp -c $selected_otp && notify-send "Copied otp code ⏱" "Copied OTP code for $selected_name to clipboard. Will clear in 45 seconds."
 fi
