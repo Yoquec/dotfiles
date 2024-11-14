@@ -91,7 +91,7 @@ set -o vi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-#Key aliases
+# Aliases
 alias ls="exa --icons"
 alias la="exa -lah --icons --color-scale"
 alias p1="ping 1.1.1.1"
@@ -116,9 +116,6 @@ alias th="tmux new-session -s 'Home 🏠' -c '$HOME' "
 alias tw="tmux new-session -s 'Wiki 📚' -c '$WIKI_HOME'"
 
 alias prn="poetry run"
-
-# Special command to search between all the folders in the system
-bindkey -s '^f' 'fdhome^M'
 
 # Copilot like autosuggest
 bindkey '^y' autosuggest-accept
