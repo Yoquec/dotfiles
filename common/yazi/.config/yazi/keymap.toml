@@ -129,12 +129,18 @@ keymap = [
 	{ on = [ "s", "e" ], run = "shell thunar --confirm --block",       desc = "Start a thunar file explorer instance" },
 
     # Archives
-    { on = ["a", "z"], run = ''' shell 'zip -r "$1.zip" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a zip format"},
-    { on = ["a", "t"], run = ''' shell 'tar cf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format"},
-    { on = ["a", "g"], run = ''' shell 'tar czf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format (gzip)"},
-    { on = ["u", "z"], run = ''' shell 'unzip "$1"' --confirm ''', desc = "Unrchive the selected zip archive"},
-    { on = ["u", "t"], run = ''' shell 'tar xf "$1"' --confirm ''', desc = "Unrchive the selected tar.gz archive"},
-    { on = ["u", "g"], run = ''' shell 'tar xzf "$1"' --confirm ''', desc = "Unrchive the selected tar.gz archive (gzip)"},
+    { on = ["a", "z"], run = ''' shell 'zip -r "$1.zip" "$(basename $1)"' --confirm ''',     desc = "Archive the selected directory as a zip format" },
+    { on = ["a", "t"], run = ''' shell 'tar cf "$1.tar.gz" "$(basename $1)"' --confirm ''',  desc = "Archive the selected directory as a tar.gz format" },
+    { on = ["a", "g"], run = ''' shell 'tar czf "$1.tar.gz" "$(basename $1)"' --confirm ''', desc = "Archive the selected directory as a tar.gz format (gzip)" },
+    { on = ["u", "z"], run = ''' shell 'unzip "$1"' --confirm ''',                           desc = "Unrchive the selected zip archive" },
+    { on = ["u", "t"], run = ''' shell 'tar xf "$1"' --confirm ''',                          desc = "Unrchive the selected tar.gz archive" },
+    { on = ["u", "g"], run = ''' shell 'tar xzf "$1"' --confirm ''',                         desc = "Unrchive the selected tar.gz archive (gzip)" },
+
+    # Pager
+    { on = ["i"], run = ''' shell "bat $@ --paging=always" --block --confirm ''', desc = "View the selected file in bat" },
+
+    # Edit
+    { on = ["e"], run = ''' shell "$EDITOR $@" --block --confirm ''', desc = "Edit selected files" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
