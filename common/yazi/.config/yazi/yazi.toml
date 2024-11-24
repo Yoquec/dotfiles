@@ -38,8 +38,8 @@ read = [
     { run = 'okular "$@"', desc = "Okular", for = "linux" },
 ]
 open = [
-	{ run = 'handlr launch "$1"',           desc = "Open", for = "linux" },
-	{ run = 'xdg-open "$1"',                desc = "Open", for = "unix" },
+	{ run = 'handlr open "$@"',             desc = "Open", for = "linux" },
+	{ run = 'xdg-open "$@"',                desc = "Open", for = "unix" },
 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
