@@ -15,7 +15,7 @@
 
 #############################################################################
 
-font pango:IosevkaTerm Nerd Font Propo ExtraBold 14
+font pango:BlexMono Nerd Font Propo Medium 14
 
 default_border pixel 2
 default_floating_border pixel 2
