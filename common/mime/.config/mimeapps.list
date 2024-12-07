@@ -8,6 +8,7 @@ application/x-extension-xhtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
 audio/*=mpv.desktop;
 image/*=feh.desktop;
+image/x-xcf=gimp.desktop;
 text/html=firefox.desktop;
 x-scheme-handler/chrome=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
