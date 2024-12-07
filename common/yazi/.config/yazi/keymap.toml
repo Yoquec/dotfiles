@@ -122,7 +122,7 @@ keymap = [
 	{ on = [ "g", "t" ],       run = "cd /tmp",                              desc = "Go to the temporary directory" },
 
     # Start programs
-	{ on = [ "s", "s" ], run = "shell $SHELL --confirm --block",       desc = "Start a new tmux sessionizer session" },
+	{ on = [ "w" ],      run = "shell $SHELL --confirm --block",       desc = "Start a new terminal session" },
 	{ on = [ "s", "t" ], run = "shell mktms --confirm",                desc = "Start a new tmux sessionizer session" },
 	{ on = [ "s", "n" ], run = "shell nvim --confirm --block",         desc = "Start a neovim instance" },
 	{ on = [ "s", "g" ], run = "shell lazygit --confirm --block",      desc = "Start lazygit" },
@@ -162,7 +162,7 @@ keymap = [
 	{ on = "}", run = "tab_swap 1",  desc = "Swap current tab with next tab" },
 
 	# Tasks
-	{ on = "w", run = "tasks_show", desc = "Show task manager" },
+	{ on = "T", run = "tasks_show", desc = "Show task manager" },
 
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },
