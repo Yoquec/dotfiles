@@ -145,6 +145,9 @@ keymap = [
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
 
+    # chmod executable
+	{ on = "X", run = ''' shell 'chmod +x "$@"' --confirm ''', desc = "Make selected files executable" },
+
 	{ on = "1", run = "tab_switch 0", desc = "Switch to the first tab" },
 	{ on = "2", run = "tab_switch 1", desc = "Switch to the second tab" },
 	{ on = "3", run = "tab_switch 2", desc = "Switch to the third tab" },
