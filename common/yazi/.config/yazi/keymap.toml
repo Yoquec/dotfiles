@@ -137,7 +137,7 @@ keymap = [
     { on = ["u", "g"], run = ''' shell 'tar xzf "$1"' --confirm ''',                         desc = "Unrchive the selected tar.gz archive (gzip)" },
 
     # Pager
-    { on = ["i"], run = ''' shell "bat $@ --paging=always" --block --confirm ''', desc = "View the selected file in bat" },
+    { on = ["i"], run = ''' shell "bat "$@" --paging=always" --block --confirm ''', desc = "View the selected file in bat" },
 
     # Edit
     { on = ["e"], run = ''' shell "$EDITOR $@" --block --confirm ''', desc = "Edit selected files" },
