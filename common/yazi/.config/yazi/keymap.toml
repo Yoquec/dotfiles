@@ -123,7 +123,7 @@ keymap = [
 
     # Start programs
 	{ on = [ "w" ],      run = "shell $SHELL --confirm --block",       desc = "Start a new terminal session" },
-	{ on = [ "s", "t" ], run = "shell mktms --confirm",                desc = "Start a new tmux sessionizer session" },
+	{ on = [ "s", "s" ], run = "shell mktms --confirm",                desc = "Start a new tmux sessionizer session" },
 	{ on = [ "s", "n" ], run = "shell nvim --confirm --block",         desc = "Start a neovim instance" },
 	{ on = [ "s", "g" ], run = "shell lazygit --confirm --block",      desc = "Start lazygit" },
 	{ on = [ "s", "e" ], run = "shell thunar --confirm --block",       desc = "Start a thunar file explorer instance" },
