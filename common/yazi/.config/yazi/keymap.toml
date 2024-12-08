@@ -56,7 +56,6 @@ keymap = [
 	{ on = "_",         run = "link --relative",             desc = "Symlink the relative path of yanked files" },
 	{ on = "<C-->",     run = "hardlink",                    desc = "Hardlink yanked files" },
 	{ on = "Y",         run = "unyank",                      desc = "Cancel the yank status" },
-	{ on = "X",         run = "unyank",                      desc = "Cancel the yank status" },
 	{ on = "d",         run = "remove --permanently",        desc = "Permanently delete selected files" },
 	{ on = "%",         run = "create",                      desc = "Create a file (ends with / for directories)" },
 	{ on = "D",         run = "create --dir",                      desc = "Create a file (ends with / for directories)" },
@@ -144,6 +143,9 @@ keymap = [
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
+
+    # chmod executable
+	{ on = "X", run = ''' shell 'chmod +x "$@"' --confirm ''', desc = "Make selected files executable" },
 
 	{ on = "1", run = "tab_switch 0", desc = "Switch to the first tab" },
 	{ on = "2", run = "tab_switch 1", desc = "Switch to the second tab" },
