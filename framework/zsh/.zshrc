@@ -117,6 +117,8 @@ alias tw="tmux new-session -s 'Wiki 📚' -c '$WIKI_HOME'"
 
 alias prn="poetry run"
 
+alias pom="pomodoro"
+
 # Copilot like autosuggest
 bindkey '^y' autosuggest-accept
 
