@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+notify-send --app-name=openpomodoro "Finished 🍅" "The pomodoro timer stopped"

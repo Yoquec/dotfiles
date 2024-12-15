@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+notify-send --app-name=openpomodoro "Time for a break 🥱" "The break timer started"
