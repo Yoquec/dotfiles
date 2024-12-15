@@ -126,11 +126,12 @@ keymap = [
     { on = ["a", "b"], run = ''' shell 'tar czf "$(uuidgen | cut -c -8).tar.bz2" $(realpath --relative-to=$(pwd) $@)' --confirm ''',  desc = "Archive as tar.bz2" },
 
     # Some nice programs
-    { on = "e", run = ''' shell "${EDITOR:-nvim} "$@"" --block --confirm ''',               desc = "Open the selected files with the terminal editor" },
-    { on = "E", run = "shell ${EDITOR:-nvim} --confirm --block",                            desc = "Start an editor instance" },
-	{ on = "w", run = "shell ${SHELL:-zsh} --confirm --block",                              desc = "Start terminal session" },
-	{ on = "s", run = "shell mktms --confirm",                                              desc = "Start TMUX session" },
-    { on = "i", run = ''' shell "${PAGER:-bat} "$@" --paging=always" --block --confirm ''', desc = "View the selected files in the pager" },
+    { on = "e",     run = ''' shell "${EDITOR:-nvim} "$@"" --block --confirm ''',               desc = "Open the selected files with the terminal editor" },
+    { on = "E",     run = "shell ${EDITOR:-nvim} --confirm --block",                            desc = "Start an editor instance" },
+	{ on = "w",     run = "shell ${SHELL:-zsh} --confirm --block",                              desc = "Start terminal session" },
+    { on = "<C-g>", run = "shell lazygit --confirm --block",                                    desc = "Open lazygit" },
+	{ on = "s",     run = "shell mktms --confirm",                                              desc = "Start TMUX session" },
+    { on = "i",     run = ''' shell "${PAGER:-bat} "$@" --paging=always" --block --confirm ''', desc = "View the selected files in the pager" },
 
 
     # Chmod executable
