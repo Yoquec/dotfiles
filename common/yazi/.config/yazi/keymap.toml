@@ -114,7 +114,7 @@ keymap = [
 	{ on = [ "g", "w" ],       run = "cd ~/workspace",              desc = "Go to the workspace directory" },
 	{ on = [ "g", "m" ],       run = "cd ~/Music",                  desc = "Go to the Music directory" },
 	{ on = [ "g", "n" ],       run = "cd ~/Nextcloud",              desc = "Go to the Nextcloud directory" },
-	{ on = [ "g", "N" ],       run = "cd ~/Nextcloud/Notes",        desc = "Go to the Nextcloud notes directory" },
+	{ on = [ "g", "W" ],       run = "cd ~/Nextcloud/Notes",        desc = "Go to the wiki directory" },
 	{ on = [ "g", "l" ],       run = "cd ~/.local",                 desc = "Go to the .local directory" },
 	{ on = [ "g", "s" ],       run = "cd ~/.local/bin",             desc = "Go to the local scripts directory" },
 	{ on = [ "g", "t" ],       run = "cd /tmp",                     desc = "Go to the temporary directory" },
