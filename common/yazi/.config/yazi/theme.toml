@@ -29,6 +29,7 @@ border_style  = { fg = "gray" }
 [status]
 separator_open  = ""
 separator_close = ""
+
 # HACK: removes status bar
 separator_style = {}
 
