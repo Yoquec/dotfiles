@@ -32,7 +32,7 @@ separator_close = ""
 # HACK: removes status bar
 separator_style = {}
 
-[select]
+[pick]
 border   = { fg = "blue" }
 active   = { fg = "magenta", bold = true }
 inactive = {}
