@@ -215,7 +215,7 @@ mode "$mode_gaps_outer" {
 #
 
 # wallpaper
-exec_always feh --bg-scale $HOME/Pictures/wallpapers/trees_high_angle.jpeg
+exec_always feh --bg-scale $HOME/Pictures/wallpapers/commodore_gruvbox.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
