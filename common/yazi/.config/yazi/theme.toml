@@ -30,8 +30,6 @@ border_style  = { fg = "gray" }
 separator_open  = ""
 separator_close = ""
 
-# HACK: removes status bar
-separator_style = {}
 
 [pick]
 border   = { fg = "blue" }
