@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+projects=$(find ~/workplace -mindepth 1 -maxdepth 1 -type d)
+project_names=$(echo "${projects}" | xargs -n1 basename)
+selected_project_name=$(echo "${project_names}" | 
+    fzf --prompt "Choose a project to open > "
+)
+
+if [[ ! -z "${selected_project_name}" ]]; then
+    selected_project=$(echo "${projects}" | grep ${selected_project_name} | sort | head -n 1)
+    tms ${selected_project} ${selected_project_name} 
+fi
+
