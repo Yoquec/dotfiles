@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
 
 passes=$(find $HOME/.password-store/ | grep gpg | grep -v "otp" | grep -v "gpg-id")
 opts=$(echo "$passes" | rev | cut -d "." -f "2-" | rev | cut -d "/" -f "5-")
