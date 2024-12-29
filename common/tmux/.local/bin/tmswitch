@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+prompt="Session to switch to > "
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected=$(tmux ls | grep -v "Home 🏠" | grep -v "Wiki 📚" |
-        cut -d ":" -f1 | fzf)
+        cut -d ":" -f1 | fzf --prompt "${prompt}")
 fi
 
 if [[ -z $selected ]]; then
