@@ -18,7 +18,7 @@ configuration {
 }
 
 * {
-  font:   "BlexMono Nerd Font ExtraBold 12";
+  font:   "GeistMono Nerd Font Mono ExtraBold 13";
 
   bg0     : #000000;
   bg1     : #1a1b26;

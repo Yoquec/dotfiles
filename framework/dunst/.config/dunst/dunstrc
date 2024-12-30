@@ -2,7 +2,7 @@
     frame_width = 2
     frame_color = "#fbf1c7"
     
-    font = BlexMono Nerd Font Propo ExtraBold 12
+    font = GeistMono Nerd Font Propo ExtraBold 13
     
     # Allow a small subset of html markup:
     markup = yes

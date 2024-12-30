@@ -15,7 +15,7 @@
 
 #############################################################################
 
-font pango:BlexMono Nerd Font Propo SemiBold 12
+font pango:GeistMono Nerd Font Mono SemiBold 12
 
 default_border pixel 2
 default_floating_border pixel 2
