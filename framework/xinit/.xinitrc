@@ -38,11 +38,6 @@ fi
 # x color management daemon
 /usr/bin/xiccd &
 
-# pipewire
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/wireplumber &
-
 # bluetooth
 /usr/bin/blueberry-tray &
 
