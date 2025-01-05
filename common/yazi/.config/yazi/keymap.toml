@@ -47,7 +47,8 @@ keymap = [
 	{ on = "<C-r>",   run = "toggle_all --state=none",            desc = "Inverse selection of all files" },
 
 	# Operation
-	{ on = "o",         run = "open --interactive",                       desc = "Open selected files interactively" },
+	{ on = "o",         run = "open",                                     desc = "Open selected files" },
+	{ on = "O",         run = "open --interactive",                       desc = "Open selected files interactively" },
 	{ on = "y",         run = "yank",                                     desc = "Yank selected files (copy)" },
 	{ on = "x",         run = "yank --cut",                               desc = "Yank selected files (cut)" },
 	{ on = "p",         run = "paste",                                    desc = "Paste yanked files" },
