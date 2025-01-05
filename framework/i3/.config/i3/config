@@ -141,7 +141,7 @@ bindsym $mod+r mode "resize"
 
 # Colors
 set $accent       #ebdbb2
-set $accent-dim   #32302f
+set $accent-dim   #665C54
 set $urgent       #cc241d
 set $black        #000000
 
