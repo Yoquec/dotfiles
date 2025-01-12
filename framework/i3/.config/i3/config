@@ -164,7 +164,7 @@ bar {
         separator $black
 
         #                  border             background        text
-        focused_workspace  $black             $black            $accent
+        focused_workspace  $black             $accent           $black
         inactive_workspace $black             $black            $accent-dim
         urgent_workspace   $urgent-bg-color   $urgent-bg-color  $accent-dim
     }
