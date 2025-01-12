@@ -18,7 +18,7 @@ configuration {
 }
 
 * {
-  font:   "GeistMono Nerd Font Mono ExtraBold 13";
+  font:   "IosevkaTerm Nerd Font Propo ExtraBold 14";
 
   bg0     : #000000;
   bg1     : #1a1b26;

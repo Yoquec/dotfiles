@@ -15,7 +15,7 @@
 
 #############################################################################
 
-font pango:GeistMono Nerd Font Mono SemiBold 12
+font pango:IosevkaTerm Nerd Font Mono Heavy 14
 
 default_border pixel 2
 default_floating_border pixel 2
