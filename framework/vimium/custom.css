@@ -4,20 +4,21 @@
   --font: monospace;
   --padding: 4px;
   --shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  --fg: #fbf1c7;
-  --bg: #1a1a1a;
-  --border: #4C566A;
+  --fg: #FBF1C7;
+  --bg: #000000;
+  --border: #EBDBB2;
   --main-fg: #8FBCBB;
   --accent-fg: #A3BE8C;
+  --highlight: #665C54;
 }
 
 #vimiumHintMarkerContainer div span {
-  font-size: 16px;
+  font-size: calc(var(--font-size) - 3px);
 }
 
 #vomnibar {
   background: var(--bg);
-  border: none;
+  border: 2px solid var(--border);
   box-shadow: var(--shadow);
 }
 
@@ -37,18 +38,20 @@
 }
 
 #vomnibar input {
-  padding: var(--padding)}
+  padding: var(--padding)
+}
 
 #vomnibar ul {
   background: var(--bg);
-  border-top: 1px solid var(--border);
+  border-top: none;
   margin: 0;
   padding: var(--padding);
 }
 
 #vomnibar li {
-  border-bottom: 1px solid var(--border);
+  border-bottom: none;
   padding: var(--padding);
+  font-size: calc(var(--font-size) - 3px);
 }
 
 #vomnibar li .vomnibarTopHalf,
@@ -57,9 +60,9 @@
 }
 
 #vomnibar li .vomnibarSource {
-  color: var(--main-fg);
+  color: var(--accent-fg);
   font-family: var(--font);
-  font-size: var(--font-size);
+  font-size: calc(var(--font-size) - 3px);
   font-weight: var(--font-weight);
 }
 
@@ -67,15 +70,15 @@
 #vomnibar li .vomnibarTitle {
   color: var(--main-fg);
   font-family: var(--font);
-  font-size: var(--font-size);
   font-weight: var(--font-weight);
+  font-size: calc(var(--font-size) - 3px);
 }
 
 #vomnibar li .vomnibarUrl {
   color: var(--fg);
   font-family: var(--font);
-  font-size: var(--font-size);
   font-weight: var(--font-weight);
+  font-size: calc(var(--font-size) - 3px);
 }
 
 #vomnibar li .vomnibarMatch {
@@ -88,7 +91,7 @@
 }
 
 #vomnibar li.vomnibarSelected {
-  background-color: var(--border);
+  background-color: var(--highlight);
 }
 
 div.vimiumHUD {
@@ -101,7 +104,7 @@ div.vimiumHUD span#hud-find-input,
 div.vimiumHUD .vimiumHUDSearchAreaInner {
   color: var(--fg);
   font-family: var(--font);
-  font-size: var(--font-size);
+  font-size: calc(var(--font-size) - 2px);
   font-weight: var(--font-weight);
 }
 
