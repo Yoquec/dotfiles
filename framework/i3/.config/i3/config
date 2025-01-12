@@ -213,8 +213,6 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
-#
-
 # wallpaper
 exec_always feh --bg-scale $HOME/Pictures/wallpapers/commodore_gruvbox.png
 
@@ -226,4 +224,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --color #000000
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec breakTimer
+# Start the bluetooth tray
+exec blueberry-tray
+
+exec redshift
+exec nextcloud

@@ -38,13 +38,5 @@ fi
 # x color management daemon
 /usr/bin/xiccd &
 
-# bluetooth
-/usr/bin/blueberry-tray &
-
-# some other nice programs
-/usr/bin/nextcloud &
-/usr/bin/redshift &
-
-
 eval $(/usr/bin/ssh-agent) > /dev/null
 exec /usr/bin/i3
