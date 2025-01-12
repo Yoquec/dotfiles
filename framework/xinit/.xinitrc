@@ -4,7 +4,7 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.config/xmodmap/xmodmaprc
 sysresources=/etc/X11/xinit/.Xresources
 export PATH=$HOME/.local/bin:$PATH
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 # merge in defaults and keymaps
 
