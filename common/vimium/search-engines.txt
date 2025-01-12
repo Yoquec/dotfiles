@@ -1,0 +1,8 @@
+dd: https://duckduckgo.com/search?q=%s DuckDuckGo
+yt: https://www.youtube.com/results?search_query=%s Youtube
+w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
+gh: https://github.com/search?q=%s Github
+ghu: https://github.com/search?q=%s&type=users Github users
+ghi: https://github.com/search?q=%s&type=issues Github issues
+ghp: https://github.com/search?q=%s&type=pullrequests Github PRs
+ghr: https://github.com/search?q=%s&type=repositories Github repos
