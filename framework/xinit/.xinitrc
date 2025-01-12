@@ -21,13 +21,17 @@ if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
-# start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
     for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
         [ -x "$f" ] && . "$f"
     done
     unset f
 fi
+
+if [ -e $XDG_RUNTIME_DIR ]; then
+    export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+fi
+
 
 # decrease keyboard repeat delay
 /usr/bin/xset r rate 300 50 &
@@ -38,5 +42,4 @@ fi
 # x color management daemon
 /usr/bin/xiccd &
 
-eval $(/usr/bin/ssh-agent) > /dev/null
 exec /usr/bin/i3
