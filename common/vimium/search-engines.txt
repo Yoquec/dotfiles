@@ -1,4 +1,4 @@
-dd: https://duckduckgo.com/search?q=%s DuckDuckGo
+dd: https://duckduckgo.com/?q=%s DuckDuckGo
 yt: https://www.youtube.com/results?search_query=%s Youtube
 w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
 gh: https://github.com/search?q=%s Github
