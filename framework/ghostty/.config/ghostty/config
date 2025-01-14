@@ -1,0 +1,31 @@
+font-family = IosevkaTerm NFM
+font-style = SemiBold
+font-style-bold = ExtraBold
+font-style-italic = SemiBold Italic
+font-style-bold-italic = ExtraBold Italic
+
+font-size = 15
+
+# Use the best theme ever, but make terminal's black
+# softer so that zsh autocompletes are visible
+theme = Tomorrow Night Bright
+palette = 0=#3B4252
+palette = 8=#3B4252
+
+selection-foreground = #000000
+selection-background = #EBCB8B
+cursor-color = #FFCC66
+
+cursor-style = block
+cursor-style-blink = false
+
+window-padding-x = 20
+window-padding-y = 25, 5
+
+# Remove borders in i3
+window-decoration = true
+window-theme = system
+gtk-titlebar = false
+gtk-adwaita = false
+
+gtk-single-instance = true
