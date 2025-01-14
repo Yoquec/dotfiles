@@ -42,8 +42,14 @@ alias prn="poetry run"
 
 alias pom="pomodoro"
 
-# Copilot like autosuggest
+# Copilot-like autosuggest
 bindkey '^y' autosuggest-accept
+
+# mise integration
+[[ $(command -v mise) ]] && eval "$(mise activate zsh)"
+
+# fzf zsh integration 
+[[ $(command -v fzf) ]] && eval "$(fzf --zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
