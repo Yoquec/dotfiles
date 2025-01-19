@@ -18,7 +18,7 @@ configuration {
 }
 
 * {
-  font:   "IosevkaTerm Nerd Font Propo ExtraBold 14";
+  font:   "monospace Bold 14";
 
   bg0     : #000000;
   bg2     : #424242;

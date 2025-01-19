@@ -5,6 +5,7 @@
     font = IosevkaTerm Nerd Font Mono ExtraBold 14
     
     # Allow a small subset of html markup:
+    font = monospace Bold 14
     markup = yes
     
     # The format of the message.  Possible variables are:
