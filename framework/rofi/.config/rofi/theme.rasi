@@ -21,10 +21,9 @@ configuration {
   font:   "IosevkaTerm Nerd Font Propo ExtraBold 14";
 
   bg0     : #000000;
-  bg1     : #1a1b26;
-  bg2     : #1f2335;
-  red     : #f7768e;
-  border  : #fbf1c7;
+  bg2     : #424242;
+  red     : #d54e53;
+  border  : #ffffff;
 
   accent: @border;
   urgent: @red;
@@ -107,7 +106,7 @@ element alternate active {
 }
 
 element selected {
-  text-color       : @bg1;
+  text-color       : @bg0;
   background-color : @accent;
 }
 

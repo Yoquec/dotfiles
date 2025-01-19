@@ -140,16 +140,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Colors
-set $accent       #ebdbb2
-set $accent-dim   #665C54
-set $urgent       #cc241d
-set $black        #000000
+set $white       #ffffff
+set $black       #000000
+set $red         #d54e53
+set $inactive    #8c8c8c
+set $background  #424242
 
 #                         title border    window border      text          indicator
-client.focused            $accent-dim     $accent            $accent-dim   $accent
-client.unfocused          $accent-dim	  $accent-dim        $accent       $accent-dim
-client.focused_inactive   $accent-dim 	  $accent-dim        $accent       $accent-dim
-client.urgent             $accent-dim     $urgent            $accent-dim   $urgent
+client.focused            $white          $white             $background   $white
+client.unfocused          $white	      $background        $white        $background
+client.focused_inactive   $white 	      $background        $white        $background
+client.urgent             $white          $red               $background   $red
 
 
 # Status bar
@@ -164,9 +165,9 @@ bar {
         separator $black
 
         #                  border             background        text
-        focused_workspace  $black             $accent           $black
-        inactive_workspace $black             $black            $accent-dim
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color  $accent-dim
+        focused_workspace  $black             $black            $white
+        inactive_workspace $black             $black            $inactive
+        urgent_workspace   $red               $red              $black
     }
 }
 
