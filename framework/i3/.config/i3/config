@@ -15,7 +15,7 @@
 
 #############################################################################
 
-font pango:IosevkaTerm Nerd Font Mono Heavy 14
+font pango:Inter Display Medium 12
 
 default_border pixel 2
 default_floating_border pixel 2
@@ -158,7 +158,8 @@ bar {
     status_command i3blocks
     position bottom
     workspace_buttons yes
-    padding 0 0 0 10px
+    padding 5px 0 0 10px
+    separator_symbol ":|:"
 
     colors {
         background $black

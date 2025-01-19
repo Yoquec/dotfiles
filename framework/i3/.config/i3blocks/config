@@ -3,59 +3,27 @@
 # | |___) | |_) | | (_) | (__|   <\__ \
 # |_|____/|_.__/|_|\___/ \___|_|\_\___/
 
-color=#fbf1c7
 markup=pango
-
-# separator
-full_text=<span color="#776955">󱋱</span>
-separator=false
-
-[cpu]
-command=echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%"
-label=<span color="#a89984">CPU </span>
-interval=5
-
-[separator]
-
-[ram]
-command=free -m | awk 'FNR==2{ print "%i\n", $3 }' | sed -e "s/^%i//" | tr -d "\n" | awk '{ printf "%i / 1000\n", $1 }' | bc -l | xargs printf "%.2fGB\n"
-label=<span color="#a89984">RAM </span>
-interval=5
-
-[separator]
 
 [volume]
 command=volume-i3blocks
-label=<span color="#a89984">VOL </span>
 interval=1
 
-[separator]
-
 [keyboard_layout]
-command=setxkbmap -query | grep layout | cut -d ':' -f 2 | tr a-z A-Z | xargs -I {} printf "{}\n"
-label=<span color="#a89984">KBD </span>
+command=setxkbmap -query | grep layout | cut -d ':' -f 2 | xargs echo
+label=<span>    </span>
 interval=5
-
-[separator]
 
 [arch-update]
-command=pacman -Qu | wc -l | awk '{ printf "%s\n", $1 }'
-label=<span color="#a89984">UPD </span>
+command=pacman -Qu | wc -l
+label=<span>   </span>
 interval=once
 
-[separator]
-
 [battery]
-command=echo $(battery-i3blocks)
-label=<span color="#a89984">BAT </span>
+command=battery-i3blocks
 interval=5
 
-[separator]
-
 [calendar]
-command=date "+%d/%m/%Y %H:%M"
-color=#a89984
+command=date "+%a %b %d  %H:%M"
 interval=10
-
-[separator]
 
