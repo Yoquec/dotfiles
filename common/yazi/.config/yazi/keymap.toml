@@ -17,8 +17,8 @@ keymap = [
 	{ on = "<Up>",    run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<Down>",  run = "arrow 1",  desc = "Move cursor down" },
 
-	{ on = "<C-u>", run = "arrow -50%",  desc = "Move cursor up half page" },
-	{ on = "<C-d>", run = "arrow 50%",   desc = "Move cursor down half page" },
+	{ on = "<", run = "arrow -50%",  desc = "Move cursor up half page" },
+	{ on = ">", run = "arrow 50%",   desc = "Move cursor down half page" },
 
 	{ on = "<S-PageUp>",   run = "arrow -50%",  desc = "Move cursor up half page" },
 	{ on = "<S-PageDown>", run = "arrow 50%",   desc = "Move cursor down half page" },
@@ -36,8 +36,8 @@ keymap = [
 	{ on = "L", run = "forward", desc = "Go forward to the next directory" },
 
 	# Seeking
-	{ on = "<c-k>", run = "seek -5", desc = "Seek up 5 units in the preview" },
-	{ on = "<c-j>", run = "seek 5",  desc = "Seek down 5 units in the preview" },
+	{ on = "<C-u>", run = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = "<C-d>", run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	# Selection
 	{ on = "<Space>", run = [ "toggle --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
