@@ -9,6 +9,7 @@
 
   home.packages = [
     pkgs.ltex-ls
+    pkgs.nil
   ];
 
   # Dotfiles configuration
