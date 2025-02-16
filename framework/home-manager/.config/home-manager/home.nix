@@ -7,9 +7,15 @@
   # WARNING: Might introduce backwards-incompatible changes if modified
   home.stateVersion = "24.11";
 
-  home.packages = [
-    pkgs.ltex-ls
-    pkgs.nil
+  home.packages = with pkgs; [
+    ltex-ls
+    nil
+    harper
+    lemminx
+    taplo
+    yaml-language-server
+    jsonnet-language-server
+    emmet-language-server
   ];
 
   # Dotfiles configuration
