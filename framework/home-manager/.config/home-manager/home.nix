@@ -8,7 +8,6 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    ltex-ls
     nil
     harper
     lemminx
