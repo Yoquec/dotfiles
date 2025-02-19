@@ -15,6 +15,7 @@
     yaml-language-server
     jsonnet-language-server
     emmet-language-server
+    nodePackages.prettier
   ];
 
   # Dotfiles configuration
