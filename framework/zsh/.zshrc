@@ -48,8 +48,9 @@ bindkey '^y' autosuggest-accept
 # direnv
 [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
+# home manager vars
 [[ -e $XDG_CONFIG_DIR/home-manager ]] && source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# powerlevel theme
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
