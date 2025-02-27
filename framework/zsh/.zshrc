@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export XDG_CONFIG_DIR="$HOME/.config"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -49,7 +50,7 @@ bindkey '^y' autosuggest-accept
 [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
 # home manager vars
-[[ -e $XDG_CONFIG_DIR/home-manager ]] && source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+[[ -d $XDG_CONFIG_DIR/home-manager ]] && source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
 # powerlevel theme
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
