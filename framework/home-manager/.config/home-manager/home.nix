@@ -27,7 +27,7 @@
     PAGER = "bat";
     BAT_THEME = "base16";
     WIKI_HOME = "$HOME/Nextcloud/Notes/";
-    PATH = "$PATH:$HOME/go/bin:$HOME/.nix-profile/bin";
+    PATH = "$PATH:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.nix-profile/bin";
   };
 
   # Let Home Manager install and manage itself.
