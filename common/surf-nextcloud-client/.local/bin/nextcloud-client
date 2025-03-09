@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-surf -T -a @ -c $HOME/.cache/surf/nextcloud-client https://cloud.yoquec.com

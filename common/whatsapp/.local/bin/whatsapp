@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+
+PROFILE=whatsapp
+URL=https://web.whatsapp.com
+
+librewolf -P $PROFILE --kiosk --new-instance $URL
