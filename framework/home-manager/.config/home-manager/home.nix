@@ -12,6 +12,7 @@
     harper
     lemminx
     taplo
+    texlab
     yaml-language-server
     jsonnet-language-server
     emmet-language-server
