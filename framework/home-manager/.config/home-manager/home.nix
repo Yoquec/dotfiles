@@ -14,7 +14,7 @@
     taplo
     texlab
     yaml-language-server
-    jsonnet-language-server
+    vscode-langservers-extracted
     emmet-language-server
     nodePackages.prettier
   ];
