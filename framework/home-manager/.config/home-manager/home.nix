@@ -13,6 +13,7 @@
     lemminx
     taplo
     texlab
+    alejandra
     yaml-language-server
     vscode-langservers-extracted
     emmet-language-server
