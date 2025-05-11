@@ -32,7 +32,8 @@ if [ -e $XDG_RUNTIME_DIR ]; then
     export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 fi
 
-
+# start polkit agent
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 # decrease keyboard repeat delay
 /usr/bin/xset r rate 300 50 &
 # usb automounter
