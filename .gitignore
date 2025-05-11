@@ -8,7 +8,3 @@
 
 */gtk/.config/gtk-*/bookmarks
 */gtk/.config/gtk-2.0/gtkfilechooser.ini
-
-# Ignore all wallpapers except for my own one
-common/wallpapers/
-!common/wallpapers/tux_green.png

@@ -214,8 +214,9 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
-# wallpaper
-exec_always feh --bg-center $HOME/Pictures/wallpapers/tux_green.png
+# Wallpaper, credit to Scott Webb
+# See: https://www.pexels.com/photo/two-green-leaves-1084510/
+exec_always feh --bg-fill $HOME/Pictures/wallpapers/plan_scott_webb.jpg
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
