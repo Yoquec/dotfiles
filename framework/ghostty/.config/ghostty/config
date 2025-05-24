@@ -1,8 +1,8 @@
-font-family = IosevkaTerm NFM
-font-style = SemiBold
-font-style-bold = ExtraBold
-font-style-italic = SemiBold Italic
-font-style-bold-italic = ExtraBold Italic
+font-family = monospace
+font-style = Medium
+font-style-bold = Bold
+font-style-italic = Medium Italic
+font-style-bold-italic = Bold Italic
 
 font-size = 15
 
