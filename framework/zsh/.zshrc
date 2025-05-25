@@ -33,6 +33,9 @@ alias ta="tmux attach"
 alias th="tmux new-session -s 'Home 🏠' -c '$HOME' "
 alias tw="tmux new-session -s 'Wiki 📚' -c '$WIKI_HOME'"
 
+alias pbcopy="xclip -sel c"
+alias pbpaste="xclip -sel c -o"
+
 alias prn="poetry run"
 
 alias pom="pomodoro"
