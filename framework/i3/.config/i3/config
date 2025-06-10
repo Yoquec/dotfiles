@@ -17,8 +17,8 @@
 
 font pango:Inter Display Medium 12
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 5
+default_floating_border pixel 5
 
 gaps inner 15px
 gaps outer 1px
@@ -144,9 +144,10 @@ set $black       #000000
 set $red         #d54e53
 set $inactive    #8c8c8c
 set $background  #424242
+set $accent      #b0be55
 
 #                         title border    window border      text          indicator
-client.focused            $white          $white             $background   $white
+client.focused            $white          $accent            $background   $white
 client.unfocused          $white	      $background        $white        $background
 client.focused_inactive   $white 	      $background        $white        $background
 client.urgent             $white          $red               $background   $red
