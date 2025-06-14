@@ -30,8 +30,8 @@ alias cp="cp -i"
 alias mv="mv -i"
 
 alias ta="tmux attach"
-alias th="tmux new-session -s 'Home 🏠' -c '$HOME' "
-alias tw="tmux new-session -s 'Wiki 📚' -c '$WIKI_HOME'"
+alias th='tmux new-session -s "Home 🏠" -c "$HOME"'
+alias tw='tmux new-session -s "Wiki 📚" -c "$WIKI_HOME"'
 
 alias pbcopy="xclip -sel c"
 alias pbpaste="xclip -sel c -o"
