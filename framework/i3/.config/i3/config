@@ -144,7 +144,7 @@ set $black       #000000
 set $red         #d54e53
 set $inactive    #8c8c8c
 set $background  #424242
-set $accent      #b0be55
+set $accent      #718c00
 
 #                         title border    window border      text          indicator
 client.focused            $white          $accent            $background   $white
