@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "7afba3a"
-hash = "f4d72c29cb0ddd9605e78f234216fd4e"
+rev = "de53d90"
+hash = "3e023d31f29201efdac2a6ae35fedb78"
 
 [flavor]
 deps = []
