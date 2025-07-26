@@ -33,16 +33,14 @@
   #   yazi.enable = true;
   #   lazygit.enable = true;
   #   eza.enable = true;
+  #   rigpgrep.enable = true;
   # };
 
   programs = {
     awscli.enable = true;
-  };
-
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "base16";
+    bat = {
+      enable = true;
+      config.theme = "base16";
     };
   };
 
