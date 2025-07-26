@@ -45,6 +45,7 @@
   };
 
   home.file = {
+    ".config/rofi".source = ../../dotfiles/rofi;
     ".config/dunst".source = ../../dotfiles/dunst;
     ".config/ghostty".source = ../../dotfiles/ghostty;
 
