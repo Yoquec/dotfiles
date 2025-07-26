@@ -14,6 +14,10 @@
       };
       extraConfig = {
         pager = {difftool = true;};
+        user = {
+          name = "Alvaro Viejo";
+          email = "alvaro.viejo@yoquec.com";
+        };
       };
     };
   };
