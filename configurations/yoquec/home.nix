@@ -12,6 +12,7 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
+    # TODO: Add executable scripts as overlays
     nil
     harper
     lemminx
