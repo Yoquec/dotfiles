@@ -7,5 +7,5 @@
     (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
 
   zsh.enable = lib.mkDefault true;
-  nix.hasToBeDownloaded = lib.mkDefault false;
+  modules.nix.enable = lib.mkDefault false;
 }

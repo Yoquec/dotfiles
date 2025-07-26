@@ -28,7 +28,7 @@
     shfmt
   ];
 
-  nix.hasToBeDownloaded = true;
+  modules.nix.enable = true;
 
   # NOTE: Packages currently managed by pacman
   # programs = {

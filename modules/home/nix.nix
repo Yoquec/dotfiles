@@ -8,9 +8,12 @@
   # See: https://raw.githubusercontent.com/juspay/nixos-unified-template/refs/heads/main/modules/home/nix.nix
 
   # `nix.package` is already set if on `NixOS` or `nix-darwin`.
-  options.nix.hasToBeDownloaded = lib.mkEnableOption "Bring an external nix package";
+  options.modules.nix.enable = lib.mkEnableOption "Bring an external nix package";
 
-  config = lib.mkIf config.nix.hasToBeDownloaded {
+  config = lib.mkIf config.modules.nix.enable {
     nix.package = lib.mkDefault pkgs.nix;
+    home.packages = [
+      config.nix.package
+    ];
   };
 }
