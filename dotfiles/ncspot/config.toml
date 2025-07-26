@@ -1,0 +1,12 @@
+[theme]
+background = "none"
+title = "green"
+playing = "green"
+playing_selected = "light green"
+highlight_bg = "#484848"
+error = "light white"
+error_bg = "red"
+statusbar = "black"
+statusbar_progress = "green"
+statusbar_bg = "green"
+search_match = "light red"
