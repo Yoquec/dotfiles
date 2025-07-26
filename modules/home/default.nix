@@ -8,4 +8,6 @@
 
   modules.zsh.enable = lib.mkDefault true;
   modules.nix.enable = lib.mkDefault false;
+  modules.fontconfig.enable = lib.mkDefault true;
+  modules.git.enable = lib.mkDefault true;
 }
