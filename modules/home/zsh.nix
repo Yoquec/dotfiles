@@ -7,6 +7,8 @@
   options.zsh.enable = lib.mkEnableOption "Enable zsh";
 
   config = lib.mkIf config.zsh.enable {
+    programs.eza.enableZshIntegration = true;
+
     # See: https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.enable
     programs.zsh = {
       enable = true;
@@ -17,9 +19,6 @@
       history.size = 10000;
 
       shellAliases = {
-        ls = "exa --icons";
-        la = "exa -lah --icons";
-
         yt = "yt-dlp --add-metadata -i";
         yta = "yt -x -f bestaudio/best";
 
