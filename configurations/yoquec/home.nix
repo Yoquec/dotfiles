@@ -46,6 +46,10 @@
 
   home.file = {
     ".config/dunst".source = ../../dotfiles/dunst;
+
+    # TODO: Add wallpaper thorugh overlay
+    ".config/i3".source = ../../dotfiles/i3;
+    ".config/i3blocks".source = ../../dotfiles/i3blocks;
   };
 
   home.sessionVariables = {

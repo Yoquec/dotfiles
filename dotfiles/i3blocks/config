@@ -1,0 +1,29 @@
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+markup=pango
+
+[volume]
+command=volume-i3blocks
+interval=1
+
+[keyboard_layout]
+command=setxkbmap -query | grep layout | cut -d ':' -f 2 | xargs echo
+label=<span>    </span>
+interval=5
+
+[arch-update]
+command=pacman -Qu | wc -l
+label=<span>   </span>
+interval=once
+
+[battery]
+command=battery-i3blocks
+interval=5
+
+[calendar]
+command=date "+%a %b %d  %H:%M"
+interval=10
+
