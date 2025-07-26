@@ -11,4 +11,5 @@
   modules.fontconfig.enable = lib.mkDefault true;
   modules.git.enable = lib.mkDefault true;
   modules.tmux.enable = lib.mkDefault true;
+  modules.yazi.enable = lib.mkDefault true;
 }

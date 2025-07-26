@@ -31,7 +31,6 @@
 
   # NOTE: Packages currently managed by pacman
   # programs = {
-  #   yazi.enable = true;
   #   lazygit.enable = true;
   #   eza.enable = true;
   #   rigpgrep.enable = true;
@@ -55,11 +54,6 @@
     ".config/wireplumber".source = ../../dotfiles/wireplumber;
 
     ".config/ncspot/config.toml".source = ../../dotfiles/ncspot/config.toml;
-
-    ".config/yazi/init.lua".source = ../../dotfiles/yazi/init.lua;
-    ".config/yazi/yazi.toml".source = ../../dotfiles/yazi/yazi.toml;
-    ".config/yazi/theme.toml".source = ../../dotfiles/yazi/theme.toml;
-    ".config/yazi/keymap.toml".source = ../../dotfiles/yazi/keymap.toml;
 
     # TODO: Add wallpaper thorugh overlay
     ".config/i3".source = ../../dotfiles/i3;
