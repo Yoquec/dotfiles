@@ -50,6 +50,7 @@
     ".config/rofi".source = ../../dotfiles/rofi;
     ".config/dunst".source = ../../dotfiles/dunst;
     ".config/ghostty".source = ../../dotfiles/ghostty;
+    ".config/redshift".source = ../../dotfiles/redshift;
     ".config/wireplumber".source = ../../dotfiles/wireplumber;
 
     ".config/ncspot/config.toml".source = ../../dotfiles/ncspot/config.toml;
