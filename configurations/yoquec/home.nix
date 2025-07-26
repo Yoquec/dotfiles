@@ -48,6 +48,7 @@
     ".config/rofi".source = ../../dotfiles/rofi;
     ".config/dunst".source = ../../dotfiles/dunst;
     ".config/ghostty".source = ../../dotfiles/ghostty;
+    ".config/wireplumber".source = ../../dotfiles/wireplumber;
 
     # TODO: Add wallpaper thorugh overlay
     ".config/i3".source = ../../dotfiles/i3;
