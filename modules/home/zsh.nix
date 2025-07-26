@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.zsh.enable = lib.mkEnableOption "Enable zsh";
+  options.modules.zsh.enable = lib.mkEnableOption "Enable zsh";
 
-  config = lib.mkIf config.zsh.enable {
+  config = lib.mkIf config.modules.zsh.enable {
     programs.eza.enableZshIntegration = true;
 
     # See: https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.enable

@@ -6,6 +6,6 @@
     (fn: ./${fn})
     (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
 
-  zsh.enable = lib.mkDefault true;
+  modules.zsh.enable = lib.mkDefault true;
   modules.nix.enable = lib.mkDefault false;
 }
