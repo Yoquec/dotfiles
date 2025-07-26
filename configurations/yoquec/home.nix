@@ -45,6 +45,8 @@
   };
 
   home.file = {
+    ".xinitrc".source = ../../dotfiles/xinit/.xinitrc;
+
     ".config/rofi".source = ../../dotfiles/rofi;
     ".config/dunst".source = ../../dotfiles/dunst;
     ".config/ghostty".source = ../../dotfiles/ghostty;
