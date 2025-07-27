@@ -19,22 +19,6 @@ in {
   home.homeDirectory = "/home/${identity.username}";
   home.stateVersion = "24.11";
 
-  home.packages = with pkgs; [
-    # TODO: Add executable scripts as overlays
-    nil
-    harper
-    lemminx
-    taplo
-    texlab
-    alejandra
-    yaml-language-server
-    vscode-langservers-extracted
-    emmet-language-server
-    bash-language-server
-    nodePackages.prettier
-    shfmt
-  ];
-
   modules.nix.enable = true;
 
   home.file = {
