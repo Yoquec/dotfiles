@@ -31,11 +31,11 @@
 
   modules.tmux = {
     enable = lib.mkDefault true;
-    installBinary = lib.mkDefault true;
+    installBinary = lib.mkDefault false;
   };
 
   modules.awscli = {
     enable = lib.mkDefault true;
-    installBinary = lib.mkDefault true;
+    installBinary = lib.mkDefault false;
   };
 }
