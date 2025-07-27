@@ -37,10 +37,6 @@ in {
 
   modules.nix.enable = true;
 
-  programs = {
-    awscli.enable = true;
-  };
-
   home.file = {
     ".xinitrc".source = ../../dotfiles/xinit/.xinitrc;
 

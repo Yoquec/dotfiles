@@ -34,8 +34,6 @@
         yz = "yazi";
         lg = "lazygit";
 
-        awsc = "aws --cli-auto-prompt";
-
         pbcopy = "xclip -sel c";
         pbpaste = "xclip -sel c -o";
       };

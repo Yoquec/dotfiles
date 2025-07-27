@@ -27,4 +27,9 @@
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault true;
   };
+
+  modules.awscli = {
+    enable = lib.mkDefault true;
+    installBinary = lib.mkDefault true;
+  };
 }
