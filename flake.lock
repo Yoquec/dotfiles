@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "neovim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1752435062,
+        "narHash": "sha256-JwbymXLtFh7j+SWTivgDmM5KnhPuP6hIl7uqE8X8L1A=",
+        "owner": "yoquec",
+        "repo": "nvim",
+        "rev": "ce455e752449942cfe3fbc7ba80d4f4ffeeb96d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yoquec",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1753250450,
@@ -39,6 +55,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "neovim": "neovim",
         "nixpkgs": "nixpkgs"
       }
     }

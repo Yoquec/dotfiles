@@ -8,11 +8,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # noevim dotfiles flake
+    neovim = {
+      url = "github:yoquec/nvim";
+      flake = false;
+    };
   };
-
   outputs = {
     nixpkgs,
     home-manager,
+    neovim,
     ...
   }: let
     systems.x86_linux = {
@@ -23,6 +28,9 @@
     homeConfigurations."yoquec" = home-manager.lib.homeManagerConfiguration {
       inherit (systems.x86_linux) pkgs;
       modules = [./configurations/yoquec/home.nix];
+      extraSpecialArgs = {
+        inherit neovim;
+      };
     };
   };
 }

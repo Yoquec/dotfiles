@@ -30,11 +30,6 @@ in {
     ".config/ncspot/config.toml".source = ../../dotfiles/ncspot/config.toml;
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    WIKI_HOME = "$HOME/Nextcloud/Notes/";
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

@@ -14,6 +14,11 @@
   modules.git.enable = lib.mkDefault true;
   modules.languageservers.enable = lib.mkDefault true;
 
+  modules.neovim = {
+    enable = lib.mkDefault true;
+    installBinary = lib.mkDefault false;
+  };
+
   modules.lazygit = {
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;
