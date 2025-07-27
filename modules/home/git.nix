@@ -20,5 +20,16 @@
         };
       };
     };
+
+    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+      ga = "git add";
+      gb = "git branch";
+      gc = "git commit";
+      gd = "git diff";
+      gsw = "git switch";
+      gst = "git status";
+      gwt = "git worktree";
+      glo = "git log --oneline";
+    };
   };
 }

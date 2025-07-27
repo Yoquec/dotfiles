@@ -24,6 +24,10 @@
       history.size = 10000;
 
       shellAliases = {
+        rm = "rm -i";
+        cp = "cp -i";
+        mv = "mv -i";
+
         yt = "yt-dlp --add-metadata -i";
         yta = "yt -x -f bestaudio/best";
 
@@ -32,23 +36,8 @@
 
         awsc = "aws --cli-auto-prompt";
 
-        rm = "rm -i";
-        cp = "cp -i";
-        mv = "mv -i";
-
         pbcopy = "xclip -sel c";
         pbpaste = "xclip -sel c -o";
-
-        pom = "pomodoro";
-
-        ga = "git add";
-        gb = "git branch";
-        gc = "git commit";
-        gd = "git diff";
-        gsw = "git switch";
-        gst = "git status";
-        gwt = "git worktree";
-        glo = "git log --oneline";
       };
 
       initContent = ''
