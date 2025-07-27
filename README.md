@@ -12,7 +12,9 @@ Repository containing my dotifles managed by [home-manager](https://github.com/n
 ## Installing
 
 ```bash
-# or git clone https://github.com/yoquec/dotfiles.git
-git clone git@github.com:yoquec/dotfiles.git ~/.dotfiles
-nix run github:nix-community/home-manager -- switch --flake ~/.dotfiles#<PROFILE>
+# or git clone git@github.com:yoquec/dotfiles.git
+git clone https://github.com/yoquec/dotfiles.git ~/.dotfiles
+nix run --extra-experimental-features "nix-command flakes"\
+  github:nix-community/home-manager -- \
+  switch --extra-experimental-features "nix-command flakes" --flake ~/.dotfiles#<PROFILE>
 ```
