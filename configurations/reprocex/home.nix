@@ -1,6 +1,6 @@
 # Home manager configuration to use in a dev container
 # See: https://hub.docker.com/r/nixos/nix
-{...}: let
+{pkgs, ...}: let
   identity = {
     username = "root";
     fullname = "Alvaro Viejo";
@@ -16,6 +16,10 @@ in {
   home.username = identity.username;
   home.homeDirectory = "/root";
   home.stateVersion = "24.11";
+
+  home.packages = with pkgs; [
+    gcc
+  ];
 
   modules = {
     nix.enable = true;
