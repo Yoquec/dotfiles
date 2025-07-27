@@ -32,5 +32,13 @@
         inherit neovim;
       };
     };
+
+    homeConfigurations."reprocex" = home-manager.lib.homeManagerConfiguration {
+      inherit (systems.x86_linux) pkgs;
+      modules = [./configurations/reprocex/home.nix];
+      extraSpecialArgs = {
+        inherit neovim;
+      };
+    };
   };
 }
