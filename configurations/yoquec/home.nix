@@ -62,10 +62,6 @@ in {
     ".config/wireplumber".source = ../../dotfiles/wireplumber;
 
     ".config/ncspot/config.toml".source = ../../dotfiles/ncspot/config.toml;
-
-    # TODO: Add wallpaper thorugh overlay
-    ".config/i3".source = ../../dotfiles/i3;
-    ".config/i3blocks".source = ../../dotfiles/i3blocks;
   };
 
   home.sessionVariables = {
