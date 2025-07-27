@@ -5,7 +5,7 @@
   ...
 }: {
   options.modules.i3.enable = lib.mkEnableOption "Enable i3 and i3-blocks";
-  options.modules.i3.install = lib.mkEnableOption "Install i3 and i3-blocks through home-manager";
+  options.modules.i3.installBinary = lib.mkEnableOption "Install i3 and i3-blocks through home-manager";
 
   config = lib.mkIf config.modules.i3.enable {
     home.file = {
@@ -19,7 +19,7 @@
       };
     };
 
-    home.packages = lib.mkIf config.modules.i3.install (with pkgs; [
+    home.packages = lib.mkIf config.modules.i3.installBinary (with pkgs; [
       i3
       i3blocks
     ]);
