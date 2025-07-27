@@ -46,10 +46,6 @@ in {
 
   programs = {
     awscli.enable = true;
-    bat = {
-      enable = true;
-      config.theme = "base16";
-    };
   };
 
   home.file = {
@@ -66,7 +62,6 @@ in {
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    PAGER = "bat";
     WIKI_HOME = "$HOME/Nextcloud/Notes/";
   };
 

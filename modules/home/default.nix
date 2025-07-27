@@ -12,6 +12,11 @@
   modules.git.enable = lib.mkDefault true;
   modules.yazi.enable = lib.mkDefault true;
 
+  modules.bat = {
+    enable = lib.mkDefault true;
+    installBinary = lib.mkDefault false;
+  };
+
   modules.i3 = {
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;
