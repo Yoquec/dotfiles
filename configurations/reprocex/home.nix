@@ -1,6 +1,8 @@
+# Home manager configuration to use in a dev container
+# See: https://hub.docker.com/r/nixos/nix
 {...}: let
   identity = {
-    username = "reprocex";
+    username = "root";
     fullname = "Alvaro Viejo";
     email = "alvaro.viejo@yoquec.com";
   };
@@ -12,7 +14,7 @@ in {
   inherit identity;
 
   home.username = identity.username;
-  home.homeDirectory = "/home/${identity.username}";
+  home.homeDirectory = "/root";
   home.stateVersion = "24.11";
 
   modules = {
