@@ -48,8 +48,6 @@
         bindkey '^y' autosuggest-accept
 
         # shell integrations
-        [[ $(command -v mise) ]] && eval "$(mise activate zsh)"
-        [[ $(command -v fzf) ]] && eval "$(fzf --zsh)"
         [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
         [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
       '';
