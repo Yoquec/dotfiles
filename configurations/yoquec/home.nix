@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{...}: let
   identity = {
     username = "yoquec";
     fullname = "Alvaro Viejo";
@@ -21,6 +17,7 @@ in {
 
   modules.nix.enable = true;
 
+  # TODO: Should be moved to their own modules
   home.file = {
     ".xinitrc".source = ../../dotfiles/xinit/.xinitrc;
 

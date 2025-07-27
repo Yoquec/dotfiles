@@ -33,6 +33,7 @@
 
         lg = "lazygit";
 
+        # TODO: Should be moved to the X11 modules
         pbcopy = "xclip -sel c";
         pbpaste = "xclip -sel c -o";
       };
