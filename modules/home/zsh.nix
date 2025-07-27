@@ -40,8 +40,6 @@
         # copilot-like autosuggest
         bindkey '^y' autosuggest-accept
 
-        # shell integrations
-        [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
         [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
       '';
     };
