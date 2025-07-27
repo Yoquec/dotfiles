@@ -16,6 +16,7 @@ in {
   home.stateVersion = "24.11";
 
   modules.nix.enable = true;
+  modules.awscli.installBinary = true;
 
   # TODO: Should be moved to their own modules
   home.file = {
