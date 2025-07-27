@@ -9,6 +9,8 @@
   config = lib.mkIf config.modules.zsh.enable {
     programs.eza = {
       enable = true;
+      icons = true;
+      git = true;
       enableZshIntegration = true;
     };
 
