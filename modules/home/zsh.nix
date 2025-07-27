@@ -31,8 +31,6 @@
         yt = "yt-dlp --add-metadata -i";
         yta = "yt -x -f bestaudio/best";
 
-        lg = "lazygit";
-
         # TODO: Should be moved to the X11 modules
         pbcopy = "xclip -sel c";
         pbpaste = "xclip -sel c -o";
