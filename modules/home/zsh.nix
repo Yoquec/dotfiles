@@ -36,11 +36,10 @@
       initContent = ''
         # powerlevel10k
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
         # copilot-like autosuggest
         bindkey '^y' autosuggest-accept
-
-        [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
       '';
     };
   };
