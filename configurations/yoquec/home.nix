@@ -2,13 +2,21 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  identity = {
+    username = "yoquec";
+    fullname = "Alvaro Viejo";
+    email = "alvaro.viejo@yoquec.com";
+  };
+in {
   imports = [
     ../../modules/home
+    ../../modules/identity.nix
   ];
+  inherit identity;
 
-  home.username = "yoquec";
-  home.homeDirectory = "/home/yoquec";
+  home.username = identity.username;
+  home.homeDirectory = "/home/${identity.username}";
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [

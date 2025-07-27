@@ -15,8 +15,8 @@
       extraConfig = {
         pager = {difftool = true;};
         user = {
-          name = "Alvaro Viejo";
-          email = "alvaro.viejo@yoquec.com";
+          name = config.identity.fullname;
+          email = config.identity.username;
         };
       };
     };
