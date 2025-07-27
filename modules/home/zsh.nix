@@ -28,9 +28,6 @@
         cp = "cp -i";
         mv = "mv -i";
 
-        yt = "yt-dlp --add-metadata -i";
-        yta = "yt -x -f bestaudio/best";
-
         # TODO: Should be moved to the X11 modules
         pbcopy = "xclip -sel c";
         pbpaste = "xclip -sel c -o";

@@ -43,4 +43,9 @@
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;
   };
+
+  modules.yt-dlp = {
+    enable = lib.mkDefault true;
+    installBinary = lib.mkDefault false;
+  };
 }
