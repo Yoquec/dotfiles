@@ -3,10 +3,18 @@
   config,
   ...
 }: {
-  options.modules.yazi.enable = lib.mkEnableOption "Enable yazi";
+  options.modules.yazi = {
+    enable = lib.mkEnableOption "Enable yazi";
+    installBinary = lib.mkEnableOption "Install yazi binary with nix";
+  };
 
   config = lib.mkIf config.modules.yazi.enable {
-    programs.yazi.enable = true;
+    programs.yazi.enable = config.modules.yazi.installBinary;
+
+    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+      yz = "yazi";
+    };
+
     home.file = {
       ".config/yazi/init.lua".source = ../../dotfiles/yazi/init.lua;
       ".config/yazi/yazi.toml".source = ../../dotfiles/yazi/yazi.toml;

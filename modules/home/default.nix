@@ -14,6 +14,11 @@
   modules.yazi.enable = lib.mkDefault true;
   modules.languageservers.enable = lib.mkDefault true;
 
+  modules.yazi = {
+    enable = lib.mkDefault true;
+    installBinary = lib.mkDefault false;
+  };
+
   modules.bat = {
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;

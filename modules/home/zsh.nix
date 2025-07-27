@@ -31,7 +31,6 @@
         yt = "yt-dlp --add-metadata -i";
         yta = "yt -x -f bestaudio/best";
 
-        yz = "yazi";
         lg = "lazygit";
 
         pbcopy = "xclip -sel c";
