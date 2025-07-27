@@ -12,7 +12,6 @@
   modules.nix.enable = lib.mkDefault false;
   modules.fontconfig.enable = lib.mkDefault true;
   modules.git.enable = lib.mkDefault true;
-  modules.yazi.enable = lib.mkDefault true;
   modules.languageservers.enable = lib.mkDefault true;
 
   modules.lazygit = {
