@@ -37,13 +37,6 @@ in {
 
   modules.nix.enable = true;
 
-  # NOTE: Packages currently managed by pacman
-  # programs = {
-  #   lazygit.enable = true;
-  #   eza.enable = true;
-  #   rigpgrep.enable = true;
-  # };
-
   programs = {
     awscli.enable = true;
   };
