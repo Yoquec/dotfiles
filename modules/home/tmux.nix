@@ -30,5 +30,11 @@
         source = ../../dotfiles/tmux/bin/tmsproject;
       };
     };
+
+    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+      ta = "tmux attach";
+      th = ''tmux new-session -s "Home 🏠" -c "$HOME"'';
+      tw = ''tmux new-session -s "Wiki 📚" -c "$WIKI_HOME"'';
+    };
   };
 }

@@ -34,10 +34,6 @@
         cp = "cp -i";
         mv = "mv -i";
 
-        ta = "tmux attach";
-        th = ''tmux new-session -s "Home 🏠" -c "$HOME"'';
-        tw = ''tmux new-session -s "Wiki 📚" -c "$WIKI_HOME"'';
-
         pbcopy = "xclip -sel c";
         pbpaste = "xclip -sel c -o";
 
