@@ -10,8 +10,12 @@
   modules.nix.enable = lib.mkDefault false;
   modules.fontconfig.enable = lib.mkDefault true;
   modules.git.enable = lib.mkDefault true;
-  modules.tmux.enable = lib.mkDefault true;
   modules.yazi.enable = lib.mkDefault true;
   modules.i3.enable = lib.mkDefault true;
   modules.i3.install = lib.mkDefault false;
+
+  modules.tmux = {
+    enable = lib.mkDefault true;
+    installBinary = lib.mkDefault true;
+  };
 }

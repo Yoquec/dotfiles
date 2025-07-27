@@ -1,12 +1,20 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
-  options.modules.tmux.enable = lib.mkEnableOption "Enable tmux";
+  options.modules.tmux = {
+    enable = lib.mkEnableOption "Enable tmux";
+    installBinary = lib.mkEnableOption "Install tmux binary with nix";
+  };
 
   config = lib.mkIf config.modules.tmux.enable {
-    programs.tmux.enable = true;
+    # NOTE: Don't install tmux through home-manager due to variation configuration file handling.
+    home.packages = lib.mkIf config.modules.tmux.installBinary (with pkgs; [
+      tmux
+    ]);
+
     home.file = {
       ".tmux.conf".source = ../../dotfiles/tmux/.tmux.conf;
       ".local/bin/tms" = {
