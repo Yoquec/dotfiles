@@ -3,20 +3,61 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  keyMode = "vi";
+  terminal = "tmux-256color";
+
+  extraConfig = ''
+    set -sg escape-time 0
+
+    # Keybinds
+    bind-key W run-shell "~/.local/bin/tms '$WIKI_HOME' 'Wiki 📚'"
+    bind-key H run-shell "~/.local/bin/tms '$HOME' 'Home 🏠'"
+    bind-key N popup -E "~/.local/bin/tmsproject"
+    bind-key Space popup -E "~/.local/bin/tmswitch"
+
+    # Colored undercurls
+    set -ga terminal-overrides ',*256col*:Tc'
+    set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+    set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
+
+    # Status
+    set -g status-left "[#S]"
+    set -g status-left-length 30
+
+    set -g status-right '%a %d-%m-%Y %H:%M'
+    set -g status-right-length 20
+    set -g window-status-format ' #I:#W#F '
+
+    # Styles
+    set -g status-style 'fg=default'
+    set -g pane-border-style 'fg=colour223'
+    set -g pane-active-border-style 'fg=colour2'
+    set -g window-status-current-style 'fg=default bold'
+    set -g window-status-current-format ' #[fg=colour9]#I#[fg=colour247]:#[fg=default]#W#F '
+    set -g window-status-style 'fg=colour247'
+    set -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
+  '';
+in {
   options.modules.tmux = {
     enable = lib.mkEnableOption "Enable tmux";
-    installBinary = lib.mkEnableOption "Install tmux binary with nix";
   };
 
   config = lib.mkIf config.modules.tmux.enable {
-    # NOTE: Don't install tmux through home-manager due to variation configuration file handling.
-    home.packages = lib.mkIf config.modules.tmux.installBinary (with pkgs; [
-      tmux
-    ]);
+    programs.tmux = {
+      enable = true;
+      clock24 = true;
+      mouse = true;
+      focusEvents = true;
+      sensibleOnTop = true;
+      baseIndex = 1;
+
+      inherit keyMode;
+      inherit terminal;
+      inherit extraConfig;
+    };
 
     home.file = {
-      ".tmux.conf".source = ../../dotfiles/tmux/.tmux.conf;
       ".local/bin/tms" = {
         executable = true;
         source = ../../dotfiles/tmux/bin/tms;
@@ -30,6 +71,8 @@
         source = ../../dotfiles/tmux/bin/tmsproject;
       };
     };
+
+    programs.tmux.shell = lib.mkIf config.modules.zsh.enable "${pkgs.zsh}/bin/zsh";
 
     programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
       ta = "tmux attach";

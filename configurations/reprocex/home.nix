@@ -29,7 +29,6 @@ in {
     yt-dlp.enable = false;
 
     bat.installBinary = true;
-    tmux.installBinary = true;
     yazi.installBinary = true;
     neovim.installBinary = true;
     awscli.installBinary = true;

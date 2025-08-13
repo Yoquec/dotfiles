@@ -7,6 +7,7 @@
     (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
 
   modules.zsh.enable = lib.mkDefault true;
+  modules.tmux.enable = lib.mkDefault true;
   modules.fzf.enable = lib.mkDefault true;
   modules.direnv.enable = lib.mkDefault true;
   modules.nix.enable = lib.mkDefault false;
@@ -35,11 +36,6 @@
   };
 
   modules.i3 = {
-    enable = lib.mkDefault true;
-    installBinary = lib.mkDefault false;
-  };
-
-  modules.tmux = {
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;
   };
