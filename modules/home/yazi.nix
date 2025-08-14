@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.modules.yazi = {
@@ -15,14 +16,17 @@
       yz = "yazi";
     };
 
+    home.packages = [
+      (
+        pkgs.writeShellScriptBin "mktms"
+        (builtins.readFile ../../dotfiles/yazi/bin/mktms)
+      )
+    ];
+
     home.file = {
       ".config/yazi/yazi.toml".source = ../../dotfiles/yazi/yazi.toml;
       ".config/yazi/theme.toml".source = ../../dotfiles/yazi/theme.toml;
       ".config/yazi/keymap.toml".source = ../../dotfiles/yazi/keymap.toml;
-      ".local/bin/mktms" = {
-        executable = true;
-        source = ../../dotfiles/yazi/bin/mktms;
-      };
     };
   };
 }

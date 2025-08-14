@@ -57,20 +57,20 @@ in {
       inherit extraConfig;
     };
 
-    home.file = {
-      ".local/bin/tms" = {
-        executable = true;
-        source = ../../dotfiles/tmux/bin/tms;
-      };
-      ".local/bin/tmswitch" = {
-        executable = true;
-        source = ../../dotfiles/tmux/bin/tmswitch;
-      };
-      ".local/bin/tmsproject" = {
-        executable = true;
-        source = ../../dotfiles/tmux/bin/tmsproject;
-      };
-    };
+    home.packages = [
+      (
+        pkgs.writeShellScriptBin "tms"
+        (builtins.readFile ../../dotfiles/tmux/bin/tms)
+      )
+      (
+        pkgs.writeShellScriptBin "tmswitch"
+        (builtins.readFile ../../dotfiles/tmux/bin/tmswitch)
+      )
+      (
+        pkgs.writeShellScriptBin "tmsproject"
+        (builtins.readFile ../../dotfiles/tmux/bin/tmsproject)
+      )
+    ];
 
     programs.tmux.shell = lib.mkIf config.modules.zsh.enable "${pkgs.zsh}/bin/zsh";
 
