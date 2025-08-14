@@ -136,13 +136,6 @@ in {
       inherit settings;
     };
 
-    home.packages = lib.mkIf config.modules.tmux.enable [
-      (
-        pkgs.writeShellScriptBin "mktms"
-        (builtins.readFile ../../dotfiles/yazi/bin/mktms)
-      )
-    ];
-
     programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
       yz = "yazi";
     };

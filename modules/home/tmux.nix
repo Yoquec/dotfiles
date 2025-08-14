@@ -7,14 +7,35 @@
   keyMode = "vi";
   terminal = "tmux-256color";
 
+  tmuxPackages = {
+    tms = (
+      pkgs.writeShellScriptBin "tms"
+      (builtins.readFile ../../dotfiles/tmux/bin/tms)
+    );
+    tmswitch = (
+      pkgs.writeShellScriptBin "tmswitch"
+      (builtins.readFile ../../dotfiles/tmux/bin/tmswitch)
+    );
+    tmsproject = (
+      pkgs.writeShellScriptBin "tmsproject"
+      (builtins.readFile ../../dotfiles/tmux/bin/tmsproject)
+    );
+    mktms = (
+      pkgs.writeShellScriptBin "mktms" ''
+        dirname=$(basename $dir | tr _ " " | tr . _)
+        ${tmuxPackages.tms}/bin/tms "`pwd`" "$dirname"
+      ''
+    );
+  };
+
   extraConfig = ''
     set -sg escape-time 0
 
     # Keybinds
-    bind-key W run-shell "~/.local/bin/tms '$WIKI_HOME' 'Wiki 📚'"
-    bind-key H run-shell "~/.local/bin/tms '$HOME' 'Home 🏠'"
-    bind-key N popup -E "~/.local/bin/tmsproject"
-    bind-key Space popup -E "~/.local/bin/tmswitch"
+    bind-key W run-shell "tms '$WIKI_HOME' 'Wiki 📚'"
+    bind-key H run-shell "tms '$HOME' 'Home 🏠'"
+    bind-key N popup -E "tmsproject"
+    bind-key Space popup -E "tmswitch"
 
     # Colored undercurls
     set -ga terminal-overrides ',*256col*:Tc'
@@ -57,19 +78,11 @@ in {
       inherit extraConfig;
     };
 
-    home.packages = [
-      (
-        pkgs.writeShellScriptBin "tms"
-        (builtins.readFile ../../dotfiles/tmux/bin/tms)
-      )
-      (
-        pkgs.writeShellScriptBin "tmswitch"
-        (builtins.readFile ../../dotfiles/tmux/bin/tmswitch)
-      )
-      (
-        pkgs.writeShellScriptBin "tmsproject"
-        (builtins.readFile ../../dotfiles/tmux/bin/tmsproject)
-      )
+    home.packages = with tmuxPackages; [
+      tms
+      tmswitch
+      tmsproject
+      mktms
     ];
 
     programs.tmux.shell = lib.mkIf config.modules.zsh.enable "${pkgs.zsh}/bin/zsh";

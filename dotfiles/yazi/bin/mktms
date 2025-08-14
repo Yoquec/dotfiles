@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-dir=$(pwd)
-dirname=$(basename $dir | tr _ " " | tr . _)
-
-tms "$dir" "$dirname"
