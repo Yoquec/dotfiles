@@ -8,6 +8,7 @@
 
   modules.zsh.enable = lib.mkDefault true;
   modules.tmux.enable = lib.mkDefault true;
+  modules.yazi.enable = lib.mkDefault true;
   modules.fzf.enable = lib.mkDefault true;
   modules.direnv.enable = lib.mkDefault true;
   modules.nix.enable = lib.mkDefault false;
@@ -21,11 +22,6 @@
   };
 
   modules.lazygit = {
-    enable = lib.mkDefault true;
-    installBinary = lib.mkDefault false;
-  };
-
-  modules.yazi = {
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;
   };
