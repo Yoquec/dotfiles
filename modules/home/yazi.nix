@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   settings = {
@@ -88,11 +87,6 @@
         desc = "Go to the Music directory";
       }
       {
-        on = ["g" "n"];
-        run = "cd ~/Nextcloud";
-        desc = "Go to the Nextcloud directory";
-      }
-      {
         on = ["g" "l"];
         run = "cd ~/.local";
         desc = "Go to the .local directory";
@@ -102,12 +96,20 @@
         run = "cd ~/.local/bin";
         desc = "Go to the local scripts directory";
       }
-      # TODO: Make it depend on whether nextcloud is enabled
+      # TODO: Conditionally add if nextcloud is enabled
       {
-        on = ["g" "W"];
-        run = "cd ~/Nextcloud/Notes";
-        desc = "Go to the wiki directory";
+        on = ["g" "n"];
+        run = "cd ~/Nextcloud";
+        desc = "Go to the Nextcloud directory";
       }
+      (
+        lib.mkIf config.modules.neovim.enable
+        {
+          on = ["g" "W"];
+          run = "cd $WIKI_HOME";
+          desc = "Go to the wiki directory";
+        }
+      )
       (
         lib.mkIf config.modules.tmux.enable
         {
