@@ -43,13 +43,33 @@
       }
       {
         on = ["i"];
-        run = ''shell '$PAGER "$@" --paging=always' --block'';
+        run = ''shell '$PAGER "$@" --paging=always' --confirm --block'';
         desc = "Open files in the pager";
+      }
+      {
+        on = ["e"];
+        run = ''shell '$EDITOR "$@"' --confirm --block'';
+        desc = "Open the selected file(s) in the editor";
+      }
+      {
+        on = ["E"];
+        run = ''shell $EDITOR --confirm --block'';
+        desc = "Open the editor in current directory";
       }
       {
         on = ["w"];
         run = ''shell $SHELL --confirm --block '';
         desc = "Start terminal session";
+      }
+      {
+        on = ["%"];
+        run = "create";
+        desc = "Create a file (ends with / for directories)";
+      }
+      {
+        on = ["D"];
+        run = "create --dir";
+        desc = "Create a directory";
       }
       {
         on = ["g" "."];
