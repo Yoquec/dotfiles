@@ -4,14 +4,38 @@
   ...
 }: let
   settings = {
-    opener.open = [
+    open.prepend_rules = [
       {
-        run = ''$PAGER "$@" --paging=always'';
-        desc = "$PAGER";
-        for = "unix";
-        block = true;
+        name = "*.pdf";
+        use = ["document" "edit"];
       }
     ];
+    opener = {
+      document = [
+        # TODO: Condition on zathura being installed
+        {
+          run = ''zathura "$@"'';
+          desc = "zathura";
+          for = "unix";
+          orphan = true;
+        }
+        # TODO: Condition on okular being installed
+        {
+          run = ''okular "$@"'';
+          desc = "okular";
+          for = "linux";
+          orphan = true;
+        }
+      ];
+      open = [
+        {
+          run = ''$PAGER "$@" --paging=always'';
+          desc = "$PAGER";
+          for = "unix";
+          block = true;
+        }
+      ];
+    };
   };
 
   keymap = {
