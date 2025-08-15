@@ -22,8 +22,9 @@
     );
     mktms = (
       pkgs.writeShellScriptBin "mktms" ''
+        dir=$(pwd)
         dirname=$(basename $dir | tr _ " " | tr . _)
-        ${tmuxPackages.tms}/bin/tms "`pwd`" "$dirname"
+        ${tmuxPackages.tms}/bin/tms "$dir" "$dirname"
       ''
     );
   };
