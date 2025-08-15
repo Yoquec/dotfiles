@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: {
   options.modules.zsh.enable = lib.mkEnableOption "Enable zsh";
@@ -34,17 +33,9 @@
       };
 
       initContent = ''
-        # powerlevel10k
-        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-        [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
         # copilot-like autosuggest
         bindkey '^y' autosuggest-accept
       '';
-    };
-
-    home.file = {
-      ".p10k.zsh".source = ../../dotfiles/zsh/.p10k.zsh;
     };
   };
 }

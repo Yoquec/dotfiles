@@ -7,6 +7,7 @@
     (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
 
   modules.zsh.enable = lib.mkDefault true;
+  modules.starship.enable = lib.mkDefault true;
   modules.tmux.enable = lib.mkDefault true;
   modules.yazi.enable = lib.mkDefault true;
   modules.fzf.enable = lib.mkDefault true;
