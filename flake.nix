@@ -25,6 +25,11 @@
       pkgs = nixpkgs.legacyPackages.${systems.x86_linux.system};
     };
   in {
+    modules = {
+      identity = ./modules/identity.nix;
+      home.development = ./modules/home/development;
+    };
+
     homeConfigurations."yoquec" = home-manager.lib.homeManagerConfiguration {
       inherit (systems.x86_linux) pkgs;
       modules = [./configurations/yoquec/home.nix];
