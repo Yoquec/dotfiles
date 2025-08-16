@@ -19,8 +19,6 @@
       vscode-langservers-extracted
       emmet-language-server
       bash-language-server
-      nodePackages.prettier
-      shfmt
     ];
   };
 }

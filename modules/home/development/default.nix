@@ -12,6 +12,7 @@ in {
     ./fzf.nix
     ./git.nix
     ./langservers.nix
+    ./formatters.nix
     ./lazygit.nix
     ./neovim.nix
     ./nix.nix
@@ -34,6 +35,7 @@ in {
     direnv.enable = lib.mkDefault enable;
     starship.enable = lib.mkDefault enable;
     langservers.enable = lib.mkDefault enable;
+    formatters.enable = lib.mkDefault enable;
 
     nix = {
       enable = lib.mkDefault enable;
