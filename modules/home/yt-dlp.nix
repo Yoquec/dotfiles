@@ -11,7 +11,7 @@
   config = lib.mkIf config.modules.yt-dlp.enable {
     programs.yt-dlp.enable = config.modules.yt-dlp.installBinary;
 
-    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+    programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
       yt = "yt-dlp --add-metadata -i";
       yta = "yt -x -f bestaudio/best";
     };

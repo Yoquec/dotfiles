@@ -1,43 +1,13 @@
-# A module that automatically imports everything else in the current directory.
-# See: https://github.com/juspay/nixos-unified-template/blob/main/modules/home/default.nix
 {lib, ...}: {
-  imports = with builtins;
-    map
-    (fn: ./${fn})
-    (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
+  imports = [
+    ./fontconfig.nix
+    ./i3.nix
+    ./yt-dlp.nix
+  ];
 
-  modules.zsh.enable = lib.mkDefault true;
-  modules.starship.enable = lib.mkDefault true;
-  modules.tmux.enable = lib.mkDefault true;
-  modules.yazi.enable = lib.mkDefault true;
-  modules.fzf.enable = lib.mkDefault true;
-  modules.direnv.enable = lib.mkDefault true;
-  modules.nix.enable = lib.mkDefault false;
-  modules.fontconfig.enable = lib.mkDefault true;
-  modules.git.enable = lib.mkDefault true;
-  modules.languageservers.enable = lib.mkDefault true;
-
-  modules.neovim = {
-    enable = lib.mkDefault true;
-    installBinary = lib.mkDefault false;
-  };
-
-  modules.lazygit = {
-    enable = lib.mkDefault true;
-    installBinary = lib.mkDefault false;
-  };
-
-  modules.bat = {
-    enable = lib.mkDefault true;
-    installBinary = lib.mkDefault false;
-  };
+  modules.fontconfig.enable = true;
 
   modules.i3 = {
-    enable = lib.mkDefault true;
-    installBinary = lib.mkDefault false;
-  };
-
-  modules.awscli = {
     enable = lib.mkDefault true;
     installBinary = lib.mkDefault false;
   };

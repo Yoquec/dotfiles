@@ -4,12 +4,12 @@
   neovim,
   ...
 }: {
-  options.modules.neovim = {
+  options.modules.development.neovim = {
     enable = lib.mkEnableOption "Enable neovim";
     installBinary = lib.mkEnableOption "Install neovim binary with nix";
   };
 
-  config = lib.mkIf config.modules.neovim.enable {
+  config = lib.mkIf config.modules.development.neovim.enable {
     home.sessionVariables = {
       EDITOR = "nvim";
       WIKI_HOME = "$HOME/Nextcloud/Notes/";
@@ -19,6 +19,6 @@
       ".config/nvim".source = neovim;
     };
 
-    programs.neovim.enable = config.modules.neovim.installBinary;
+    programs.neovim.enable = config.modules.development.neovim.installBinary;
   };
 }

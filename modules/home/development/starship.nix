@@ -101,9 +101,9 @@
     };
   };
 in {
-  options.modules.starship.enable = lib.mkEnableOption "Enable starship";
+  options.modules.development.starship.enable = lib.mkEnableOption "Enable starship";
 
-  config = lib.mkIf config.modules.starship.enable {
+  config = lib.mkIf config.modules.development.starship.enable {
     programs.starship = {
       enable = true;
       settings =
@@ -116,7 +116,7 @@ in {
           nix_shell.format = ''via [$symbol$state]($style) '';
         }
         icons;
-      enableZshIntegration = config.modules.zsh.enable;
+      enableZshIntegration = config.modules.development.zsh.enable;
     };
   };
 }

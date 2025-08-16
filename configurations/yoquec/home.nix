@@ -6,17 +6,15 @@
   };
 in {
   imports = [
-    ../../modules/home
     ../../modules/identity.nix
+    ../../modules/home
+    ../../modules/home/development
   ];
   inherit identity;
 
   home.username = identity.username;
   home.homeDirectory = "/home/${identity.username}";
   home.stateVersion = "24.11";
-
-  modules.nix.enable = true;
-  modules.awscli.installBinary = true;
 
   # TODO: Should be moved to their own modules
   home.file = {

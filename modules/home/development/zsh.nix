@@ -3,9 +3,9 @@
   config,
   ...
 }: {
-  options.modules.zsh.enable = lib.mkEnableOption "Enable zsh";
+  options.modules.development.zsh.enable = lib.mkEnableOption "Enable zsh";
 
-  config = lib.mkIf config.modules.zsh.enable {
+  config = lib.mkIf config.modules.development.zsh.enable {
     programs.eza = {
       enable = true;
       icons = "auto";

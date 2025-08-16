@@ -1,7 +1,7 @@
 {
   lib,
-  config,
   pkgs,
+  config,
   ...
 }: let
   keyMode = "vi";
@@ -10,15 +10,15 @@
   tmuxPackages = {
     tms = (
       pkgs.writeShellScriptBin "tms"
-      (builtins.readFile ../../dotfiles/tmux/bin/tms)
+      (builtins.readFile ../../../dotfiles/tmux/bin/tms)
     );
     tmswitch = (
       pkgs.writeShellScriptBin "tmswitch"
-      (builtins.readFile ../../dotfiles/tmux/bin/tmswitch)
+      (builtins.readFile ../../../dotfiles/tmux/bin/tmswitch)
     );
     tmsproject = (
       pkgs.writeShellScriptBin "tmsproject"
-      (builtins.readFile ../../dotfiles/tmux/bin/tmsproject)
+      (builtins.readFile ../../../dotfiles/tmux/bin/tmsproject)
     );
     mktms = (
       pkgs.writeShellScriptBin "mktms" ''
@@ -61,11 +61,11 @@
     set -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
   '';
 in {
-  options.modules.tmux = {
+  options.modules.development.tmux = {
     enable = lib.mkEnableOption "Enable tmux";
   };
 
-  config = lib.mkIf config.modules.tmux.enable {
+  config = lib.mkIf config.modules.development.tmux.enable {
     programs.tmux = {
       enable = true;
       clock24 = true;
@@ -86,9 +86,9 @@ in {
       mktms
     ];
 
-    programs.tmux.shell = lib.mkIf config.modules.zsh.enable "${pkgs.zsh}/bin/zsh";
+    programs.tmux.shell = lib.mkIf config.modules.development.zsh.enable "${pkgs.zsh}/bin/zsh";
 
-    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+    programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
       ta = "tmux attach";
       th = ''tmux new-session -s "Home 🏠" -c "$HOME"'';
       tw = ''tmux new-session -s "Wiki 📚" -c "$WIKI_HOME"'';

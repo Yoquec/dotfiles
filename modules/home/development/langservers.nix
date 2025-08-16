@@ -1,13 +1,13 @@
 # Adds a series of nice to have language servers
 {
   lib,
-  config,
   pkgs,
+  config,
   ...
 }: {
-  options.modules.languageservers.enable = lib.mkEnableOption "Enable default languageservers";
+  options.modules.development.langservers.enable = lib.mkEnableOption "Enable default languageservers";
 
-  config = lib.mkIf config.modules.languageservers.enable {
+  config = lib.mkIf config.modules.development.langservers.enable {
     home.packages = with pkgs; [
       nil
       harper

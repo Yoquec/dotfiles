@@ -2,10 +2,12 @@
   lib,
   config,
   ...
-}: {
-  options.modules.git.enable = lib.mkEnableOption "Enable git";
+}: let
+  inherit (config) identity;
+in {
+  options.modules.development.git.enable = lib.mkEnableOption "Enable git";
 
-  config = lib.mkIf config.modules.git.enable {
+  config = lib.mkIf config.modules.development.git.enable {
     programs.git = {
       enable = true;
       difftastic = {
@@ -15,13 +17,13 @@
       extraConfig = {
         pager = {difftool = true;};
         user = {
-          name = config.identity.fullname;
-          email = config.identity.username;
+          name = identity.fullname;
+          email = identity.username;
         };
       };
     };
 
-    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+    programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
       ga = "git add";
       gb = "git branch";
       gc = "git commit";

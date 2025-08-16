@@ -147,7 +147,7 @@
         desc = "Go to the Nextcloud directory";
       }
       (
-        lib.mkIf config.modules.neovim.enable
+        lib.mkIf config.modules.development.neovim.enable
         {
           on = ["g" "W"];
           run = "cd $WIKI_HOME";
@@ -155,7 +155,7 @@
         }
       )
       (
-        lib.mkIf config.modules.tmux.enable
+        lib.mkIf config.modules.development.tmux.enable
         {
           on = ["s"];
           run = ''shell mktms --confirm --block '';
@@ -163,7 +163,7 @@
         }
       )
       (
-        lib.mkIf config.modules.lazygit.enable
+        lib.mkIf config.modules.development.lazygit.enable
         {
           on = ["<C-g>"];
           run = ''shell lazygit --confirm --block '';
@@ -173,16 +173,16 @@
     ];
   };
 in {
-  options.modules.yazi.enable = lib.mkEnableOption "Enable yazi";
+  options.modules.development.yazi.enable = lib.mkEnableOption "Enable yazi";
 
-  config = lib.mkIf config.modules.yazi.enable {
+  config = lib.mkIf config.modules.development.yazi.enable {
     programs.yazi = {
       enable = true;
       inherit keymap;
       inherit settings;
     };
 
-    programs.zsh.shellAliases = lib.mkIf config.modules.zsh.enable {
+    programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
       yz = "yazi";
     };
   };
