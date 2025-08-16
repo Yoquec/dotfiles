@@ -10,6 +10,7 @@ in {
   config = lib.mkIf config.modules.development.git.enable {
     programs.git = {
       enable = true;
+      lfs.enable = true;
       difftastic = {
         enable = true;
         enableAsDifftool = true;
