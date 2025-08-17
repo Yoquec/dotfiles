@@ -8,6 +8,7 @@ in {
   imports = [
     ../../modules/identity.nix
     ../../modules/home
+    ../../modules/home/media
     ../../modules/home/development
   ];
   inherit identity;
@@ -25,8 +26,6 @@ in {
     ".config/ghostty".source = ../../dotfiles/ghostty;
     ".config/redshift".source = ../../dotfiles/redshift;
     ".config/wireplumber".source = ../../dotfiles/wireplumber;
-
-    ".config/ncspot/config.toml".source = ../../dotfiles/ncspot/config.toml;
   };
 
   # Let Home Manager install and manage itself.
