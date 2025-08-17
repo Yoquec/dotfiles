@@ -33,10 +33,10 @@
     set -sg escape-time 0
 
     # Keybinds
-    bind-key W run-shell "tms '$WIKI_HOME' 'Wiki 📚'"
-    bind-key H run-shell "tms '$HOME' 'Home 🏠'"
-    bind-key N popup -E "tmsproject"
-    bind-key Space popup -E "tmswitch"
+    bind-key W run-shell "${tmuxPackages.tms}/bin/tms '$WIKI_HOME' 'Wiki 📚'"
+    bind-key H run-shell "${tmuxPackages.tms}/bin/tms '$HOME' 'Home 🏠'"
+    bind-key N popup -E "${tmuxPackages.tmsproject}/bin/tmsproject"
+    bind-key Space popup -E "${tmuxPackages.tmswitch}/bin/tmswitch"
 
     # Colored undercurls
     set -ga terminal-overrides ',*256col*:Tc'
@@ -81,8 +81,6 @@ in {
 
     home.packages = with tmuxPackages; [
       tms
-      tmswitch
-      tmsproject
       mktms
     ];
 
