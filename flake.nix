@@ -28,6 +28,7 @@
     modules = {
       identity = ./modules/identity.nix;
       home.development = ./modules/home/development;
+      home.media = ./modules/home/media;
     };
 
     homeConfigurations."yoquec" = home-manager.lib.homeManagerConfiguration {
