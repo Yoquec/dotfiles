@@ -32,11 +32,13 @@
   extraConfig = ''
     set -sg escape-time 0
 
-    # Keybinds
-    bind-key W run-shell "${tmuxPackages.tms}/bin/tms '$WIKI_HOME' 'Wiki 📚'"
-    bind-key H run-shell "${tmuxPackages.tms}/bin/tms '$HOME' 'Home 🏠'"
-    bind-key N popup -E "${tmuxPackages.tmsproject}/bin/tmsproject"
-    bind-key Space popup -E "${tmuxPackages.tmswitch}/bin/tmswitch"
+    ${lib.optionalString config.modules.development.tmux.tmsKeymaps ''
+      # Keybinds
+      bind-key W run-shell "${tmuxPackages.tms}/bin/tms '$WIKI_HOME' 'Wiki 📚'"
+      bind-key H run-shell "${tmuxPackages.tms}/bin/tms '$HOME' 'Home 🏠'"
+      bind-key N popup -E "${tmuxPackages.tmsproject}/bin/tmsproject"
+      bind-key Space popup -E "${tmuxPackages.tmswitch}/bin/tmswitch"
+    ''}
 
     # Colored undercurls
     set -ga terminal-overrides ',*256col*:Tc'
@@ -63,9 +65,12 @@
 in {
   options.modules.development.tmux = {
     enable = lib.mkEnableOption "Enable tmux";
+    tmsKeymaps = lib.mkEnableOption "Adds keymap configuration for tms scripts";
   };
 
   config = lib.mkIf config.modules.development.tmux.enable {
+    modules.development.tmux.tmsKeymaps = lib.mkDefault true;
+
     programs.tmux = {
       enable = true;
       clock24 = true;
