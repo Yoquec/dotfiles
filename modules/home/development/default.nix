@@ -39,7 +39,7 @@ in {
 
     nix = {
       enable = lib.mkDefault enable;
-      installBinary = lib.mkDefault false;
+      installBinary = lib.mkDefault true;
     };
     awscli = {
       enable = lib.mkDefault enable;
