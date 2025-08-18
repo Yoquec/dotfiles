@@ -45,7 +45,7 @@
 
     # Status
     set -g status-left "[#S]"
-    set -g status-left-length 30
+    set -g status-left-length 100
 
     set -g status-right '%a %d-%m-%Y %H:%M'
     set -g status-right-length 20
