@@ -23,11 +23,11 @@
     "neovim": {
       "flake": false,
       "locked": {
-        "lastModified": 1753822416,
-        "narHash": "sha256-/qEPEOCuHSBmTTL9CnDqXUdfB2KoFdWHNtO+RqE1pa0=",
+        "lastModified": 1755546824,
+        "narHash": "sha256-TxnueRIMVyClDoazm+uW1kaac41AZH3PbG+qTPYXv5Y=",
         "owner": "yoquec",
         "repo": "nvim",
-        "rev": "381ea2396e2d7fbe8b7e07d689068cd893599cc3",
+        "rev": "0a126717e640cdd3c982e52660e1c6fd53e62fcd",
         "type": "github"
       },
       "original": {
