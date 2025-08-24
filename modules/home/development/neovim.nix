@@ -12,8 +12,6 @@
   config = lib.mkIf config.modules.development.neovim.enable {
     home.sessionVariables = {
       EDITOR = "nvim";
-      # TODO: Set in nextcloud related module
-      WIKI_HOME = "$HOME/Nextcloud/Notes/";
     };
 
     home.file = {

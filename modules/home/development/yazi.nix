@@ -3,6 +3,9 @@
   config,
   ...
 }: let
+  inherit (config.modules.writing) wiki;
+  inherit (config.modules.development) tmux lazygit yazi zsh;
+
   settings = {
     open.prepend_rules = [
       {
@@ -147,15 +150,15 @@
         desc = "Go to the Nextcloud directory";
       }
       (
-        lib.mkIf config.modules.development.neovim.enable
+        lib.mkIf wiki.enable
         {
           on = ["g" "W"];
-          run = "cd $WIKI_HOME";
+          run = ''cd "${wiki.directory}"'';
           desc = "Go to the wiki directory";
         }
       )
       (
-        lib.mkIf config.modules.development.tmux.enable
+        lib.mkIf tmux.enable
         {
           on = ["s"];
           run = ''shell mktms --confirm --block '';
@@ -163,7 +166,7 @@
         }
       )
       (
-        lib.mkIf config.modules.development.lazygit.enable
+        lib.mkIf lazygit.enable
         {
           on = ["<C-g>"];
           run = ''shell lazygit --confirm --block '';
@@ -175,14 +178,14 @@
 in {
   options.modules.development.yazi.enable = lib.mkEnableOption "Enable yazi";
 
-  config = lib.mkIf config.modules.development.yazi.enable {
+  config = lib.mkIf yazi.enable {
     programs.yazi = {
       enable = true;
       inherit keymap;
       inherit settings;
     };
 
-    programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
+    programs.zsh.shellAliases = lib.mkIf zsh.enable {
       yz = "yazi";
     };
   };

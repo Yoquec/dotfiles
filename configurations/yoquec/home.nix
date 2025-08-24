@@ -4,14 +4,17 @@
     fullname = "Alvaro Viejo";
     email = "alvaro.viejo@yoquec.com";
   };
+  wiki.directory = "$HOME/Nextcloud/Notes/";
 in {
   imports = [
     ../../modules/identity.nix
     ../../modules/home
     ../../modules/home/media
+    ../../modules/home/writing
     ../../modules/home/development
   ];
   inherit identity;
+  modules.writing.wiki = wiki;
 
   home.username = identity.username;
   home.homeDirectory = "/home/${identity.username}";

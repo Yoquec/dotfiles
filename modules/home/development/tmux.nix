@@ -4,6 +4,8 @@
   config,
   ...
 }: let
+  inherit (config.modules.writing) wiki;
+
   keyMode = "vi";
   terminal = "tmux-256color";
 
@@ -33,10 +35,12 @@
     set -sg escape-time 0
 
     # Keybinds
-    bind-key W run-shell "${tmuxPackages.tms}/bin/tms '$WIKI_HOME' 'Wiki 📚'"
     bind-key H run-shell "${tmuxPackages.tms}/bin/tms '$HOME' 'Home 🏠'"
     bind-key N popup -E "${tmuxPackages.tmsproject}/bin/tmsproject"
     bind-key Space popup -E "${tmuxPackages.tmswitch}/bin/tmswitch"
+    ${lib.optionalString wiki.enable ''
+      bind-key W run-shell "${tmuxPackages.tms}/bin/tms '${wiki.directory}' 'Wiki 📚'"
+    ''}
 
     # Colored undercurls
     set -ga terminal-overrides ',*256col*:Tc'
@@ -89,7 +93,7 @@ in {
     programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
       ta = "tmux attach";
       th = ''tmux new-session -s "Home 🏠" -c "$HOME"'';
-      tw = ''tmux new-session -s "Wiki 📚" -c "$WIKI_HOME"'';
+      tw = lib.mkIf wiki.enable ''tmux new-session -s "Wiki 📚" -c "${wiki.directory}"'';
     };
   };
 }
