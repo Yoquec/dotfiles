@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  enable = config.modules.development.enable;
+  enable = config.modules.media.enable;
 in {
   imports = [
     ./yt-dlp.nix
