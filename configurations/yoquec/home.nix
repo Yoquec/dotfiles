@@ -15,6 +15,7 @@ in {
   ];
   inherit identity;
   modules.writing.wiki = wiki;
+  modules.media.ncspot.enable = false;
 
   home.username = identity.username;
   home.homeDirectory = "/home/${identity.username}";
