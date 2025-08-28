@@ -29,6 +29,7 @@
       identity = ./modules/identity.nix;
       home.development = ./modules/home/development;
       home.media = ./modules/home/media;
+      home.writing = ./modules/home/writing;
     };
 
     homeConfigurations."yoquec" = home-manager.lib.homeManagerConfiguration {
