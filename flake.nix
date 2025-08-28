@@ -20,9 +20,9 @@
     neovim,
     ...
   }: let
-    systems.x86_linux = {
+    systems.x86_linux = rec {
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${systems.x86_linux.system};
+      pkgs = nixpkgs.legacyPackages.${system};
     };
   in {
     modules = {
