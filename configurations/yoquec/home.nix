@@ -1,11 +1,13 @@
-{...}: let
+{ ... }:
+let
   identity = {
     username = "yoquec";
     fullname = "Alvaro Viejo";
     email = "alvaro.viejo@yoquec.com";
   };
   wiki.directory = "$HOME/Nextcloud/Notes/";
-in {
+in
+{
   imports = [
     ../../modules/identity.nix
     ../../modules/home

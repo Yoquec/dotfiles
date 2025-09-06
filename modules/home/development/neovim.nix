@@ -3,7 +3,8 @@
   config,
   neovim,
   ...
-}: {
+}:
+{
   options.modules.development.neovim = {
     enable = lib.mkEnableOption "Enable neovim";
     installBinary = lib.mkEnableOption "Install neovim binary with nix";

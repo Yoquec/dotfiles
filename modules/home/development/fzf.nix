@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.modules.development.fzf = {
     enable = lib.mkEnableOption "Enable fzf";
   };

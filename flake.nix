@@ -14,42 +14,49 @@
       flake = false;
     };
   };
-  outputs = {
-    nixpkgs,
-    home-manager,
-    neovim,
-    ...
-  }: let
-    inherit (nixpkgs) lib;
-    forAllSystems = lib.genAttrs lib.systems.flakeExposed;
-  in {
-    modules = {
-      identity = ./modules/identity.nix;
-      home.development = ./modules/home/development;
-      home.media = ./modules/home/media;
-      home.writing = ./modules/home/writing;
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      neovim,
+      ...
+    }:
+    let
+      inherit (nixpkgs) lib;
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
+    in
+    {
+      modules = {
+        identity = ./modules/identity.nix;
+        home.development = ./modules/home/development;
+        home.media = ./modules/home/media;
+        home.writing = ./modules/home/writing;
+      };
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          homeConfigurations.yoquec = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./configurations/yoquec/home.nix ];
+            extraSpecialArgs = {
+              inherit neovim;
+            };
+          };
+
+          homeConfigurations.reprocex = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./configurations/reprocex/home.nix ];
+            extraSpecialArgs = {
+              inherit neovim;
+            };
+          };
+        }
+      );
     };
-
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
-
-    packages = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations.yoquec = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [./configurations/yoquec/home.nix];
-        extraSpecialArgs = {
-          inherit neovim;
-        };
-      };
-
-      homeConfigurations.reprocex = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [./configurations/reprocex/home.nix];
-        extraSpecialArgs = {
-          inherit neovim;
-        };
-      };
-    });
-  };
 }

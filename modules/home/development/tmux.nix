@@ -3,24 +3,20 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   inherit (config.modules.writing) wiki;
 
   keyMode = "vi";
   terminal = "tmux-256color";
 
   tmuxPackages = {
-    tms = (
-      pkgs.writeShellScriptBin "tms"
-      (builtins.readFile ../../../dotfiles/tmux/bin/tms)
-    );
+    tms = (pkgs.writeShellScriptBin "tms" (builtins.readFile ../../../dotfiles/tmux/bin/tms));
     tmswitch = (
-      pkgs.writeShellScriptBin "tmswitch"
-      (builtins.readFile ../../../dotfiles/tmux/bin/tmswitch)
+      pkgs.writeShellScriptBin "tmswitch" (builtins.readFile ../../../dotfiles/tmux/bin/tmswitch)
     );
     tmsproject = (
-      pkgs.writeShellScriptBin "tmsproject"
-      (builtins.readFile ../../../dotfiles/tmux/bin/tmsproject)
+      pkgs.writeShellScriptBin "tmsproject" (builtins.readFile ../../../dotfiles/tmux/bin/tmsproject)
     );
     mktms = (
       pkgs.writeShellScriptBin "mktms" ''
@@ -64,7 +60,8 @@
     set -g window-status-style 'fg=colour247'
     set -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
   '';
-in {
+in
+{
   options.modules.development.tmux = {
     enable = lib.mkEnableOption "Enable tmux";
   };

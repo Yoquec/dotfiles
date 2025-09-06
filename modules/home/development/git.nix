@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (config) identity;
-in {
+in
+{
   options.modules.development.git.enable = lib.mkEnableOption "Enable git";
 
   config = lib.mkIf config.modules.development.git.enable {
@@ -16,7 +18,9 @@ in {
         enableAsDifftool = true;
       };
       extraConfig = {
-        pager = {difftool = true;};
+        pager = {
+          difftool = true;
+        };
         user = {
           name = identity.fullname;
           email = identity.username;

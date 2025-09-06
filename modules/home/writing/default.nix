@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   enable = config.modules.writing.enable;
-in {
+in
+{
   imports = [
     ./wiki.nix
     ./zk.nix

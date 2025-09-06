@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.modules.development.lazygit = {
     enable = lib.mkEnableOption "Enable lazygit";
     installBinary = lib.mkEnableOption "Install tmux binary with nix";

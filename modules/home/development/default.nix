@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   enable = config.modules.development.enable;
-in {
+in
+{
   imports = [
     ./awscli.nix
     ./bat.nix

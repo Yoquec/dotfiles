@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   # To use the `nix` from `inputs.nixpkgs` on templates using the standalone `home-manager` template
   # See: https://raw.githubusercontent.com/juspay/nixos-unified-template/refs/heads/main/modules/home/nix.nix
 
@@ -15,7 +16,10 @@
 
   config = lib.mkIf config.modules.development.nix.enable {
     nix.package = lib.mkDefault pkgs.nix;
-    nix.settings.experimental-features = lib.mkDefault ["nix-command" "flakes"];
+    nix.settings.experimental-features = lib.mkDefault [
+      "nix-command"
+      "flakes"
+    ];
     home.packages = lib.mkIf config.modules.development.nix.installBinary [
       config.nix.package
     ];

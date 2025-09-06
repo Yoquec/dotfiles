@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.modules.development.awscli = {
     enable = lib.mkEnableOption "Enable awscli";
     installBinary = lib.mkEnableOption "Install ascli binary with nix";

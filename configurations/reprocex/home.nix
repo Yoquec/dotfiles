@@ -1,12 +1,14 @@
 # Home manager configuration to use in a dev container
 # See: https://hub.docker.com/r/nixos/nix
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   identity = {
     username = "root";
     fullname = "Alvaro Viejo";
     email = "alvaro.viejo@yoquec.com";
   };
-in {
+in
+{
   imports = [
     ../../modules/home
     ../../modules/identity.nix

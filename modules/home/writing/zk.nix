@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (config.modules.writing) wiki;
 
   settings = {
@@ -16,7 +17,8 @@
       link-format = "[[{{metadata.id}}]]";
     };
   };
-in {
+in
+{
   options.modules.writing.zk.enable = lib.mkEnableOption "Enable zk";
 
   config = lib.mkIf config.modules.writing.zk.enable {

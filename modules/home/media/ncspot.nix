@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   settings.theme = {
     background = "none";
     title = "green";
@@ -16,7 +17,8 @@
     statusbar_bg = "green";
     search_match = "light red";
   };
-in {
+in
+{
   options.modules.media.ncspot = {
     enable = lib.mkEnableOption "Install and manage ncspot through home-manager";
   };

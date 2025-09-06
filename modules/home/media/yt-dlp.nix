@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.modules.media.yt-dlp = {
     enable = lib.mkEnableOption "Enable yt-dlp";
     installBinary = lib.mkEnableOption "Install yt-dlp binary with nix";

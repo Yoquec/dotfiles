@@ -3,15 +3,16 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.modules.fontconfig.enable = lib.mkEnableOption "Manage font-config configurations with nix";
 
   config = lib.mkIf config.modules.fontconfig.enable {
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        emoji = ["Noto Color Emoji"];
-        monospace = ["IntoneMono Nerd Font Mono"];
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "IntoneMono Nerd Font Mono" ];
         serif = [
           "Libertinus Serif Display"
           "Noto Serif CJK SC"

@@ -4,8 +4,10 @@
   pkgs,
   config,
   ...
-}: {
-  options.modules.development.langservers.enable = lib.mkEnableOption "Enable default languageservers";
+}:
+{
+  options.modules.development.langservers.enable =
+    lib.mkEnableOption "Enable default languageservers";
 
   config = lib.mkIf config.modules.development.langservers.enable {
     home.packages = with pkgs; [

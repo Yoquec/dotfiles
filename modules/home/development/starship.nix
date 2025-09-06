@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   icons = {
     aws.symbol = "  ";
     buf.symbol = " ";
@@ -50,8 +51,12 @@
     zig.symbol = " ";
     gradle.symbol = " ";
     directory.read_only = " 󰌾";
-    hostname = {ssh_symbol = " ";};
-    git_commit = {tag_symbol = " ";};
+    hostname = {
+      ssh_symbol = " ";
+    };
+    git_commit = {
+      tag_symbol = " ";
+    };
     os.symbols = {
       Alpaquita = " ";
       Alpine = " ";
@@ -100,22 +105,20 @@
       Windows = "󰍲 ";
     };
   };
-in {
+in
+{
   options.modules.development.starship.enable = lib.mkEnableOption "Enable starship";
 
   config = lib.mkIf config.modules.development.starship.enable {
     programs.starship = {
       enable = true;
-      settings =
-        lib.recursiveUpdate
-        {
-          direnv = {
-            disabled = false;
-            format = ''[$symbol$loaded]($style) '';
-          };
-          nix_shell.format = ''via [$symbol$state]($style) '';
-        }
-        icons;
+      settings = lib.recursiveUpdate {
+        direnv = {
+          disabled = false;
+          format = ''[$symbol$loaded]($style) '';
+        };
+        nix_shell.format = ''via [$symbol$state]($style) '';
+      } icons;
       enableZshIntegration = config.modules.development.zsh.enable;
     };
   };

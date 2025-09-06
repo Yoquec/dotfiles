@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   enable = config.modules.media.enable;
-in {
+in
+{
   imports = [
     ./yt-dlp.nix
     ./ncspot.nix
