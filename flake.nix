@@ -20,10 +20,8 @@
     neovim,
     ...
   }: let
-    systems.x86_linux = rec {
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    };
+    inherit (nixpkgs) lib;
+    forAllSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
     modules = {
       identity = ./modules/identity.nix;
@@ -32,20 +30,26 @@
       home.writing = ./modules/home/writing;
     };
 
-    homeConfigurations."yoquec" = home-manager.lib.homeManagerConfiguration {
-      inherit (systems.x86_linux) pkgs;
-      modules = [./configurations/yoquec/home.nix];
-      extraSpecialArgs = {
-        inherit neovim;
-      };
-    };
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
-    homeConfigurations."reprocex" = home-manager.lib.homeManagerConfiguration {
-      inherit (systems.x86_linux) pkgs;
-      modules = [./configurations/reprocex/home.nix];
-      extraSpecialArgs = {
-        inherit neovim;
+    packages = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      homeConfigurations.yoquec = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./configurations/yoquec/home.nix];
+        extraSpecialArgs = {
+          inherit neovim;
+        };
       };
-    };
+
+      homeConfigurations.reprocex = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./configurations/reprocex/home.nix];
+        extraSpecialArgs = {
+          inherit neovim;
+        };
+      };
+    });
   };
 }
