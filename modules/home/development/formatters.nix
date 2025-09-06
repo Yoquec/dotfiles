@@ -10,6 +10,7 @@
     home.packages = with pkgs; [
       nodePackages.prettier
       shfmt
+      nixfmt-rfc-style
     ];
   };
 }
