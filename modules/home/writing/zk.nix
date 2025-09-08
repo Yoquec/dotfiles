@@ -10,6 +10,10 @@ let
     notebook = lib.mkIf wiki.enable {
       dir = wiki.directory;
     };
+    group.daily = lib.mkIf wiki.enable {
+      paths = [ "dailies" ];
+      note.filename = "{{format-date now '%Y-%m-%d'}}";
+    };
     note = {
       filename = "{{format-date now 'timestamp'}}";
     };
