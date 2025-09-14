@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    systems.url = "github:nix-systems/default";
     # noevim dotfiles flake
     neovim = {
       url = "github:yoquec/nvim";
@@ -18,12 +19,13 @@
     {
       nixpkgs,
       home-manager,
+      systems,
       neovim,
       ...
     }:
     let
       inherit (nixpkgs) lib;
-      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
+      forAllSystems = lib.genAttrs (import systems);
     in
     {
       modules = {
