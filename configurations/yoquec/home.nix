@@ -14,6 +14,7 @@ in
     ../../modules/home/media
     ../../modules/home/writing
     ../../modules/home/development
+    ../../modules/home/socials
   ];
   inherit identity;
   modules.writing.wiki = wiki;

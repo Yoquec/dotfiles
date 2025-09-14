@@ -31,6 +31,7 @@
         home.development = ./modules/home/development;
         home.media = ./modules/home/media;
         home.writing = ./modules/home/writing;
+        home.socials = ./modules/home/socials;
       };
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
