@@ -12,6 +12,7 @@ in
     ./ncspot.nix
     ./protonmail.nix
     ./nextcloud-client.nix
+    ./perplexity.nix
   ];
 
   options.modules.media.enable = lib.mkEnableOption "Enable media bundle";
@@ -21,6 +22,7 @@ in
     ncspot.enable = lib.mkDefault enable;
     protonmail.enable = lib.mkDefault enable;
     nextcloud-client.enable = lib.mkDefault enable;
+    perplexity.enable = lib.mkDefault enable;
 
     yt-dlp = {
       enable = lib.mkDefault enable;
