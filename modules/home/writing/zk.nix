@@ -13,9 +13,10 @@ let
     group.daily = lib.mkIf wiki.enable {
       paths = [ "dailies" ];
       note.filename = "{{format-date now '%Y-%m-%d'}}";
+      template = [ "daily_note.md" ];
     };
     note = {
-      filename = "{{format-date now 'timestamp'}}";
+      filename = "{{format-date now '%Y%m%d%H%M%S'}}";
     };
     format.markdown = {
       link-format = "[[{{metadata.id}}]]";
