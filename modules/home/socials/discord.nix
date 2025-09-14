@@ -14,7 +14,7 @@ in
 
   config.home.packages = lib.mkIf discord.enable [
     (pkgs.writeShellScriptBin "discord" ''
-      ${pkgs.ungoogled-chromium}/bin/chromium --user-data-dir=~/.cache/chromium/discord --app=https://discord.com
+      ${pkgs.ungoogled-chromium}/bin/chromium --user-data-dir=$HOME/.cache/chromium/discord --app=https://discord.com
     '')
   ];
 }

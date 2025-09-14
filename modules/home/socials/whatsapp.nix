@@ -14,7 +14,7 @@ in
 
   config.home.packages = lib.mkIf whatsapp.enable [
     (pkgs.writeShellScriptBin "whatsapp" ''
-      ${pkgs.ungoogled-chromium}/bin/chromium --user-data-dir=~/.cache/chromium/whatsapp --app=https://web.whatsapp.com
+      ${pkgs.ungoogled-chromium}/bin/chromium --user-data-dir=$HOME/.cache/chromium/whatsapp --app=https://web.whatsapp.com
     '')
   ];
 }
