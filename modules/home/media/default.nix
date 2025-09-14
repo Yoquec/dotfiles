@@ -10,6 +10,7 @@ in
   imports = [
     ./yt-dlp.nix
     ./ncspot.nix
+    ./protonmail.nix
   ];
 
   options.modules.media.enable = lib.mkEnableOption "Enable media bundle";
@@ -17,6 +18,7 @@ in
   config.modules.media = {
     enable = lib.mkDefault true;
     ncspot.enable = lib.mkDefault enable;
+    protonmail.enable = lib.mkDefault enable;
 
     yt-dlp = {
       enable = lib.mkDefault enable;
