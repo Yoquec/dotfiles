@@ -31,5 +31,7 @@ in
       inherit settings;
       enable = true;
     };
+
+    home.file.".config/zk/templates".source = ../../../dotfiles/zk/templates;
   };
 }
