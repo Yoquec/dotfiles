@@ -24,6 +24,8 @@ in
   home.homeDirectory = "/home/${identity.username}";
   home.stateVersion = "24.11";
 
+  nix.gc.dates = "weekly";
+
   # TODO: Should be moved to their own modules
   home.file = {
     ".xinitrc".source = ../../dotfiles/xinit/.xinitrc;

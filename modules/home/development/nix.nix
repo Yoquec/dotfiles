@@ -22,7 +22,6 @@
     ];
     nix.gc = {
       automatic = true;
-      dates = "weekly";
       options = "--delete-older-than 30d";
     };
     home.packages = lib.mkIf config.modules.development.nix.installBinary [
