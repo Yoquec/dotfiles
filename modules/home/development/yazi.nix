@@ -21,8 +21,29 @@ let
           "edit"
         ];
       }
+      {
+        mime = "image/jpeg";
+        use = [
+          "image"
+        ];
+      }
+      {
+        mime = "image/png";
+        use = [
+          "image"
+        ];
+      }
     ];
     opener = {
+      image = [
+        # TODO: Condition on feh being installed
+        {
+          run = ''feh $@'';
+          desc = "feh";
+          for = "linux";
+          orphan = true;
+        }
+      ];
       document = [
         # TODO: Condition on zathura being installed
         {
