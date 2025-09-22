@@ -27,10 +27,6 @@
         rm = "rm -i";
         cp = "cp -i";
         mv = "mv -i";
-
-        # TODO: Should be moved to the X11 modules
-        pbcopy = "xclip -sel c";
-        pbpaste = "xclip -sel c -o";
       };
 
       initContent = ''

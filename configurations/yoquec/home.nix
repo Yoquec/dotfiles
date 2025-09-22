@@ -37,6 +37,11 @@ in
     ".config/wireplumber".source = ../../dotfiles/wireplumber;
   };
 
+  programs.zsh.shellAliases = {
+    pbcopy = "xclip -sel c";
+    pbpaste = "xclip -sel c -o";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
