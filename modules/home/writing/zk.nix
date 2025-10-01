@@ -9,11 +9,14 @@ let
   settings = {
     notebook = lib.mkIf wiki.enable {
       dir = wiki.directory;
+      template = "note.md";
     };
     group.daily = lib.mkIf wiki.enable {
       paths = [ "dailies" ];
-      note.filename = "{{format-date now '%Y-%m-%d'}}";
-      template = [ "daily_note.md" ];
+      note = {
+        filename = "{{format-date now '%Y-%m-%d'}}";
+        template = "daily_note.md";
+      };
     };
     note = {
       filename = "{{format-date now '%Y%m%d%H%M%S'}}";
