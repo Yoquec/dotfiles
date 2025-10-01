@@ -17,6 +17,7 @@ in
     ./formatters.nix
     ./lazygit.nix
     ./neovim.nix
+    ./helix.nix
     ./nix.nix
     ./starship.nix
     ./tmux.nix
@@ -34,6 +35,7 @@ in
     zsh.enable = lib.mkDefault enable;
     tmux.enable = lib.mkDefault enable;
     yazi.enable = lib.mkDefault enable;
+    helix.enable = lib.mkDefault enable;
     direnv.enable = lib.mkDefault enable;
     starship.enable = lib.mkDefault enable;
     langservers.enable = lib.mkDefault enable;
