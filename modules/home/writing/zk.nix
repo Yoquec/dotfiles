@@ -22,7 +22,7 @@ let
       filename = "{{format-date now '%Y%m%d%H%M%S'}}";
     };
     format.markdown = {
-      link-format = "[[{{metadata.id}}]]";
+      link-format = "[[{{metadata.id}}|{{title}}]]";
     };
   };
 in
