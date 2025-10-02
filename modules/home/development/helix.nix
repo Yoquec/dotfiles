@@ -24,6 +24,15 @@ let
   };
 
   languages = {
+    language = [
+      lib.mkIf
+      zk.enable
+      ({
+        name = "markdown";
+        language-servers = [ "zk" ];
+      })
+    ];
+
     language-server = {
       zk = lib.mkIf zk.enable {
         command = "zk";
