@@ -9,7 +9,6 @@ let
   settings = {
     notebook = lib.mkIf wiki.enable {
       dir = wiki.directory;
-      template = "note.md";
     };
     group.daily = lib.mkIf wiki.enable {
       paths = [ "dailies" ];
@@ -20,6 +19,7 @@ let
     };
     note = {
       filename = "{{format-date now '%Y%m%d%H%M%S'}}";
+      template = "note.md";
     };
     format.markdown = {
       link-format = "[[{{metadata.id}}|{{title}}]]";
