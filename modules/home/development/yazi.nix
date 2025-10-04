@@ -45,13 +45,6 @@ let
         }
       ];
       document = [
-        # TODO: Condition on zathura being installed
-        {
-          run = ''zathura "$@"'';
-          desc = "zathura";
-          for = "unix";
-          orphan = true;
-        }
         # TODO: Condition on okular being installed
         {
           run = ''okular "$@"'';
