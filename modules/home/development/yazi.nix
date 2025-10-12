@@ -1,9 +1,11 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
+  inherit (pkgs) tmuxPackages;
   inherit (config.modules.writing) wiki;
   inherit (config.modules.development)
     tmux
@@ -219,12 +221,12 @@ let
       })
       (lib.mkIf tmux.enable {
         on = [ "s" ];
-        run = ''shell mktms --confirm --block '';
+        run = ''shell '${tmuxPackages.tms}/bin/tms "`pwd`"' --confirm'';
         desc = "Start a new tmux session in the current directory";
       })
       (lib.mkIf lazygit.enable {
         on = [ "<C-g>" ];
-        run = ''shell lazygit --confirm --block '';
+        run = ''shell lazygit --confirm --block'';
         desc = "Open lazygit in the current directory";
       })
     ];

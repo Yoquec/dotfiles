@@ -1,29 +1,26 @@
 #!/usr/bin/env bash
 
+get_session_name() {
+    basename "$1" | tr " ." "__"
+}
+
 if [[ $# -eq 1 ]]; then
     selected=$1
-
+    session_name=$(get_session_name "$selected")
 elif [[ $# -eq 2 ]]; then
     selected=$1
-    selected_name=$2
+    session_name=$2
+else
+    exit 1
+fi
 
-if [[ -z $selected ]]; then
+if ! pgrep tmux 2>/dev/null; then
+    tmux new-session -s "$session_name" -c "$selected"
     exit 0
 fi
 
-elif [[ -z $selected_name ]]; then
-    selected_name=$(basename "$selected" | tr _ " " | tr . _)
+if ! tmux has-session -t="$session_name" 2>/dev/null; then
+    tmux new-session -ds "$session_name" -c "$selected"
 fi
 
-tmux_running=$(pgrep tmux)
-
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s "$selected_name" -c "$selected"
-    exit 0
-fi
-
-if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-    tmux new-session -ds "$selected_name" -c "$selected"
-fi
-
-tmux switch-client -t "$selected_name"
+tmux switch-client -t "$session_name"

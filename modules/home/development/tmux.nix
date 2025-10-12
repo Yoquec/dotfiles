@@ -6,27 +6,10 @@
 }:
 let
   inherit (config.modules.writing) wiki;
+  inherit (pkgs) tmuxPackages;
 
   keyMode = "vi";
   terminal = "tmux-256color";
-
-  tmuxPackages = {
-    tms = (pkgs.writeShellScriptBin "tms" (builtins.readFile ../../../dotfiles/tmux/bin/tms));
-    tmswitch = (
-      pkgs.writeShellScriptBin "tmswitch" (builtins.readFile ../../../dotfiles/tmux/bin/tmswitch)
-    );
-    tmsproject = (
-      pkgs.writeShellScriptBin "tmsproject" (builtins.readFile ../../../dotfiles/tmux/bin/tmsproject)
-    );
-    mktms = (
-      pkgs.writeShellScriptBin "mktms" ''
-        dir=$(pwd)
-        dirname=$(basename $dir | tr _ " " | tr . _)
-        ${tmuxPackages.tms}/bin/tms "$dir" "$dirname"
-      ''
-    );
-  };
-
   extraConfig = ''
     set -sg escape-time 0
 
@@ -82,7 +65,6 @@ in
 
     home.packages = with tmuxPackages; [
       tms
-      mktms
     ];
 
     programs.tmux.shell = lib.mkIf config.modules.development.zsh.enable "${pkgs.zsh}/bin/zsh";

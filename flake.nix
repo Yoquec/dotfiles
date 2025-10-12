@@ -2,32 +2,35 @@
   description = "Home Manager configuration of yoquec";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    systems.url = "github:nix-systems/default";
-    # noevim dotfiles flake
     neovim = {
       url = "github:yoquec/nvim";
       flake = false;
     };
   };
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      systems,
-      neovim,
-      ...
-    }:
+    inputs:
     let
-      inherit (nixpkgs) lib;
-      forAllSystems = lib.genAttrs (import systems);
+      forEachSystem =
+        f:
+        inputs.nixpkgs.lib.genAttrs (import inputs.systems) (
+          system:
+          f {
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              overlays = [ inputs.self.overlays.default ];
+            };
+          }
+        );
     in
     {
+      overlays.default = import ./overlay.nix;
+
       modules = {
         identity = ./modules/identity.nix;
         home.development = ./modules/home/development;
@@ -36,27 +39,26 @@
         home.socials = ./modules/home/socials;
       };
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+      formatter = forEachSystem ({ pkgs, ... }: pkgs.nixfmt-tree);
 
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
+      packages = forEachSystem (
+        { pkgs, ... }:
         {
-          homeConfigurations.yoquec = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ ./configurations/yoquec/home.nix ];
-            extraSpecialArgs = {
-              inherit neovim;
+          homeConfigurations = {
+            yoquec = inputs.home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [ ./configurations/yoquec/home.nix ];
+              extraSpecialArgs = {
+                inherit (inputs) neovim;
+              };
             };
-          };
 
-          homeConfigurations.reprocex = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ ./configurations/reprocex/home.nix ];
-            extraSpecialArgs = {
-              inherit neovim;
+            reprocex = inputs.home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [ ./configurations/reprocex/home.nix ];
+              extraSpecialArgs = {
+                inherit (inputs) neovim;
+              };
             };
           };
         }
