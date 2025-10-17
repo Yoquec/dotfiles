@@ -14,7 +14,7 @@ else
     exit 1
 fi
 
-if ! pgrep tmux 2>/dev/null; then
+if ! pgrep tmux >/dev/null; then
     tmux new-session -s "$session_name" -c "$selected"
     exit 0
 fi
