@@ -4,10 +4,15 @@
   pkgs,
   ...
 }:
+let
+  inherit (config.modules.x11) fontconfig;
+in
 {
-  options.modules.fontconfig.enable = lib.mkEnableOption "Manage font-config configurations with nix";
+  options.modules.x11.fontconfig = {
+    enable = lib.mkEnableOption "Manage font-config configurations with nix";
+  };
 
-  config = lib.mkIf config.modules.fontconfig.enable {
+  config = lib.mkIf fontconfig.enable {
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {

@@ -9,12 +9,7 @@ let
 in
 {
   imports = [
-    ../../modules/identity.nix
-    ../../modules/home
-    ../../modules/home/media
-    ../../modules/home/writing
-    ../../modules/home/development
-    ../../modules/home/socials
+    ../../modules/default
   ];
   inherit identity;
   modules.writing.wiki = wiki;
