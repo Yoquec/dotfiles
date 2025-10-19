@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
     neovim = {
       url = "github:yoquec/nvim";
       flake = false;
@@ -15,35 +19,26 @@
   };
   outputs =
     inputs:
-    let
-      forEachSystem =
-        f:
-        inputs.nixpkgs.lib.genAttrs (import inputs.systems) (
-          system:
-          f {
-            pkgs = import inputs.nixpkgs {
-              inherit system;
-              overlays = [ inputs.self.overlays.default ];
-            };
-          }
-        );
-    in
     {
       overlays.default = import ./overlay.nix;
 
       modules = {
-        identity = ./modules/identity.nix;
-        home.development = ./modules/home/development;
-        home.media = ./modules/home/media;
-        home.writing = ./modules/home/writing;
-        home.socials = ./modules/home/socials;
+        home = ./modules/home;
+        default = ./modules/default;
       };
+    }
+    // inputs.flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [ inputs.self.overlays.default ];
+        };
+      in
+      {
+        formatter = pkgs.nixfmt-tree;
 
-      formatter = forEachSystem ({ pkgs, ... }: pkgs.nixfmt-tree);
-
-      packages = forEachSystem (
-        { pkgs, ... }:
-        {
+        packages = {
           homeConfigurations = {
             yoquec = inputs.home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
@@ -53,15 +48,15 @@
               };
             };
 
-            reprocex = inputs.home-manager.lib.homeManagerConfiguration {
+            devcontainer = inputs.home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
-              modules = [ ./configurations/reprocex/home.nix ];
+              modules = [ ./configurations/devcontainer/home.nix ];
               extraSpecialArgs = {
                 inherit (inputs) neovim;
               };
             };
           };
-        }
-      );
-    };
+        };
+      }
+    );
 }
