@@ -10,8 +10,7 @@ let
 in
 {
   imports = [
-    ../../modules/home
-    ../../modules/identity.nix
+    ../../modules/default
   ];
   inherit identity;
 
@@ -24,17 +23,14 @@ in
   ];
 
   modules = {
-    nix.enable = true;
-
-    i3.enable = false;
-    fontconfig.enable = false;
-    yt-dlp.enable = false;
-
-    bat.installBinary = true;
-    yazi.installBinary = true;
-    neovim.installBinary = true;
-    awscli.installBinary = true;
-    lazygit.installBinary = true;
+    x11.enable = false;
+    writing.enable = false;
+    media.enable = false;
+    socials.enable = false;
+    development = {
+      helix.enable = false;
+      nix.installBinary = false;
+    };
   };
 
   # Let Home Manager install and manage itself.
