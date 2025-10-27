@@ -22,8 +22,8 @@ in
           difftool = true;
         };
         user = {
+          inherit (identity) email;
           name = identity.fullname;
-          email = identity.username;
         };
       };
     };
