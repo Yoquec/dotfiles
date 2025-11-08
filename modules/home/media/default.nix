@@ -17,7 +17,7 @@ in
   options.modules.media.enable = lib.mkEnableOption "Enable media bundle";
 
   config.modules.media = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
     ncspot.enable = lib.mkDefault enable;
     protonmail.enable = lib.mkDefault enable;
     nextcloud-client.enable = lib.mkDefault enable;

@@ -28,7 +28,7 @@ in
   options.modules.development.enable = lib.mkEnableOption "Enable development programs";
 
   config.modules.development = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
 
     fzf.enable = lib.mkDefault enable;
     git.enable = lib.mkDefault enable;

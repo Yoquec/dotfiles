@@ -1,4 +1,4 @@
-# Home manager configuration to use in a dev container
+# Home manager configuration to use in a development container
 # See: https://hub.docker.com/r/nixos/nix
 { pkgs, ... }:
 let
@@ -18,20 +18,17 @@ in
   home.homeDirectory = "/root";
   home.stateVersion = "24.11";
 
+  modules.development = {
+    enable = true;
+    helix.enable = false;
+    # avoid conflicting with the devcontainer's nix install
+    nix.installBinary = false;
+  };
+
   home.packages = with pkgs; [
     gcc
+    opencode
   ];
-
-  modules = {
-    x11.enable = false;
-    writing.enable = false;
-    media.enable = false;
-    socials.enable = false;
-    development = {
-      helix.enable = false;
-      nix.installBinary = false;
-    };
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

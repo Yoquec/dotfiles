@@ -13,7 +13,7 @@ in
   };
 
   config.modules.x11 = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
     fontconfig.enable = lib.mkDefault enable;
     i3 = {
       enable = lib.mkDefault enable;

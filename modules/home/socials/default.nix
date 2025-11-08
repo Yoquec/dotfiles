@@ -15,7 +15,7 @@ in
   options.modules.socials.enable = lib.mkEnableOption "Enable social media bundle";
 
   config.modules.socials = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
     whatsapp.enable = lib.mkDefault enable;
     discord.enable = lib.mkDefault enable;
   };

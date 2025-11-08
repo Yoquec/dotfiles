@@ -6,19 +6,27 @@ let
     fullname = "Alvaro Viejo";
     email = "alvaro.viejo@yoquec.com";
   };
-  wiki.directory = "$HOME/Nextcloud/Notes/";
+  wiki.directory = "${home.homeDirectory}/Nextcloud/Notes/";
 in
 {
   imports = [
     ../../modules/default
   ];
   inherit identity;
-  modules.writing.wiki = wiki;
-  modules.media.ncspot.enable = false;
 
   home.username = identity.username;
   home.homeDirectory = "/home/${identity.username}";
   home.stateVersion = "24.11";
+
+  modules.x11.enable = true;
+  modules.media.enable = true;
+  modules.socials.enable = true;
+  modules.development.enable = true;
+
+  modules.writing = {
+    enable = true;
+    inherit wiki;
+  };
 
   nix.gc.dates = "weekly";
 

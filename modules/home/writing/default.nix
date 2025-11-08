@@ -15,7 +15,7 @@ in
   options.modules.writing.enable = lib.mkEnableOption "Enable writing bundle";
 
   config.modules.writing = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
 
     wiki.enable = lib.mkDefault enable;
     zk.enable = lib.mkDefault enable;
