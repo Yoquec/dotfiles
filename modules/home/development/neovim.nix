@@ -4,6 +4,9 @@
   neovim,
   ...
 }:
+let
+  inherit (config) xdg;
+in
 {
   options.modules.development.neovim = {
     enable = lib.mkEnableOption "Enable neovim";
@@ -16,7 +19,7 @@
     };
 
     home.file = {
-      ".config/nvim".source = neovim;
+      "${xdg.configHome}/nvim".source = neovim;
     };
 
     programs.neovim.enable = config.modules.development.neovim.installBinary;

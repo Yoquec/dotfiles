@@ -5,6 +5,7 @@
   ...
 }:
 let
+  inherit (config) xdg;
   inherit (pkgs) tmuxPackages;
   inherit (config.modules.writing) wiki;
   inherit (config.modules.development)
@@ -135,7 +136,7 @@ let
           "g"
           "."
         ];
-        run = "cd ~/.config";
+        run = "cd ${xdg.configHome}";
         desc = "Go to the config directory";
       }
       {

@@ -5,6 +5,7 @@
   ...
 }:
 let
+  inherit (config) xdg;
   inherit (config.modules.x11) i3;
 in
 {
@@ -18,8 +19,8 @@ in
     # TODO: Add wallpaper through overlay?
 
     home.file = {
-      ".config/i3".source = ../../../dotfiles/i3;
-      ".config/i3blocks".source = ../../../dotfiles/i3blocks;
+      "${xdg.configHome}/i3".source = ../../../dotfiles/i3;
+      "${xdg.configHome}/i3blocks".source = ../../../dotfiles/i3blocks;
     };
 
     home.packages = lib.mkIf i3.installBinary (

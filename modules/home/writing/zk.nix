@@ -4,6 +4,7 @@
   ...
 }:
 let
+  inherit (config) xdg;
   inherit (config.modules.writing) wiki;
 
   settings = {
@@ -35,6 +36,6 @@ in
       inherit settings;
     };
 
-    home.file.".config/zk/templates".source = ../../../dotfiles/zk/templates;
+    home.file."${xdg.configHome}/zk/templates".source = ../../../dotfiles/zk/templates;
   };
 }

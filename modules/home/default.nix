@@ -6,5 +6,6 @@
     ./socials
     ./writing
     ./x11
+    ./xdg.nix
   ];
 }

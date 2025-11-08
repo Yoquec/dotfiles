@@ -1,5 +1,6 @@
-{ ... }:
+{ config, ... }:
 let
+  inherit (config) xdg home;
   identity = {
     username = "yoquec";
     fullname = "Alvaro Viejo";
@@ -23,13 +24,13 @@ in
 
   # TODO: Should be moved to their own modules
   home.file = {
-    ".xinitrc".source = ../../dotfiles/xinit/.xinitrc;
+    "${home.homeDirectory}/.xinitrc".source = ../../dotfiles/xinit/.xinitrc;
 
-    ".config/rofi".source = ../../dotfiles/rofi;
-    ".config/dunst".source = ../../dotfiles/dunst;
-    ".config/ghostty".source = ../../dotfiles/ghostty;
-    ".config/redshift".source = ../../dotfiles/redshift;
-    ".config/wireplumber".source = ../../dotfiles/wireplumber;
+    "${xdg.configHome}/rofi".source = ../../dotfiles/rofi;
+    "${xdg.configHome}/dunst".source = ../../dotfiles/dunst;
+    "${xdg.configHome}/ghostty".source = ../../dotfiles/ghostty;
+    "${xdg.configHome}/redshift".source = ../../dotfiles/redshift;
+    "${xdg.configHome}/wireplumber".source = ../../dotfiles/wireplumber;
   };
 
   programs.zsh.shellAliases = {
