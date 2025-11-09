@@ -26,7 +26,10 @@ in
   };
 
   home.packages = with pkgs; [
+    fd
     gcc
+    curl
+    ripgrep
     opencode
   ];
 
