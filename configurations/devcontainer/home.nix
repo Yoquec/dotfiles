@@ -35,13 +35,15 @@ in
     coreutils
   ];
 
-  home.sessionVariables = {
-    TERM = "xterm-256color";
-  };
-
   i18n.glibcLocales = pkgs.glibcLocales.override {
     allLocales = false;
     locales = [ "en_US.UTF-8/UTF-8" ];
+  };
+
+  home.sessionVariables = {
+    TERM = "xterm-256color";
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
   };
 
   # Let Home Manager install and manage itself.
