@@ -3,10 +3,13 @@
   config,
   ...
 }:
+let
+  inherit (config.modules.development) zsh;
+in
 {
   options.modules.development.zsh.enable = lib.mkEnableOption "Enable zsh";
 
-  config = lib.mkIf config.modules.development.zsh.enable {
+  config = lib.mkIf zsh.enable {
     programs.eza = {
       enable = true;
       icons = "auto";
@@ -33,6 +36,10 @@
         # copilot-like autosuggest
         bindkey '^y' autosuggest-accept
       '';
+    };
+
+    home.sessionVariables = {
+      SHELL = config.programs.zsh.package;
     };
   };
 }
