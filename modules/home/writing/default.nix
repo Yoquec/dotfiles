@@ -10,6 +10,7 @@ in
   imports = [
     ./wiki.nix
     ./zk.nix
+    ./emaview.nix
   ];
 
   options.modules.writing.enable = lib.mkEnableOption "Enable writing bundle";
@@ -19,5 +20,6 @@ in
 
     wiki.enable = lib.mkDefault enable;
     zk.enable = lib.mkDefault enable;
+    emaview.enable = lib.mkDefault enable;
   };
 }

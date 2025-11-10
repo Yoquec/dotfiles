@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
+    emanote.url = "github:srid/emanote";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,9 +31,16 @@
     // inputs.flake-utils.lib.eachDefaultSystem (
       system:
       let
+        brokenPackagesOverlay = final: prev: {
+          emanote = inputs.emanote.packages.${system}.emanote;
+        };
+
         pkgs = import inputs.nixpkgs {
           inherit system;
-          overlays = [ inputs.self.overlays.default ];
+          overlays = [
+            inputs.self.overlays.default
+            brokenPackagesOverlay
+          ];
         };
       in
       {
