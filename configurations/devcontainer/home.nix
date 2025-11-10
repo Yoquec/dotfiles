@@ -29,6 +29,7 @@ in
     fd
     gcc
     curl
+    gnugrep
     ripgrep
     opencode
     coreutils
