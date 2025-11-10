@@ -38,7 +38,10 @@ in
     TERM = "xterm-256color";
   };
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.glibcLocales = pkgs.glibcLocales.override {
+    allLocales = false;
+    locales = [ "en_US.UTF-8/UTF-8" ];
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
