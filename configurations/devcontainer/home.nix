@@ -38,6 +38,8 @@ in
     TERM = "xterm-256color";
   };
 
+  i18n.defaultLocale = "en_US.UTF-8";
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
