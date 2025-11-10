@@ -39,7 +39,7 @@ in
     };
 
     home.sessionVariables = {
-      SHELL = config.programs.zsh.package;
+      SHELL = "${config.programs.zsh.package}/bin/zsh";
     };
   };
 }
