@@ -31,7 +31,12 @@ in
     curl
     ripgrep
     opencode
+    coreutils
   ];
+
+  home.sessionVariables = {
+    TERM = "xterm-256color";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
