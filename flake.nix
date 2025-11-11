@@ -20,6 +20,11 @@
       url = "github:yoquec/nvim";
       flake = false;
     };
+    toolbox = {
+      url = "github:yoquec/toolbox";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
   };
   outputs =
     inputs:
@@ -42,6 +47,7 @@
           inherit system;
           overlays = [
             inputs.self.overlays.default
+            inputs.toolbox.overlays.default
             brokenPackagesOverlay
           ];
         };

@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   neovim,
   ...
@@ -21,6 +22,8 @@ in
     home.file = {
       "${xdg.configHome}/nvim".source = neovim;
     };
+
+    home.packages = with pkgs; [ texttransform ];
 
     programs.neovim.enable = config.modules.development.neovim.installBinary;
   };
