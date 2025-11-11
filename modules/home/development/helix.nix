@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   inherit (config.modules.development) helix;
   inherit (config.modules.writing) zk;
@@ -20,6 +25,10 @@ let
       space = {
         F = ":format";
       };
+    };
+
+    keys.select = {
+      space.g.s = ":pipe ${pkgs.texttransform}/bin/tt superscript";
     };
   };
 
