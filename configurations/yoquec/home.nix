@@ -19,13 +19,17 @@ in
   home.stateVersion = "24.11";
 
   modules.x11.enable = true;
-  modules.media.enable = true;
   modules.socials.enable = true;
   modules.development.enable = true;
 
   modules.writing = {
     enable = true;
     inherit wiki;
+  };
+
+  modules.media = {
+    enable = true;
+    ncspot.enable = false;
   };
 
   nix.gc.dates = "weekly";
