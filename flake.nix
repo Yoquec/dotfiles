@@ -6,7 +6,6 @@
     systems.url = "github:nix-systems/default";
     emanote = {
       url = "github:srid/emanote";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
