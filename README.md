@@ -24,7 +24,7 @@ nix run --extra-experimental-features "nix-command flakes"\
 To spin up development containers, pull the [NixOS](https://hub.docker.com/r/nixos/nix) container image and run the home manager configuration
 
 ```sh
-podman run --it --name devcontainer docker.io/nixos/nix:latest
+podman container run -it --network host --name devcontainer docker.io/nixos/nix:latest
 
 # Once inside the devcontainer
 export NIX_CONFIG='extra-experimental-features = nix-command flakes'
