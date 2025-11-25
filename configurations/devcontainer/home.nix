@@ -29,6 +29,7 @@ in
     fd
     gcc
     curl
+    tlrc
     bash # needed for yazi open operations
     procps
     gnugrep
