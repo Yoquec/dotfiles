@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   inherit (config) xdg home;
   identity = {
@@ -44,6 +44,10 @@ in
     "${xdg.configHome}/redshift".source = ../../dotfiles/redshift;
     "${xdg.configHome}/wireplumber".source = ../../dotfiles/wireplumber;
   };
+
+  home.packages = with pkgs; [
+    taskwarrior3
+  ];
 
   programs.zsh.shellAliases = {
     pbcopy = "xclip -sel c";
