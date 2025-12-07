@@ -6,7 +6,7 @@
 }:
 let
   inherit (config) xdg;
-  inherit (pkgs) tmuxPackages;
+  inherit (pkgs.tmuxPackages) tms;
   inherit (config.modules.writing) wiki;
   inherit (config.modules.development)
     tmux
@@ -17,13 +17,6 @@ let
 
   settings = {
     open.prepend_rules = [
-      {
-        name = "*.pdf";
-        use = [
-          "document"
-          "edit"
-        ];
-      }
       {
         mime = "image/jpeg";
         use = [
@@ -37,12 +30,20 @@ let
         ];
       }
     ];
+    open.append_rules = [
+      {
+        name = "*.pdf";
+        use = [
+          "document"
+        ];
+      }
+    ];
     opener = {
       image = [
         # TODO: Condition on feh being installed
         {
           run = ''feh $@'';
-          desc = "feh";
+          desc = "Feh";
           for = "linux";
           orphan = true;
         }
@@ -51,24 +52,16 @@ let
         # TODO: Condition on zathura being installed
         {
           run = ''zathura "$@"'';
-          desc = "zathura";
+          desc = "Zathura";
           for = "unix";
           orphan = true;
         }
         # TODO: Condition on okular being installed
         {
           run = ''okular "$@"'';
-          desc = "okular";
+          desc = "Okular";
           for = "linux";
           orphan = true;
-        }
-      ];
-      open = [
-        {
-          run = ''$PAGER "$@" --paging=always'';
-          desc = "$PAGER";
-          for = "unix";
-          block = true;
         }
       ];
     };
@@ -222,7 +215,7 @@ let
       })
       (lib.mkIf tmux.enable {
         on = [ "s" ];
-        run = ''shell '${tmuxPackages.tms}/bin/tms "`pwd`"' --confirm'';
+        run = ''shell '${tms}/bin/tms "`pwd`"' --confirm'';
         desc = "Start a new tmux session in the current directory";
       })
       (lib.mkIf lazygit.enable {
