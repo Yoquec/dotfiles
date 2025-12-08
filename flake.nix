@@ -34,6 +34,13 @@
         home = ./modules/home;
         default = ./modules/default;
       };
+
+      templates = {
+        flake-parts = {
+          path = ./templates/flake-parts;
+          description = "Basic flake-parts bootstrap template";
+        };
+      };
     }
     // inputs.flake-utils.lib.eachDefaultSystem (
       system:
