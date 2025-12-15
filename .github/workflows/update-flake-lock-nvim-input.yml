@@ -2,6 +2,9 @@ name: update-flake-lock-nvim-input
 
 on:
   workflow_dispatch: # allows manual triggering
+  # Listen to a repository dispatch event by the name of `dispatch-event`
+  repository_dispatch:
+    types: [dispatch-event]
 
 jobs:
   lockfile:
