@@ -10,6 +10,8 @@ jobs:
   lockfile:
     runs-on: ubuntu-latest
     steps:
+      - name: Log event metadata
+        run: echo ${{ github.event.client_payload.message }}
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Determinate Nix
