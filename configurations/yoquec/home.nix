@@ -46,6 +46,7 @@ in
   };
 
   home.packages = with pkgs; [
+    age
     taskwarrior3
     ungoogled-chromium
   ];
