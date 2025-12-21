@@ -47,6 +47,7 @@ in
 
   home.packages = with pkgs; [
     taskwarrior3
+    ungoogled-chromium
   ];
 
   programs.zsh.shellAliases = {
