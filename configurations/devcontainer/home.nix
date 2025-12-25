@@ -32,6 +32,7 @@ in
     tlrc
     bash # needed for yazi open operations
     procps
+    openssh
     gnugrep
     ripgrep
     opencode
