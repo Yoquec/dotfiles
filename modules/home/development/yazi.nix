@@ -215,7 +215,7 @@ let
       })
       (lib.mkIf tmux.enable {
         on = [ "s" ];
-        run = ''shell '${tms}/bin/tms "`pwd`"' --confirm'';
+        run = ''shell '${tms}/bin/tms "`pwd`"' --confirm --block'';
         desc = "Start a new tmux session in the current directory";
       })
       (lib.mkIf lazygit.enable {
