@@ -11,6 +11,7 @@ in
     ./yt-dlp.nix
     ./ncspot.nix
     ./protonmail.nix
+    ./tidal.nix
     ./nextcloud-client.nix
   ];
 
@@ -20,6 +21,7 @@ in
     enable = lib.mkDefault false;
     ncspot.enable = lib.mkDefault enable;
     protonmail.enable = lib.mkDefault enable;
+    tidal.enable = lib.mkDefault enable;
     nextcloud-client.enable = lib.mkDefault enable;
 
     yt-dlp = {
