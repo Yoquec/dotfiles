@@ -29,8 +29,7 @@
       overlays.default = import ./overlay.nix;
 
       modules = {
-        home = ./modules/home;
-        default = ./modules/default;
+        default = ./modules;
       };
 
       templates = {
