@@ -13,11 +13,7 @@ in
     programs.git = {
       enable = true;
       lfs.enable = true;
-      difftastic = {
-        enable = true;
-        enableAsDifftool = true;
-      };
-      extraConfig = {
+      settings = {
         pager = {
           difftool = true;
         };
@@ -26,6 +22,11 @@ in
           name = identity.fullname;
         };
       };
+    };
+
+    programs.difftastic = {
+      enable = true;
+      git.diffToolMode = true;
     };
 
     programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
