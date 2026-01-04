@@ -49,6 +49,7 @@ in
   home.packages = with pkgs; [
     age
     ungoogled-chromium
+    claude-code.jailed
   ];
 
   programs.zsh.shellAliases = {

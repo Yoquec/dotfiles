@@ -10,6 +10,9 @@
     # Unified configuration management
     nixos-unified.url = "github:srid/nixos-unified";
 
+    # bubblewrap wrapper
+    jail-nix.url = "sourcehut:~alexdavid/jail.nix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

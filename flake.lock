@@ -239,6 +239,21 @@
         "type": "github"
       }
     },
+    "jail-nix": {
+      "locked": {
+        "lastModified": 1765903853,
+        "narHash": "sha256-buoPpx7moJzAXbLuHAImn6x9fGRdk3x0T57goPv1vnc=",
+        "owner": "~alexdavid",
+        "repo": "jail.nix",
+        "rev": "bf9f49c8118e7a77b68a675dbe26e93e91412066",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~alexdavid",
+        "repo": "jail.nix",
+        "type": "sourcehut"
+      }
+    },
     "lvar": {
       "flake": false,
       "locked": {
@@ -354,6 +369,7 @@
         "emanote": "emanote",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
+        "jail-nix": "jail-nix",
         "neovim": "neovim",
         "nixos-unified": "nixos-unified_2",
         "nixpkgs": "nixpkgs_2",
