@@ -11,6 +11,7 @@ in
     ./wiki.nix
     ./zk.nix
     ./emaview.nix
+    ./taskwarrior.nix
   ];
 
   options.modules.writing.enable = lib.mkEnableOption "Enable writing bundle";
@@ -21,5 +22,6 @@ in
     wiki.enable = lib.mkDefault enable;
     zk.enable = lib.mkDefault enable;
     emaview.enable = lib.mkDefault enable;
+    taskwarrior.enable = lib.mkDefault enable;
   };
 }
