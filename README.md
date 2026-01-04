@@ -1,13 +1,33 @@
-<center>
+<p align="center">
   <a href="https://builtwithnix.org"><img src="https://builtwithnix.org/badge.svg" alt="Built with nix badge"></a>
   <a href="https://github.com/nix-community/home-manager"><img src="https://img.shields.io/badge/home manager-gray?&style=for-the-badge&logo=nixos"></a>
   <a href="https://github.com/yoquec/dotfiles/stargazers"><img src="https://img.shields.io/github/stars/yoquec/dotfiles?colora=363a4f&colorb=b7bdf8&style=for-the-badge"></a>
   <a href="https://github.com/yoquec/dotfiles/commits/main"><img alt="github last commit" src="https://img.shields.io/github/last-commit/yoquec/dotfiles?color=98c379&style=for-the-badge"></a>
-</center>
+</p>
 
 # Dotfiles 🚀
 
-Repository containing my dotifles managed by [home-manager](https://github.com/nix-community/home-manager), except for my neovim config, which is consumed as a flake input and can be found [here](https://github.com/yoquec/nvim).
+Repository containing my dotifles managed by [home-manager](https://github.com/nix-community/home-manager) structured as per [`nixos-unified`](https://nixos-unified.org). It does not contain my neovim config, which instead is consumed as a flake input and can be found [here](https://github.com/yoquec/nvim).
+Hopefully in the near future, when I have time, this also starts containing both NixOS and `nix-darwin` modules.
+
+## Structure
+
+```
+.
+├── configurations/         # Host-specific configurations
+│   └── home/               # Standalone home-manager hosts
+├── modules/                # Reusable modules
+│   ├── home/               # Shared home-manager modules
+│   ├── shared/             # Shared NixOS+Darwin modules
+│   └── flake/              # Flake-level configuration
+├── overlays/               # Nixpkgs overlays
+├── packages/               # Packaged scripts
+```
+
+Special thank you to these great repos for their inspiration:
+
+- https://github.com/srid/nixos-config
+- https://github.com/lovesegfault/nix-config
 
 ## System config ⚙
 

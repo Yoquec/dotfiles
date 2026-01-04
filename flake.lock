@@ -120,6 +120,26 @@
     },
     "flake-parts_2": {
       "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1765835352,
+        "narHash": "sha256-XswHlK/Qtjasvhd1nOa1e8MgZ8GS//jBoTqWtrS1Giw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "a34fae9c08a15ad73f295041fec82323541400a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_3": {
+      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
@@ -133,26 +153,6 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-utils": {
-      "inputs": {
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -287,6 +287,21 @@
         "type": "github"
       }
     },
+    "nixos-unified_2": {
+      "locked": {
+        "lastModified": 1764076447,
+        "narHash": "sha256-dpkdOPPCWaFtDoxVAtVaprtPX6jGl8o30EBc1gWBOnQ=",
+        "owner": "srid",
+        "repo": "nixos-unified",
+        "rev": "90171c6936a8332ede17e09e337a0e71f4e659b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "nixos-unified",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1752900028,
@@ -337,9 +352,10 @@
     "root": {
       "inputs": {
         "emanote": "emanote",
-        "flake-utils": "flake-utils",
+        "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "neovim": "neovim",
+        "nixos-unified": "nixos-unified_2",
         "nixpkgs": "nixpkgs_2",
         "systems": "systems",
         "toolbox": "toolbox"
@@ -362,7 +378,7 @@
     },
     "toolbox": {
       "inputs": {
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "nixpkgs": [
           "nixpkgs"
         ],

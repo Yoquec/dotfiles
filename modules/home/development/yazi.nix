@@ -6,7 +6,7 @@
 }:
 let
   inherit (config) xdg;
-  inherit (pkgs.tmuxPackages) tms;
+  inherit (pkgs) tms;
   inherit (config.modules.writing) wiki;
   inherit (config.modules.development)
     tmux

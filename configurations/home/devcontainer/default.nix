@@ -10,7 +10,8 @@ let
 in
 {
   imports = [
-    ../../modules/default
+    ../../../modules/home
+    ../../../modules/shared/identity.nix
   ];
   inherit identity;
 

@@ -6,7 +6,7 @@
 }:
 let
   inherit (config.modules.writing) wiki;
-  inherit (pkgs) tmuxPackages;
+  inherit (pkgs) tms tmswitch tmsproject;
 
   keyMode = "vi";
   terminal = "tmux-256color";
@@ -14,11 +14,11 @@ let
     set -sg escape-time 0
 
     # Keybinds
-    bind-key H run-shell "${tmuxPackages.tms}/bin/tms '$HOME' 'Home 🏠'"
-    bind-key N popup -E "${tmuxPackages.tmsproject}/bin/tmsproject"
-    bind-key Space popup -E "${tmuxPackages.tmswitch}/bin/tmswitch"
+    bind-key H run-shell "${tms}/bin/tms '$HOME' 'Home 🏠'"
+    bind-key N popup -E "${tmsproject}/bin/tmsproject"
+    bind-key Space popup -E "${tmswitch}/bin/tmswitch"
     ${lib.optionalString wiki.enable ''
-      bind-key W run-shell "${tmuxPackages.tms}/bin/tms '${wiki.directory}' 'Wiki 📚'"
+      bind-key W run-shell "${tms}/bin/tms '${wiki.directory}' 'Wiki 📚'"
     ''}
 
     # Colored undercurls
@@ -63,7 +63,7 @@ in
       inherit extraConfig;
     };
 
-    home.packages = with tmuxPackages; [
+    home.packages = [
       tms
     ];
 

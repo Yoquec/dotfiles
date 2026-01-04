@@ -1,7 +1,0 @@
-{ ... }:
-{
-  imports = [
-    ../identity.nix
-    ../home
-  ];
-}

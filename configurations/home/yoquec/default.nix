@@ -10,7 +10,8 @@ let
 in
 {
   imports = [
-    ../../modules/default
+    ../../../modules/home
+    ../../../modules/shared/identity.nix
   ];
   inherit identity;
 
@@ -36,13 +37,13 @@ in
 
   # TODO: Should be moved to their own modules
   home.file = {
-    "${home.homeDirectory}/.xinitrc".source = ../../dotfiles/xinit/.xinitrc;
+    "${home.homeDirectory}/.xinitrc".source = ../../../dotfiles/xinit/.xinitrc;
 
-    "${xdg.configHome}/rofi".source = ../../dotfiles/rofi;
-    "${xdg.configHome}/dunst".source = ../../dotfiles/dunst;
-    "${xdg.configHome}/ghostty".source = ../../dotfiles/ghostty;
-    "${xdg.configHome}/redshift".source = ../../dotfiles/redshift;
-    "${xdg.configHome}/wireplumber".source = ../../dotfiles/wireplumber;
+    "${xdg.configHome}/rofi".source = ../../../dotfiles/rofi;
+    "${xdg.configHome}/dunst".source = ../../../dotfiles/dunst;
+    "${xdg.configHome}/ghostty".source = ../../../dotfiles/ghostty;
+    "${xdg.configHome}/redshift".source = ../../../dotfiles/redshift;
+    "${xdg.configHome}/wireplumber".source = ../../../dotfiles/wireplumber;
   };
 
   home.packages = with pkgs; [

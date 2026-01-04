@@ -2,10 +2,11 @@
   lib,
   pkgs,
   config,
-  neovim,
+  flake,
   ...
 }:
 let
+  inherit (flake.inputs) neovim;
   inherit (config) xdg;
 in
 {
