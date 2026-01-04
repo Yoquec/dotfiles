@@ -29,7 +29,7 @@ Special thank you to these great repos for their inspiration:
 - https://github.com/srid/nixos-config
 - https://github.com/lovesegfault/nix-config
 
-## System config ⚙
+## System config ⚙️
 
 ```bash
 # or git clone git@github.com:yoquec/dotfiles.git
