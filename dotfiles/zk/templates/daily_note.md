@@ -1,10 +1,10 @@
 ---
 id: "{{filename-stem}}"
 aliases:
-  - {{format-date now 'medium'}}
+  - {{format-date now 'short'}}
 tags:
   - daily-notes
 ---
 
-# To-Do
+# {{format-date now 'short'}}
 
