@@ -17,12 +17,18 @@ in
 {
   options.modules.writing.taskwarrior = {
     enable = lib.mkEnableOption "Enable taskwarrior";
+    dataLocation = lib.mkOption {
+      type = lib.types.str;
+      default = dataLocation;
+      description = "Directory to hold task information";
+    };
   };
 
   config = lib.mkIf taskwarrior.enable {
     programs.taskwarrior = {
       enable = true;
-      inherit package colorTheme dataLocation;
+      inherit package colorTheme;
+      inherit (taskwarrior) dataLocation;
     };
   };
 }
