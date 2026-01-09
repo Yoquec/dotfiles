@@ -14,6 +14,7 @@ in
       enable = true;
       lfs.enable = true;
       settings = {
+        pager.difftool = true;
         user = {
           inherit (identity) email;
           name = identity.fullname;
