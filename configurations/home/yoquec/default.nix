@@ -11,6 +11,7 @@ in
 {
   imports = [
     ../../../modules/home
+    ../../../modules/shared/jail.nix
     ../../../modules/shared/identity.nix
   ];
   inherit identity;
@@ -22,6 +23,7 @@ in
   modules.x11.enable = true;
   modules.socials.enable = true;
   modules.development.enable = true;
+  modules.development.ai.enable = true;
 
   modules.writing = {
     enable = true;
@@ -49,7 +51,6 @@ in
   home.packages = with pkgs; [
     age
     ungoogled-chromium
-    claude-code.jailed
   ];
 
   programs.zsh.shellAliases = {

@@ -2,6 +2,7 @@
 {
   imports = [
     ./development
+    ./development/ai
     ./media
     ./socials
     ./writing
