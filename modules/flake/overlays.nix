@@ -14,6 +14,7 @@
         }:
         {
           inherit (inputs.toolbox.packages.${system}) texttransform;
+          inherit (inputs.emanote.packages.${system}) emanote;
 
           # Expose this flake's packages
           inherit (config.packages)
@@ -22,15 +23,6 @@
             tmswitch
             tmsproject
             ;
-        }
-      );
-
-    brokenPackages =
-      final: prev:
-      withSystem prev.stdenv.hostPlatform.system (
-        { system, ... }:
-        {
-          inherit (inputs.emanote.packages.${system}) emanote;
         }
       );
   };
@@ -43,7 +35,6 @@
         inherit system;
         overlays = [
           inputs.self.overlays.default
-          inputs.self.overlays.brokenPackages
         ];
         config = {
           allowUnfree = true;
