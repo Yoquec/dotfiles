@@ -29,6 +29,15 @@ in
       enable = true;
       inherit package colorTheme;
       inherit (taskwarrior) dataLocation;
+      config = {
+        uda.priority.values = [
+          "H"
+          "M"
+          ""
+          "L"
+        ];
+        urgency.uda.priority.L.coefficient = 0.5;
+      };
     };
   };
 }
