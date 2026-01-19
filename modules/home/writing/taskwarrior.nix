@@ -36,7 +36,7 @@ in
           ""
           "L"
         ];
-        urgency.uda.priority.L.coefficient = 0.5;
+        urgency.uda.priority.L.coefficient = -2;
       };
     };
   };
