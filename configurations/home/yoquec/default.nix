@@ -1,6 +1,15 @@
-{ config, pkgs, ... }:
+{
+  flake,
+  config,
+  pkgs,
+  ...
+}:
 let
   inherit (config) xdg home;
+  inherit (flake.inputs) agenix;
+
+  pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVuZC8VJWJKbi+wa3S8iXpp8/6EQZ53e4SBQ5wtWBOS yoquec@framework";
+
   identity = {
     username = "yoquec";
     fullname = "Alvaro Viejo";
@@ -11,10 +20,14 @@ in
 {
   imports = [
     ../../../modules/home
+    ../../../modules/home/agenix-rekey.nix
     ../../../modules/shared/jail.nix
     ../../../modules/shared/identity.nix
+    agenix.homeManagerModules.default
   ];
   inherit identity;
+
+  age.rekey.hostPubkey = pubkey;
 
   home.username = identity.username;
   home.homeDirectory = "/home/${identity.username}";
