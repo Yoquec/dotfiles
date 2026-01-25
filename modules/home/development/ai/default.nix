@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./claude-code.nix
+    ./opencode.nix
   ];
 
   options.modules.development.ai.enable = lib.mkEnableOption "Enable ai development module";
@@ -12,5 +13,6 @@ in
     enable = lib.mkDefault false;
 
     claude-code.enable = lib.mkDefault enable;
+    opencode.enable = lib.mkDefault enable;
   };
 }
