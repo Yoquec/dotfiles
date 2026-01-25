@@ -21,7 +21,9 @@ Hopefully in the near future, when I have time, this also starts containing both
 │   ├── shared/             # Shared NixOS+Darwin modules
 │   └── flake/              # Flake-level configuration
 ├── overlays/               # Nixpkgs overlays
+├── templates/              # Flake provided templates
 ├── packages/               # Packaged scripts
+└── secrets/                # Encrypted secrets (agenix-rekey)
 ```
 
 Special thank you to these great repos for their inspiration:
