@@ -22,8 +22,6 @@ let
 
       network
 
-      (read-env-file "FOO" config.age.secrets.foo.path)
-
       # Allow access to the current running directory
       # See: https://alexdav.id/projects/jail-nix/combinators/#noescape
       (readwrite (noescape "\"$PWD\""))
@@ -47,7 +45,6 @@ in
   };
 
   config = lib.mkIf (claude-code.enable && isLinux) ({
-    age.secrets.foo.rekeyFile = ../../../../secrets/foo.age;
     home.packages = [ claude-code-jail ];
   });
 }
