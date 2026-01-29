@@ -20,11 +20,8 @@ let
       tools.git
       tools.bash
 
+      mount-cwd
       network
-
-      # Allow access to the current running directory
-      # See: https://alexdav.id/projects/jail-nix/combinators/#noescape
-      (readwrite (noescape "\"$PWD\""))
 
       # Allow access to claude-specific configuration files
       # See: https://github.com/srid/nixos-config/blob/4919c45017f006a00b7224a620d98315fdd565d1/modules/flake-parts/claude-sandboxed.nix#L24-L30

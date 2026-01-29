@@ -22,12 +22,11 @@ let
   opencode-jail = jail "opencode" pkgs.opencode (
     with jail.combinators;
     [
-      # Allow access to the current running directory
-      # See: https://alexdav.id/projects/jail-nix/combinators/#noescape
-      (readwrite (noescape "\"$PWD\""))
-      (readonly "${config.xdg.configHome}/opencode")
-
+      mount-cwd
       network
+
+      # Allow access to the opencode configuration path
+      (readonly "${config.xdg.configHome}/opencode")
 
       tools.git
       tools.bash
