@@ -63,6 +63,7 @@ in
 
   home.packages = with pkgs; [
     age
+    tlrc
     ungoogled-chromium
   ];
 
