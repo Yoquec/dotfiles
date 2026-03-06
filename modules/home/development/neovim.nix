@@ -16,16 +16,25 @@ in
   };
 
   config = lib.mkIf config.modules.development.neovim.enable {
-    home.sessionVariables = {
-      EDITOR = "nvim";
-    };
+    programs.neovim.defaultEditor = true;
 
     home.file = {
       "${xdg.configHome}/nvim".source = neovim;
     };
 
-    home.packages = with pkgs; [ texttransform ];
+    programs.neovim = {
+      enable = config.modules.development.neovim.installBinary;
+      extraPackages = with pkgs; [ texttransform ];
 
-    programs.neovim.enable = config.modules.development.neovim.installBinary;
+      # HACK: Leverage `extraWrapperArgs` to wire in the
+      # theme overrides
+      # See: https://nix-community.github.io/home-manager/options.xhtml#opt-programs.neovim.extraWrapperArgs
+      extraWrapperArgs = [
+        "--suffix"
+        "THEME"
+        ":"
+        "${config.theme}"
+      ];
+    };
   };
 }
