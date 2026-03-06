@@ -16,7 +16,7 @@
 
     programs.bat = lib.mkIf config.modules.development.bat.installBinary {
       enable = true;
-      config.theme = "base16";
+      config.theme = "ansi";
     };
   };
 }
