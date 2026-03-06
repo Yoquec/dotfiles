@@ -35,6 +35,7 @@ in
 
   modules.x11.enable = true;
   modules.socials.enable = true;
+  modules.media.enable = true;
   modules.development.enable = true;
   modules.development.ai.enable = true;
 
