@@ -43,11 +43,6 @@ in
     inherit wiki;
   };
 
-  modules.media = {
-    enable = true;
-    ncspot.enable = false;
-  };
-
   nix.gc.dates = "weekly";
 
   # TODO: Should be moved to their own modules
