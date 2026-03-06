@@ -53,7 +53,6 @@ in
 
     "${xdg.configHome}/rofi".source = ../../../dotfiles/rofi;
     "${xdg.configHome}/dunst".source = ../../../dotfiles/dunst;
-    "${xdg.configHome}/ghostty".source = ../../../dotfiles/ghostty;
     "${xdg.configHome}/redshift".source = ../../../dotfiles/redshift;
     "${xdg.configHome}/wireplumber".source = ../../../dotfiles/wireplumber;
   };
