@@ -41,6 +41,15 @@ nix run --extra-experimental-features "nix-command flakes"\
   switch --extra-experimental-features "nix-command flakes" --flake ~/.dotfiles#<PROFILE>
 ```
 
+### Theming 🎨
+
+`homeConfigurations` allow for light/dark theme configuration through the `sharedModules.theme` module. It defaults to the value `"dark"`, but can be overriden via the `THEME` environment variable.
+
+```sh
+# To activate the profile in light theme
+THEME=light home-manager switch --flake .#yoquec --impure
+```
+
 ## Development containers
 
 To spin up development containers, pull the [NixOS](https://hub.docker.com/r/nixos/nix) container image and run the home manager configuration

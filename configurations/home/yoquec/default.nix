@@ -23,6 +23,7 @@ in
     ../../../modules/home/agenix-rekey.nix
     ../../../modules/shared/jail.nix
     ../../../modules/shared/identity.nix
+    ../../../modules/shared/theme.nix
     agenix.homeManagerModules.default
   ];
   inherit identity;
