@@ -14,8 +14,7 @@ let
   settings = {
     theme = if theme == "dark" then "Tomorrow Night Bright" else "Tomorrow";
     palette = [
-      "0=#3B4252"
-      "8=#3B4252"
+      "0=#404040"
     ];
 
     font-size = 14;
@@ -27,6 +26,7 @@ let
 
     cursor-style = "block";
     cursor-style-blink = false;
+    cursor-color = "#cb82ed";
 
     window-padding-x = "20";
     window-padding-y = "25, 5";
