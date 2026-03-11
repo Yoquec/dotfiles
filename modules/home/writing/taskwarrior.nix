@@ -7,6 +7,7 @@
 let
   inherit (config) home theme;
   inherit (config.modules.writing) taskwarrior;
+  inherit (config.modules.development) zsh;
 
   package = pkgs.taskwarrior3;
   colorTheme = if theme == "dark" then "dark-256" else "light-256";
@@ -38,6 +39,10 @@ in
         ];
         urgency.uda.priority.L.coefficient = -2;
       };
+    };
+
+    programs.zsh.shellAliases = lib.mkIf zsh.enable {
+      t = "task";
     };
   };
 }
