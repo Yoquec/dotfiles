@@ -5,12 +5,11 @@
   ...
 }:
 let
-  inherit (config) home;
+  inherit (config) home theme;
   inherit (config.modules.writing) taskwarrior;
 
   package = pkgs.taskwarrior3;
-  # TODO: Condition on stylix?
-  colorTheme = "dark-256";
+  colorTheme = if theme == "dark" then "dark-256" else "light-256";
   # TODO: Condition on nextcloud-client being installed
   dataLocation = "${home.homeDirectory}/Nextcloud/Tasks";
 in
@@ -30,6 +29,7 @@ in
       inherit package colorTheme;
       inherit (taskwarrior) dataLocation;
       config = {
+        default.command = "+UNBLOCKED priority.not:L next";
         uda.priority.values = [
           "H"
           "M"
