@@ -408,11 +408,11 @@
     "neovim": {
       "flake": false,
       "locked": {
-        "lastModified": 1772977686,
-        "narHash": "sha256-tCPQQWs7Wu+byiVKpZuYaHWYyvvPMvvDXDRxWBHCJhk=",
+        "lastModified": 1773487041,
+        "narHash": "sha256-wmk63FZFiMl65nJNZQfruJ8lQ2cs+UBbCN6crLVsYyo=",
         "owner": "yoquec",
         "repo": "nvim",
-        "rev": "777abf36e7ef560f4fab05933c1464382d3a0019",
+        "rev": "f92c4adc1ce57c46bd48d53dfd5343c5755f23ff",
         "type": "github"
       },
       "original": {
