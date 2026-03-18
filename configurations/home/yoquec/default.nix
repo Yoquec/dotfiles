@@ -59,6 +59,7 @@ in
 
   home.packages = with pkgs; [
     age
+    age-plugin-yubikey
     tlrc
     ungoogled-chromium
   ];
