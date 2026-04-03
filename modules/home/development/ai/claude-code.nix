@@ -20,7 +20,7 @@ let
       tools.git
       tools.bash
 
-      mount-cwd
+      confirm-mount-cwd
       network
 
       # Allow access to claude-specific configuration files

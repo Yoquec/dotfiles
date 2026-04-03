@@ -22,7 +22,7 @@ let
   opencode-jail = jail "opencode" pkgs.opencode (
     with jail.combinators;
     [
-      mount-cwd
+      confirm-mount-cwd
       network
 
       # Allow access to the opencode configuration path
