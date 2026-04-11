@@ -20,6 +20,11 @@ let
     ${lib.optionalString wiki.enable ''
       bind-key W run-shell "${tms}/bin/tms '${wiki.directory}' 'Wiki 📚'"
     ''}
+    bind b last-window
+    bind h select-pane -L
+    bind j select-pane -D
+    bind k select-pane -U
+    bind l select-pane -R
 
     # Colored undercurls
     set -ga terminal-overrides ',*256col*:Tc'
