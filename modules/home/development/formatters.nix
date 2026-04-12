@@ -8,9 +8,9 @@
   options.modules.development.formatters.enable = lib.mkEnableOption "Enable default formatters";
   config = lib.mkIf config.modules.development.formatters.enable {
     home.packages = with pkgs; [
-      nodePackages.prettier
+      prettier
       shfmt
-      nixfmt-rfc-style
+      nixfmt
     ];
   };
 }
