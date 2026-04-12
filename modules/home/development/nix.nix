@@ -9,10 +9,7 @@
   # See: https://raw.githubusercontent.com/juspay/nixos-unified-template/refs/heads/main/modules/home/nix.nix
 
   # `nix.package` is already set if on `NixOS` or `nix-darwin`.
-  options.modules.development.nix = {
-    enable = lib.mkEnableOption "Configure nix (with nix)";
-    installBinary = lib.mkEnableOption "Bring an external nix package";
-  };
+  options.modules.development.nix.enable = lib.mkEnableOption "Configure nix (with nix)";
 
   config = lib.mkIf config.modules.development.nix.enable {
     nix.package = lib.mkDefault pkgs.nix;
