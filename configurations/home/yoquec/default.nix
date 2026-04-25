@@ -32,7 +32,7 @@ in
 
   home.username = identity.username;
   home.homeDirectory = "/home/${identity.username}";
-  home.stateVersion = "26.05";
+  home.stateVersion = "25.11";
 
   modules.x11.enable = true;
   modules.socials.enable = true;
