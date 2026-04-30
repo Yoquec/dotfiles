@@ -45,6 +45,7 @@
       url = "github:yoquec/toolbox";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
+      inputs.flake-parts.follows = "flake-parts";
     };
   };
   outputs =
