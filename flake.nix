@@ -1,24 +1,20 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/25.11";
-    systems.url = "github:nix-systems/default";
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    # Unified configuration management
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixos-unified.url = "github:srid/nixos-unified";
-
-    # bubblewrap wrapper
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
+    systems.url = "github:nix-systems/default";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Security and secrets
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs = {
