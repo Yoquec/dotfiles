@@ -14,11 +14,9 @@
         }:
         {
           inherit (inputs.toolbox.packages.${system}) texttransform;
-          inherit (inputs.emanote.packages.${system}) emanote;
 
           # Expose this flake's packages
           inherit (config.packages)
-            emaview
             tms
             tmswitch
             tmsproject

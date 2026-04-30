@@ -36,13 +36,11 @@
       };
     };
 
-    emanote = {
-      url = "github:srid/emanote";
-    };
     neovim = {
       url = "github:yoquec/nvim";
       flake = false;
     };
+
     toolbox = {
       url = "github:yoquec/toolbox";
       inputs.nixpkgs.follows = "nixpkgs";
