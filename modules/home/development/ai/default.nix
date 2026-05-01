@@ -1,18 +1,6 @@
-{ config, lib, ... }:
-let
-  inherit (config.modules.development.ai) enable;
-in
-{
-  imports = [
-    ./claude-code.nix
-    ./opencode.nix
-  ];
-
-  options.modules.development.ai.enable = lib.mkEnableOption "Enable ai development module";
-  config.modules.development.ai = {
-    enable = lib.mkDefault false;
-
-    claude-code.enable = lib.mkDefault enable;
-    opencode.enable = lib.mkDefault enable;
-  };
+{ flake, lib, ... }:
+import "${flake.inputs.self}/lib/autowire/mkModule.nix" { inherit lib; } {
+  path = ./.;
+  name = "ai";
+  parents = [ "development" ];
 }
