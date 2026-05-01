@@ -15,6 +15,7 @@ let
     fullname = "Alvaro Viejo";
     email = "alvaro.viejo@yoquec.com";
   };
+
   wiki.directory = "${home.homeDirectory}/Nextcloud/Notes/";
 in
 {
@@ -68,6 +69,8 @@ in
     pbcopy = "xclip -sel c";
     pbpaste = "xclip -sel c -o";
   };
+
+  programs.ghostty.package = pkgs.callPackage ./ghostty-polyfill.nix { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
