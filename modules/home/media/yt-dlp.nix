@@ -9,10 +9,12 @@
     installBinary = lib.mkEnableOption "Install yt-dlp binary with nix";
   };
 
-  config = lib.mkIf config.modules.media.yt-dlp.enable {
-    programs.yt-dlp.enable = config.modules.media.yt-dlp.installBinary;
+  config.modules.media.yt-dlp.installBinary = lib.mkDefault false;
 
-    programs.zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
+  config.programs = lib.mkIf config.modules.media.yt-dlp.enable {
+    yt-dlp.enable = config.modules.media.yt-dlp.installBinary;
+
+    zsh.shellAliases = lib.mkIf config.modules.development.zsh.enable {
       yt = "yt-dlp --add-metadata -i";
       yta = "yt -x -f bestaudio/best";
     };
