@@ -15,6 +15,10 @@
           (builtin.add-pkg-deps [
             shell
             pkgs.coreutils
+            pkgs.gnugrep
+            pkgs.curl
+            pkgs.wget
+            pkgs.which
           ])
         ]
       );
