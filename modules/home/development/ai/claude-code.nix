@@ -33,6 +33,10 @@ let
       (readonly certpath)
       (set-env "NODE_EXTRA_CA_CERTS" certpath)
 
+      # Disable telemetry
+      (set-env "DISABLE_TELEMETRY" "1")
+      (set-env "DISABLE_ERROR_REPORTING" "1")
+
       # Perplexity MCP server: binary in PATH, API key injected before bubblewrap starts
       (add-pkg-deps [ pkgs.perplexity-mcp-server ])
       (read-env-file "PERPLEXITY_API_KEY" secrets.perplexity.path)
@@ -47,9 +51,9 @@ in
   config = lib.mkIf (claude-code.enable && pkgs.stdenv.isLinux) {
     age.secrets.perplexity.rekeyFile = ../../../../secrets/perplexity.age;
 
-    programs.claude-code.mcpServers.perplexity.command =
-      "${pkgs.perplexity-mcp-server}/bin/perplexity-mcp";
-
-    home.packages = [ claude-code-jail ];
+    programs.claude-code = {
+      enable = true;
+      package = claude-code-jail;
+    };
   };
 }
