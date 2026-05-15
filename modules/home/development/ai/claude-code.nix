@@ -7,8 +7,7 @@
 }:
 let
   inherit (config.modules.development.ai) claude-code;
-
-  isLinux = lib.hasInfix "linux" pkgs.stdenv.hostPlatform.system;
+  inherit (config.age) secrets;
 
   claude-code-jail = jail "claude" pkgs.claude-code (
     with jail.combinators;
@@ -33,6 +32,10 @@ let
       # See: https://github.com/anthropics/claude-code/issues/2816
       (readonly certpath)
       (set-env "NODE_EXTRA_CA_CERTS" certpath)
+
+      # Perplexity MCP server: binary in PATH, API key injected before bubblewrap starts
+      (add-pkg-deps [ pkgs.perplexity-mcp-server ])
+      (read-env-file "PERPLEXITY_API_KEY" secrets.perplexity.path)
     ]
   );
 in
@@ -41,7 +44,12 @@ in
     enable = lib.mkEnableOption "Enable claude-code";
   };
 
-  config = lib.mkIf (claude-code.enable && isLinux) ({
+  config = lib.mkIf (claude-code.enable && pkgs.stdenv.isLinux) {
+    age.secrets.perplexity.rekeyFile = ../../../../secrets/perplexity.age;
+
+    programs.claude-code.mcpServers.perplexity.command =
+      "${pkgs.perplexity-mcp-server}/bin/perplexity-mcp";
+
     home.packages = [ claude-code-jail ];
-  });
+  };
 }
