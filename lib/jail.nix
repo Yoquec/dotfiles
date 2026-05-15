@@ -12,7 +12,10 @@
         in
         [
           (builtin.set-env "SHELL" "${shell}/bin/bash")
-          (builtin.add-pkg-deps [ shell ])
+          (builtin.add-pkg-deps [
+            shell
+            pkgs.coreutils
+          ])
         ]
       );
     };
