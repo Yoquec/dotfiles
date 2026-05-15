@@ -20,6 +20,7 @@
             tms
             tmswitch
             tmsproject
+            perplexity-mcp-server
             ;
         }
       );
