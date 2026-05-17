@@ -10,6 +10,7 @@ in
   imports = [
     ./whatsapp.nix
     ./discord.nix
+    ./netflix.nix 
   ];
 
   options.modules.socials.enable = lib.mkEnableOption "Enable social media bundle";
@@ -18,5 +19,6 @@ in
     enable = lib.mkDefault false;
     whatsapp.enable = lib.mkDefault enable;
     discord.enable = lib.mkDefault enable;
+    netflix.enable = lib.mkDefault enable;
   };
 }
