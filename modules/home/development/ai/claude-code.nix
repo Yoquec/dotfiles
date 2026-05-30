@@ -13,10 +13,6 @@ let
 
   claude-code-jail = jail "claude" pkgs.claude-code (
     with jail.combinators;
-    let
-      # Path to certificate bundle
-      certpath = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-    in
     [
       tools.git
       tools.bash
@@ -29,11 +25,6 @@ let
       # See: https://alexdav.id/projects/jail-nix/combinators/#noescape
       (try-readwrite (noescape "~/.claude"))
       (try-readwrite (noescape "~/.claude.json"))
-
-      # Properly resolve ca certificates (fix UNABLE_TO_GET_ISSUER_CERT_LOCALLY)
-      # See: https://github.com/anthropics/claude-code/issues/2816
-      (readonly certpath)
-      (set-env "NODE_EXTRA_CA_CERTS" certpath)
 
       # Disable telemetry
       (set-env "DISABLE_TELEMETRY" "1")
