@@ -13,10 +13,9 @@ in
     ./direnv.nix
     ./fzf.nix
     ./git.nix
-    ./langservers.nix
     ./formatters.nix
     ./lazygit.nix
-    ./neovim.nix
+    ./neovim
     ./helix.nix
     ./nix.nix
     ./starship.nix
@@ -38,7 +37,6 @@ in
     helix.enable = lib.mkDefault enable;
     direnv.enable = lib.mkDefault enable;
     starship.enable = lib.mkDefault enable;
-    langservers.enable = lib.mkDefault enable;
     formatters.enable = lib.mkDefault enable;
 
     nix = {
@@ -57,9 +55,6 @@ in
       enable = lib.mkDefault enable;
       installBinary = lib.mkDefault true;
     };
-    neovim = {
-      enable = lib.mkDefault enable;
-      installBinary = lib.mkDefault true;
-    };
+    neovim.enable = lib.mkDefault enable;
   };
 }

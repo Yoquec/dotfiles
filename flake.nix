@@ -37,6 +37,13 @@
       flake = false;
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+
     toolbox = {
       url = "github:yoquec/toolbox";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -22,6 +22,8 @@
             tmsproject
             perplexity-mcp-server
             ;
+
+          vimPlugins = prev.vimPlugins // inputs.self.vimPlugins.${system};
         }
       );
   };
