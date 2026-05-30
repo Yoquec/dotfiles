@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.nixvim.opts = {
     termguicolors = true;
@@ -28,7 +28,7 @@
     backup = false;
 
     undofile = true;
-    undodir = [ "$HOME/.cache/nvim/undo" ];
+    undodir = [ "${config.home.homeDirectory}/.cache/nvim/undo" ];
 
     ignorecase = true;
     hlsearch = true;
