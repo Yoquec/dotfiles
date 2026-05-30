@@ -232,6 +232,7 @@ in
   config = lib.mkIf yazi.enable {
     programs.yazi = {
       enable = true;
+      shellWrapperName = "yy";
       inherit keymap;
       inherit settings;
     };

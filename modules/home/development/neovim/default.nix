@@ -33,6 +33,8 @@
 
     programs.nixvim = {
       enable = true;
+      # pkgs.path refers to the store location for nixpkgs
+      nixpkgs.source = pkgs.path;
 
       extraPlugins = [ pkgs.vimPlugins.yoquec ];
     };
