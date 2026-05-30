@@ -12,6 +12,9 @@ let
   inherit (config.age) secrets;
 
   claude-code-jail = jail "claude" pkgs.claude-code (
+    let
+      certfile = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    in
     with jail.combinators;
     [
       tools.git
@@ -25,6 +28,11 @@ let
       # See: https://alexdav.id/projects/jail-nix/combinators/#noescape
       (try-readwrite (noescape "~/.claude"))
       (try-readwrite (noescape "~/.claude.json"))
+
+      # Properly resolve ca certificates (fix UNABLE_TO_GET_ISSUER_CERT_LOCALLY)
+      # See: https://github.com/anthropics/claude-code/issues/2816
+      (readonly certfile)
+      (set-env "SSL_CERT_FILE" certfile)
 
       # Disable telemetry
       (set-env "DISABLE_TELEMETRY" "1")
