@@ -1,5 +1,9 @@
 {
   inputs = {
+    self = {
+      lfs = true;
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixos-unified.url = "github:srid/nixos-unified";
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
