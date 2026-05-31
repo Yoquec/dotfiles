@@ -32,7 +32,7 @@ let
     ];
     open.append_rules = [
       {
-        name = "*.pdf";
+        url = "*.pdf";
         use = [
           "document"
         ];
