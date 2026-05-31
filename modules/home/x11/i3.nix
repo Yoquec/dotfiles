@@ -7,6 +7,14 @@
 let
   inherit (config) xdg;
   inherit (config.modules.x11) i3;
+
+  # Patch the i3 config file to add the correct wallpaper
+  patched = pkgs.runCommand "i3-config-patched" { } ''
+    cp -r ${../../../dotfiles/i3} $out
+    chmod -R u+w $out
+    substituteInPlace $out/config \
+      --replace "wallpaper.png" "${../../../assets/wallpapers/charcoal_creation_of_adam.png}"
+  '';
 in
 {
   options.modules.x11.i3 = {
@@ -16,10 +24,9 @@ in
 
   config = lib.mkIf i3.enable {
     # TODO: i3 should be installed through home-manager once NixOS is installed
-    # TODO: Add wallpaper through overlay?
 
     home.file = {
-      "${xdg.configHome}/i3".source = ../../../dotfiles/i3;
+      "${xdg.configHome}/i3".source = patched;
       "${xdg.configHome}/i3blocks".source = ../../../dotfiles/i3blocks;
     };
 
