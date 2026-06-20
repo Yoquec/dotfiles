@@ -29,13 +29,14 @@
   };
 
   config = lib.mkIf config.modules.development.neovim.enable {
-    programs.neovim.defaultEditor = true;
+    programs.neovim.enable = lib.mkForce false;
 
     programs.nixvim = {
       enable = true;
       # pkgs.path refers to the store location for nixpkgs
       nixpkgs.source = pkgs.path;
 
+      defaultEditor = true;
       extraPlugins = [ pkgs.vimPlugins.yoquec ];
     };
   };
