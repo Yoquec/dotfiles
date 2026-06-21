@@ -30,18 +30,22 @@ in
       "${xdg.configHome}/i3blocks".source = ../../../dotfiles/i3blocks;
     };
 
-    home.packages = lib.mkIf i3.installBinary (
-      with pkgs;
-      [
-        i3
-        i3blocks
-        (pkgs.writeShellScriptBin "volume-i3blocks" (
-          builtins.readFile ../../dotfiles/i3blocks/bin/volume-i3blocks
-        ))
-        (pkgs.writeShellScriptBin "battery-i3blocks" (
-          builtins.readFile ../../dotfiles/i3blocks/bin/volume-i3blocks
-        ))
-      ]
+    home.packages = [
+      (pkgs.writeShellScriptBin "volume-i3blocks" (
+        builtins.readFile ../../../dotfiles/i3blocks/bin/volume-i3blocks
+      ))
+      (pkgs.writeShellScriptBin "battery-i3blocks" (
+        builtins.readFile ../../../dotfiles/i3blocks/bin/battery-i3blocks
+      ))
+    ]
+    ++ (
+      if i3.installBinary then
+        (with pkgs; [
+          i3
+          i3blocks
+        ])
+      else
+        [ ]
     );
   };
 }
