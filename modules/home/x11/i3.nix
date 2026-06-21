@@ -27,7 +27,7 @@ in
 
     home.file = {
       "${xdg.configHome}/i3".source = patched;
-      "${xdg.configHome}/i3blocks".source = ../../../dotfiles/i3blocks;
+      "${xdg.configHome}/i3blocks/config".source = ../../../dotfiles/i3blocks/config;
     };
 
     home.packages = [
