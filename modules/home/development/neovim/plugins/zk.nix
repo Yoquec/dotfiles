@@ -1,10 +1,15 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 lib.mkIf config.modules.writing.wiki.enable {
   programs.nixvim = {
     extraPlugins = [ pkgs.vimPlugins.zk-nvim ];
 
     extraConfigLua = ''
-      local function with_title(cb)
+      function with_title(cb)
         vim.ui.input({ prompt = "Title" }, function(title)
           if title == nil or title == "" then
             print("Operation canceled")
@@ -77,12 +82,8 @@ lib.mkIf config.modules.writing.wiki.enable {
         key = "<leader>zfc";
         action.__raw = ''
           function()
-            vim.ui.input({ prompt = "Title" }, function(title)
-              if title == nil or title == "" then
-                print("Operation canceled")
-              else
-                vim.cmd([['<,'>ZkNewFromContentSelection { title = ']] .. title .. [[' }]])
-              end
+            with_title(function(title) 
+              vim.cmd([['<,'>ZkNewFromContentSelection { title = ']] .. title .. [[' }]])
             end)
           end
         '';
@@ -93,14 +94,10 @@ lib.mkIf config.modules.writing.wiki.enable {
         key = "<leader>zn";
         action.__raw = ''
           function()
-            vim.ui.input({ prompt = "Title" }, function(title)
-              if title == nil or title == "" then
-                print("Operation canceled")
-              else
+              with_title(function(title)
                 local new = require("zk.commands").get("ZkNew")
                 new({ title = title })
-              end
-            end)
+              end)
           end
         '';
         options.desc = "Create a new zettlekasten note";
