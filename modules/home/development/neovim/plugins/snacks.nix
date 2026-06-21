@@ -4,16 +4,35 @@
     plugins.snacks = {
       enable = true;
       settings = {
-        notifier = { };
-        input = { };
-        explorer = { };
+        notifier = {
+          enabled = true;
+        };
+        input = {
+          enabled = true;
+          b = {
+            completions = true;
+          };
+        };
+        explorer = {
+          enabled = true;
+        };
         picker = {
+          enabled = true;
           sources = {
-            spelling.layout = { preset = "select"; preview = false; };
-            search_history.layout = { preset = "select"; preview = false; };
+            spelling.layout = {
+              preset = "select";
+              preview = false;
+            };
+            search_history.layout = {
+              preset = "select";
+              preview = false;
+            };
             explorer = {
               auto_close = true;
-              layout = { preset = "ivy"; preview = "file"; };
+              layout = {
+                preset = "ivy";
+                preview = "file";
+              };
               win.list.keys."%" = "explorer_add";
             };
           };
