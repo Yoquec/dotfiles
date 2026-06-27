@@ -39,7 +39,7 @@ let
       (set-env "DISABLE_ERROR_REPORTING" "1")
 
       # Perplexity MCP server: binary in PATH, API key injected before bubblewrap starts
-      (add-pkg-deps [ pkgs.perplexity-mcp-server ])
+      (add-pkg-deps [ pkgs.perplexity-mcp ])
       (read-env-file "PERPLEXITY_API_KEY" secrets.perplexity.path)
 
       # Adds neovim editor support
