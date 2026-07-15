@@ -20,7 +20,7 @@ font pango:Inter Display Medium 12
 default_border pixel 5
 default_floating_border pixel 3
 
-gaps inner 15px
+gaps inner 5px
 gaps outer 1px
 
 set $mod Mod4
