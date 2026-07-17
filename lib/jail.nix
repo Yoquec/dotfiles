@@ -45,5 +45,42 @@
       builtin.add-runtime ''
         RUNTIME_ARGS+=(--setenv ${name} "$(cat "${path}")")
       '';
+
+    unsafe-gui = builtin.compose (
+      with builtin;
+      [
+        # see: https://git.sr.ht/~alexdavid/jail.nix/tree/404e7da9da5ab9aa643666682b2ba1312fa5fbe8/lib/combinators/gui.nix#L26
+        # X11 and DBus
+        unsafe-x11
+        unsafe-dbus
+        (fwd-env "XAUTHORITY")
+        (readonly-paths-from-var "XAUTHORITY" " ")
+        (readonly "/run/dbus/system_bus_socket")
+        (add-runtime "mkdir -p ~/.config/dconf")
+        (readonly (noescape "~/.config/dconf"))
+
+        # Fonts
+        (runtime-deep-ro-bind (noescape "/etc/fonts"))
+        (fwd-env "XDG_RUNTIME_DIR")
+        (fwd-env "XDG_DATA_DIRS")
+        (readonly-paths-from-var "XDG_DATA_DIRS" ":")
+
+        # Cursor
+        (try-fwd-env "XCURSOR_THEME")
+        (try-fwd-env "XCURSOR_PATH")
+        (try-fwd-env "XCURSOR_SIZE")
+        (readonly-paths-from-var "XCURSOR_PATH" " ")
+
+        # network
+        time-zone
+        (share-ns "net")
+        (runtime-deep-ro-bind "/etc/hosts")
+        (runtime-deep-ro-bind "/etc/nsswitch.conf")
+        (runtime-deep-ro-bind "/etc/resolv.conf")
+        (runtime-deep-ro-bind "/etc/ssl")
+        (try-readonly "/run/systemd/resolve")
+        (runtime-deep-ro-bind "/etc/hostname")
+      ]
+    );
   };
 }
