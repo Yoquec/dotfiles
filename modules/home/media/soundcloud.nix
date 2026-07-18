@@ -12,7 +12,7 @@ let
   name = "soundcloud";
   dataDir = "${homeDirectory}/.cache/chromium/${name}";
   script = pkgs.writeShellScriptBin name ''
-    ${lib.getExe pkgs.google-chrome} --user-data-dir="${dataDir}" --app=https://www.netflix.com
+    ${lib.getExe pkgs.google-chrome} --user-data-dir="${dataDir}" --app=https://soundcloud.com
   '';
 
   jailed = jail name script (
