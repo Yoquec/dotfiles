@@ -180,6 +180,7 @@ in
 
     services.ssh-agent.enable = true;
 
+    home.packages = [ pkgs.wl-clipboard-rs ];
     programs.zsh.shellAliases = {
       pbcopy = "${pkgs.wl-clipboard-rs}/bin/wl-copy";
       pbpaste = "${pkgs.wl-clipboard-rs}/bin/wl-paste";
