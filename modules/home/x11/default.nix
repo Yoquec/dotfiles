@@ -6,7 +6,6 @@ in
   imports = [
     ./i3.nix
     ./fontconfig.nix
-    ./ghostty.nix
   ];
 
   options.modules.x11 = {
@@ -16,7 +15,6 @@ in
   config.modules.x11 = {
     enable = lib.mkDefault false;
     fontconfig.enable = lib.mkDefault enable;
-    ghostty.enable = lib.mkDefault enable;
 
     i3 = {
       enable = lib.mkDefault enable;

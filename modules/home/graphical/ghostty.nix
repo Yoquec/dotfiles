@@ -5,19 +5,10 @@
   ...
 }:
 let
-  inherit (config) theme;
-  inherit (config.modules.x11) ghostty;
+  inherit (config.modules.graphical) ghostty;
   inherit (config.modules.development) zsh;
 
-  isLinux = lib.hasInfix "linux" pkgs.stdenv.hostPlatform.system;
-
   settings = {
-    theme = if theme == "dark" then "Tomorrow Night Bright" else "Tomorrow";
-    palette = [
-      "0=#404040"
-    ];
-
-    font-size = 14;
     font-family = "monospace";
     font-style = "Medium";
     font-style-bold = "Bold";
@@ -32,7 +23,7 @@ let
     window-padding-y = "25, 5";
   }
   // (
-    if isLinux then
+    if pkgs.stdenv.isLinux then
       {
         window-decoration = "server";
         window-theme = "system";
@@ -44,7 +35,7 @@ let
   );
 in
 {
-  options.modules.x11.ghostty = {
+  options.modules.graphical.ghostty = {
     enable = lib.mkEnableOption "Enable ghostty";
   };
 
