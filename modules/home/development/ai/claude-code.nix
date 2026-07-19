@@ -3,12 +3,10 @@
   jail,
   config,
   lib,
-  flake,
   ...
 }:
 let
   inherit (config.modules.development.ai) claude-code;
-  inherit (flake.inputs) neovim;
   inherit (config.age) secrets;
 
   claude-code-jail = jail "claude" pkgs.claude-code (
@@ -43,12 +41,8 @@ let
       (read-env-file "PERPLEXITY_API_KEY" secrets.perplexity.path)
 
       # Adds neovim editor support
+      (set-env "EDITOR" "nvim --clean")
       (add-pkg-deps [ pkgs.neovim ])
-      (ro-bind "${neovim}" (noescape "~/.config/nvim"))
-      (try-readonly (noescape "~/.local/share/nvim"))
-      (try-readwrite (noescape "~/.local/state/nvim"))
-      (try-readwrite (noescape "~/.local/share/nvim/lazy/nvim-treesitter/parser"))
-      (set-env "EDITOR" "nvim")
     ]
   );
 in
