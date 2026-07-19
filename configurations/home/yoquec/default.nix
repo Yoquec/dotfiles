@@ -35,7 +35,6 @@ in
   home.homeDirectory = "/home/${identity.username}";
   home.stateVersion = "25.11";
 
-  modules.x11.enable = true;
   modules.wayland.enable = true;
   modules.stylix.enable = true;
   modules.socials.enable = true;
@@ -52,9 +51,6 @@ in
 
   # TODO: Should be moved to their own modules
   home.file = {
-    "${home.homeDirectory}/.xinitrc".source = ../../../dotfiles/xinit/.xinitrc;
-    "${xdg.configHome}/xmodmap/xmodmaprc".source = ../../../dotfiles/xmodmap/xmodmaprc;
-    "${xdg.configHome}/redshift".source = ../../../dotfiles/redshift;
     "${xdg.configHome}/wireplumber".source = ../../../dotfiles/wireplumber;
   };
 
@@ -65,10 +61,6 @@ in
     ungoogled-chromium
   ];
 
-  programs.zsh.shellAliases = {
-    pbcopy = "xclip -sel c";
-    pbpaste = "xclip -sel c -o";
-  };
 
   programs.ghostty.package = pkgs.callPackage ./ghostty-polyfill.nix { };
 

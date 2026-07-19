@@ -1,7 +1,11 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   inherit (config.modules.wayland) hyprland;
-  inherit (config.modules.graphical) rofi;
 
   workspaceBinds = builtins.concatLists (
     builtins.genList (
