@@ -19,18 +19,17 @@ let
   jailed = jail name script (
     with jail.combinators;
     [
-      unsafe-gui
-
+      gui
+      network
       (try-readwrite dataDir)
       (add-runtime "mkdir -p ${dataDir}")
-
       (try-readwrite "${homeDirectory}/Downloads")
     ]
   );
 in
 {
   options.modules.media.tutanota = {
-    enable = lib.mkEnableOption "Enable tutanota desktop application through chormium";
+    enable = lib.mkEnableOption "Enable tutanota desktop application through chromium";
   };
   config.home.packages = lib.mkIf tutanota.enable [ jailed ];
 }

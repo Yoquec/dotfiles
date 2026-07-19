@@ -11,6 +11,7 @@ let
 
   name = "soundcloud";
   dataDir = "${homeDirectory}/.cache/chromium/${name}";
+  # uses proprietary google chrome for DRM
   script = pkgs.writeShellScriptBin name ''
     ${lib.getExe pkgs.google-chrome} --user-data-dir="${dataDir}" --app=https://soundcloud.com
   '';
@@ -18,11 +19,10 @@ let
   jailed = jail name script (
     with jail.combinators;
     [
-      unsafe-gui
+      gui
+      network
       (try-readwrite dataDir)
       (add-runtime "mkdir -p ${dataDir}")
-      pulse
-      pipewire
     ]
   );
 in
