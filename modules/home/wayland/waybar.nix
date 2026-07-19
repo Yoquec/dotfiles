@@ -7,9 +7,7 @@
 let
   inherit (config.modules.wayland) waybar;
 
-  volumestatus = pkgs.writeShellScriptBin "volumestatus" (
-    builtins.readFile ./waybar/volumestatus.sh
-  );
+  # volumestatus = pkgs.writeShellScriptBin "volumestatus" (builtins.readFile ./waybar/volumestatus.sh);
   batterystatus = pkgs.writeShellScriptBin "batterystatus" (
     builtins.readFile ./waybar/batterystatus.sh
   );
@@ -20,31 +18,28 @@ let
     height = 28;
     spacing = 10;
 
-    modules-left = [ "hyprland/workspaces" ];
+    modules-left = [
+      "sway/workspaces"
+      "sway/mode"
+    ];
     modules-center = [ ];
     modules-right = [
-      "custom/volume"
-      "hyprland/language"
+      "pulseaudio"
+      "sway/language"
       "custom/battery"
       "clock"
       "tray"
     ];
 
-    "hyprland/workspaces" = {
-      all-outputs = true;
+    "sway/workspaces" = {
       disable-scroll = false;
+      all-outputs = true;
+      current-only = false;
       format = "{name}";
     };
 
-    "hyprland/language" = {
+    "sway/language" = {
       format = "󰌌 {short}";
-    };
-
-    "custom/volume" = {
-      exec = lib.getExe volumestatus;
-      interval = 1;
-      format = "{}";
-      tooltip = false;
     };
 
     "custom/battery" = {
