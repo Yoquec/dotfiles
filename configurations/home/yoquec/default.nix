@@ -36,6 +36,7 @@ in
   home.stateVersion = "25.11";
 
   modules.x11.enable = true;
+  modules.wayland.enable = true;
   modules.socials.enable = true;
   modules.media.enable = true;
   modules.development.enable = true;
@@ -51,10 +52,7 @@ in
   # TODO: Should be moved to their own modules
   home.file = {
     "${home.homeDirectory}/.xinitrc".source = ../../../dotfiles/xinit/.xinitrc;
-
     "${xdg.configHome}/xmodmap/xmodmaprc".source = ../../../dotfiles/xmodmap/xmodmaprc;
-    "${xdg.configHome}/rofi".source = ../../../dotfiles/rofi;
-    "${xdg.configHome}/dunst".source = ../../../dotfiles/dunst;
     "${xdg.configHome}/redshift".source = ../../../dotfiles/redshift;
     "${xdg.configHome}/wireplumber".source = ../../../dotfiles/wireplumber;
   };
