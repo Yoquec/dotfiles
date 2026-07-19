@@ -1,7 +1,7 @@
 [global]
     frame_color = "#ffffff"
     frame_width = 2
-    font = monospace Medium 13
+    font = monospace Medium 10
     markup = yes
     format = "[%a] %s %p\n%b"
     sort = yes

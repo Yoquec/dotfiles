@@ -18,7 +18,7 @@ configuration {
 }
 
 * {
-  font:   "monospace Medium 13";
+  font:   "monospace Medium 10";
 
   bg0     : #000000;
   bg2     : #424242;
