@@ -21,6 +21,7 @@ let
     [
       gui
       network
+      yubikey
       (try-readwrite dataDir)
       (add-runtime "mkdir -p ${dataDir}")
       (try-readwrite "${homeDirectory}/Downloads")
