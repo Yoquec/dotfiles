@@ -16,6 +16,7 @@
             shell
             pkgs.coreutils
             pkgs.gnugrep
+            pkgs.gnused
             pkgs.findutils
             pkgs.curl
             pkgs.wget
