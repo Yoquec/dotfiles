@@ -10,8 +10,8 @@
     flake.inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
     ./keymaps.nix
+    ./stylix.nix
     ./ftplugins.nix
-    ./plugins/theme.nix
     ./plugins/treesitter.nix
     ./plugins/misc.nix
     ./plugins/gitsigns.nix

@@ -9,7 +9,6 @@ let
   inherit (config.modules.writing) zk;
 
   settings = {
-    theme = "base16_transparent";
     editor = {
       line-number = "relative";
       mouse = false;

@@ -37,6 +37,7 @@ in
 
   modules.x11.enable = true;
   modules.wayland.enable = true;
+  modules.stylix.enable = true;
   modules.socials.enable = true;
   modules.media.enable = true;
   modules.development.enable = true;
