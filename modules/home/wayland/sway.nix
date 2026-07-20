@@ -201,6 +201,10 @@ in
           repeat_rate = "50";
         };
 
+        input."type:touchpad" = {
+          natural_scroll = "enabled";
+        };
+
         # Equivalent to ",preferred,auto,1.33".
         output."*" = {
           scale = "1.33";
