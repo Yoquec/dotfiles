@@ -10,12 +10,12 @@ let
 
   theme = {
     "*" = {
-      margin = 2;
+      margin = mkLiteral "1.5";
     };
 
     window = {
       location = mkLiteral "center";
-      width = mkLiteral "560px";
+      width = mkLiteral "512px";
       x-offset = mkLiteral "4px";
       y-offset = mkLiteral "26px";
 
@@ -25,7 +25,7 @@ let
     };
 
     prompt = {
-      padding = mkLiteral "0 0 5px 10px";
+      padding = mkLiteral "0 0 5px 15px";
     };
 
     textbox = {
@@ -54,13 +54,13 @@ let
 
   extraConfig = {
     drun = {
-      display-name = "";
+      display-name = " ";
     };
     run = {
-      display-name = "";
+      display-name = " ";
     };
     window = {
-      display-name = "";
+      display-name = " ";
     };
     timeout = {
       delay = 10;
