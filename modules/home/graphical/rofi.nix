@@ -5,8 +5,68 @@
   ...
 }:
 let
-  inherit (config) xdg;
   inherit (config.modules.graphical) rofi;
+  inherit (config.lib.formats.rasi) mkLiteral;
+
+  theme = {
+    "*" = {
+      margin = 2;
+    };
+
+    window = {
+      location = mkLiteral "center";
+      width = mkLiteral "560px";
+      x-offset = mkLiteral "4px";
+      y-offset = mkLiteral "26px";
+
+      padding = mkLiteral "10px 0 0 0";
+      border = mkLiteral "1px";
+      border-radius = mkLiteral "6px";
+    };
+
+    prompt = {
+      padding = mkLiteral "0 0 5px 10px";
+    };
+
+    textbox = {
+      padding = mkLiteral "8px 0px";
+      lines = 12;
+      columns = 1;
+      scrollbar = true;
+      fixed-height = false;
+      dynamic = false;
+    };
+
+    listview = {
+      padding = mkLiteral "4px 0px";
+    };
+
+    element = {
+      padding = mkLiteral "4px 8px";
+      spacing = mkLiteral "8px";
+    };
+
+    scrollbar = {
+      handle-width = mkLiteral "4px";
+      padding = mkLiteral "0 4px";
+    };
+  };
+
+  extraConfig = {
+    drun = {
+      display-name = "";
+    };
+    run = {
+      display-name = "";
+    };
+    window = {
+      display-name = "";
+    };
+    timeout = {
+      delay = 10;
+      action = "kb-cancel";
+    };
+  };
 in
 {
   options.modules.graphical.rofi = {
@@ -14,13 +74,16 @@ in
   };
 
   config = lib.mkIf rofi.enable {
-    home.file = {
-      "${xdg.configHome}/rofi".source = ../../../dotfiles/rofi;
-    };
     programs.rofi = {
-      enable = false;
+      inherit extraConfig theme;
+      enable = true;
       pass.enable = true;
+      font = lib.mkForce "monospace Bold 10";
       package = pkgs.rofi.override { plugins = [ pkgs.rofi-emoji ]; };
+    };
+
+    stylix.targets.rofi = {
+      alternatePattern = false;
     };
   };
 }
