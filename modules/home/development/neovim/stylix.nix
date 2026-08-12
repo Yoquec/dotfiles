@@ -1,4 +1,8 @@
-{ lib, ... }: {
+{ lib, config, ... }:
+let
+  inherit (config.lib.stylix) colors;
+in
+{
   config = {
     stylix = {
       enable = lib.mkForce true;
@@ -23,7 +27,7 @@
       end
 
       local function link(src, dest)
-          vim.api.nvim_set_hl(0, dest, { link= src })
+          vim.api.nvim_set_hl(0, dest, { link = src })
       end
 
       local function override_self(src, overrides)
@@ -63,10 +67,15 @@
       transparent("WhichKeySeparator")
 
       link("@label", "@markup.link.label.markdown")
-      link("@tag", "@markup.link.label.markdown_inline")
 
       override("@lsp.type.method", "@markup.link.markdown_inline", { underline = true })
       override("@lsp.type.method", "@markup.link.url.markdown", { underline = true })
+      override("@keyword", "@markup.italic.markdown_inline", { italic = true })
+
+      override("Bold", "@markup.strong.markdown_inline", { fg = "${colors.withHashtag.base0F}" })
+
+      vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { fg = "${colors.withHashtag.base0B}" })
+      vim.api.nvim_set_hl(0, "@markup.raw.markdown_inline", { bg = "${colors.withHashtag.base01}", fg = "${colors.withHashtag.base08}" })
     '';
   };
 }
