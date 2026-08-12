@@ -22,6 +22,7 @@ let
       gui
       network
       yubikey
+      notifications
       (try-readwrite dataDir)
       (add-runtime "mkdir -p ${dataDir}")
       (try-readwrite "${homeDirectory}/Downloads")
