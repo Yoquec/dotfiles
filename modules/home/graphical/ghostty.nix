@@ -7,6 +7,7 @@
 let
   inherit (config.modules.graphical) ghostty;
   inherit (config.modules.development) zsh;
+  inherit (config.lib.stylix) colors;
 
   settings = {
     font-family = "monospace";
@@ -17,7 +18,7 @@ let
 
     cursor-style = "block";
     cursor-style-blink = false;
-    cursor-color = "#cb82ed";
+    cursor-color = colors.withHashtag.base0E;
 
     window-padding-x = "20";
     window-padding-y = "25, 5";
@@ -39,9 +40,13 @@ in
     enable = lib.mkEnableOption "Enable ghostty";
   };
 
-  config.programs.ghostty = {
-    inherit (ghostty) enable;
-    inherit settings;
-    enableZshIntegration = zsh.enable;
+  config = lib.mkIf ghostty.enable {
+    programs.ghostty = {
+      inherit settings;
+      enable = true;
+      enableZshIntegration = zsh.enable;
+    };
+
+    wayland.windowManager.sway.config.terminal = "ghostty";
   };
 }

@@ -85,5 +85,19 @@ in
     stylix.targets.rofi = {
       alternatePattern = false;
     };
+
+    wayland.windowManager.sway.config =
+      let
+        inherit (config.wayland.windowManager.sway.config) modifier;
+        rofi = lib.getExe config.programs.rofi.package;
+      in
+      {
+        menu = "${rofi} -show run";
+        # HACK: Extend default kkeybindings
+        keybindings = lib.mkOptionDefault {
+          "${modifier}+b" = "exec ${rofi} -modi emoji -show emoji";
+          "${modifier}+Shift+d" = "exec ${rofi} -show drun";
+        };
+      };
   };
 }

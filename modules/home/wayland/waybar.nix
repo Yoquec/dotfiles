@@ -78,5 +78,8 @@ in
       systemd.enable = true;
       settings = [ settings ];
     };
+
+    # Disable swaybar's native bar
+    wayland.windowManager.sway.config.bars = lib.mkForce [ ];
   };
 }
