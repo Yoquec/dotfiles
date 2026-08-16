@@ -67,14 +67,13 @@ in
       transparent("WhichKeySeparator")
 
       link("@label", "@markup.link.label.markdown")
+      link("@label", "@markup.link.label.markdown_inline")
 
-      override("@lsp.type.method", "@markup.link.markdown_inline", { underline = true })
-      override("@lsp.type.method", "@markup.link.url.markdown", { underline = true })
-      override("@keyword", "@markup.italic.markdown_inline", { italic = true })
-
-      override("Bold", "@markup.strong.markdown_inline", { fg = "${colors.withHashtag.base0F}" })
-
-      vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { fg = "${colors.withHashtag.base0B}" })
+      vim.api.nvim_set_hl(0, "@punctuation.special.markdown", { fg = "${colors.withHashtag.base0A}" })
+      vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "${colors.withHashtag.base0B}", bold = true })
+      vim.api.nvim_set_hl(0, "@markup.italic.markdown_inline", { fg = "${colors.withHashtag.base0E}", italic = true })
+      vim.api.nvim_set_hl(0, "@markup.link.markdown_inline", { fg = "${colors.withHashtag.base0D}", underline = true })
+      vim.api.nvim_set_hl(0, "@markup.link.url.markdown", { fg = "${colors.withHashtag.base0D}", underline = true })
       vim.api.nvim_set_hl(0, "@markup.raw.markdown_inline", { bg = "${colors.withHashtag.base01}", fg = "${colors.withHashtag.base08}" })
     '';
   };
