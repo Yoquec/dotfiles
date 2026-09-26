@@ -8,6 +8,16 @@
 let
   inherit (config) theme;
   inherit (config.modules) stylix;
+
+  wallpaper = ../../assets/wallpapers/charcoal_creation_of_adam.png;
+  lockWallpaper =
+    pkgs.runCommand "lock-wallpaper.png"
+      {
+        nativeBuildInputs = [ pkgs.imagemagick ];
+      }
+      ''
+        magick ${wallpaper} -blur 0x2 -modulate 40 "$out"
+      '';
 in
 {
   imports = [ flake.inputs.stylix.homeModules.stylix ];
@@ -23,7 +33,7 @@ in
       enable = true;
       autoEnable = true;
       polarity = if theme == "light" then "light" else "dark";
-      image = ../../assets/wallpapers/charcoal_creation_of_adam.png;
+      image = wallpaper;
 
       base16Scheme = {
         scheme = "Tomorrow Night Bright";
@@ -64,6 +74,8 @@ in
           name = "Noto Color Emoji";
         };
       };
+
+      targets.swaylock.image.override = "${lockWallpaper}";
     };
   };
 }

@@ -20,8 +20,8 @@ let
     "XF86MonBrightnessUp" = "exec light -s sysfs/backlight/amdgpu_bl1 -A 5";
     "XF86AudioMedia" = "exec mate-calc";
 
-    # Screenshots
     "${modifier}+Shift+s" = "exec grim";
+    "${modifier}+Ctrl+l" = "exec swaylock";
 
     # Mouse: Mod + left-drag moves, Mod + right-drag resizes.
     "${modifier}+button1" = "move position mouse";
@@ -39,13 +39,17 @@ in
     modules.graphical.dunst.enable = lib.mkForce true;
     modules.graphical.ghostty.enable = lib.mkForce true;
     services.ssh-agent.enable = true;
+    programs.swaylock = {
+      enable = true;
+      # TODO: Enable on NixOS
+      package = null;
+    };
 
     home.packages = with pkgs; [
       wl-clipboard-rs
       grim
       slurp
       swayidle
-      swaylock
       swaybg
     ];
 
@@ -70,6 +74,7 @@ in
         defaultWorkspace = "workspace number 1";
 
         # HACK: Extend default keybindings
+        # See: https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/sway.nix#L78
         keybindings = lib.mkOptionDefault keybindings;
 
         output."eDP-1" = {
