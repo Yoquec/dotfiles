@@ -2,6 +2,7 @@
   flake,
   config,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -61,8 +62,11 @@ in
     ungoogled-chromium
   ];
 
-
-  programs.ghostty.package = pkgs.callPackage ./ghostty-polyfill.nix { };
+  # HACK: Arch linux-related workarounds
+  programs.ghostty.package = lib.mkForce (pkgs.callPackage ./ghostty-polyfill.nix { });
+  programs.swaylock.package = lib.mkForce null;
+  wayland.windowManager.sway.package = lib.mkForce null;
+  services.dunst.enable = false;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

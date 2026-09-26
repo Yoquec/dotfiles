@@ -38,12 +38,7 @@ in
     modules.graphical.rofi.enable = lib.mkForce true;
     modules.graphical.dunst.enable = lib.mkForce true;
     modules.graphical.ghostty.enable = lib.mkForce true;
-    services.ssh-agent.enable = true;
-    programs.swaylock = {
-      enable = true;
-      # TODO: Enable on NixOS
-      package = null;
-    };
+    programs.swaylock.enable = true;
 
     home.packages = with pkgs; [
       wl-clipboard-rs
@@ -60,11 +55,6 @@ in
 
     wayland.windowManager.sway = {
       enable = true;
-
-      # Package managed by the system package manager
-      # TODO: remove this when moving to NixOS
-      package = null;
-
       xwayland = true;
       systemd.enable = true;
 

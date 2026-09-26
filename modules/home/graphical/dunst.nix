@@ -16,9 +16,5 @@ in
     home.file = {
       "${xdg.configHome}/dunst".source = ../../../dotfiles/dunst;
     };
-    services.dunst = {
-      # TODO: enable on NixOS
-      enable = false;
-    };
   };
 }
