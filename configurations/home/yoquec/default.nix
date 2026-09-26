@@ -67,6 +67,7 @@ in
   programs.swaylock.package = lib.mkForce null;
   wayland.windowManager.sway.package = lib.mkForce null;
   services.dunst.enable = false;
+  home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
