@@ -112,32 +112,16 @@ in
         };
 
         startup = [
-          # Replace hypridle with Sway's native idle daemon.
           {
             command = "swayidle";
             always = false;
           }
-
-          # Start/restart Waybar only if you manage it as a systemd user service.
           {
-            command = "systemctl --user restart waybar";
-            always = true;
-          }
-
-          {
-            command = "nm-applet";
-            always = false;
-          }
-          {
-            command = "easyeffects --hide-window --load-preset fw13-easy-effects";
+            command = "nm-applet --indicator";
             always = false;
           }
           {
             command = "blueberry-tray";
-            always = false;
-          }
-          {
-            command = "hyprsunset";
             always = false;
           }
           {

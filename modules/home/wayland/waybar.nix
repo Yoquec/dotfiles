@@ -75,11 +75,18 @@ in
   config = lib.mkIf waybar.enable {
     programs.waybar = {
       enable = true;
-      systemd.enable = true;
       settings = [ settings ];
     };
 
-    # Disable swaybar's native bar
-    wayland.windowManager.sway.config.bars = lib.mkForce [ ];
+    wayland.windowManager.sway.config = {
+      startup = [
+        {
+          command = "${lib.getExe config.programs.waybar.package}";
+          always = false;
+        }
+      ];
+      # Disable swaybar's native bar
+      bars = lib.mkForce [ ];
+    };
   };
 }
