@@ -16,7 +16,7 @@ let
         nativeBuildInputs = [ pkgs.imagemagick ];
       }
       ''
-        magick ${wallpaper} -blur 0x2 -modulate 40 "$out"
+        magick ${wallpaper} -blur 0x2 -modulate 15 "$out"
       '';
 in
 {
