@@ -68,9 +68,15 @@ in
       link("@label", "@markup.link.label.markdown")
       link("@label", "@markup.link.label.markdown_inline")
 
+      vim.api.nvim_set_hl(0, "markdownH1", {fg = "${colors.withHashtag.base0D}", bg = "NONE" })
+      vim.api.nvim_set_hl(0, "markdownH2", {fg = "${colors.withHashtag.base0C}", bg = "NONE" })
+      vim.api.nvim_set_hl(0, "markdownH4", {fg = "${colors.withHashtag.base0A}", bg = "NONE" })
+      vim.api.nvim_set_hl(0, "markdownH5", {fg = "${colors.withHashtag.base09}", bg = "NONE" })
+
       vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "${colors.withHashtag.base03}" })
       vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "${colors.withHashtag.base03}" })
       vim.api.nvim_set_hl(0, "LineNr", { fg = "${colors.withHashtag.base07}", bg = "NONE" })
+
       vim.api.nvim_set_hl(0, "@punctuation.special.markdown", { fg = "${colors.withHashtag.base0A}" })
       vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "${colors.withHashtag.base0B}", bold = true })
       vim.api.nvim_set_hl(0, "@markup.italic.markdown_inline", { fg = "${colors.withHashtag.base0E}", italic = true })
