@@ -66,8 +66,9 @@ in
   programs.ghostty.package = lib.mkForce (pkgs.callPackage ./ghostty-polyfill.nix { });
   programs.swaylock.package = lib.mkForce null;
   wayland.windowManager.sway.package = lib.mkForce null;
-  services.dunst.enable = false;
-  home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";
+  services.dunst.enable = lib.mkForce false;
+  services.ssh-agent.enable = lib.mkForce true;
+  home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
