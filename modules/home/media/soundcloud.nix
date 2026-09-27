@@ -27,7 +27,7 @@ let
 
       # MPRIS control
       (dbus {
-        own = [ "org.mpris.MediaPlayer2.chrome.instance*" ];
+        own = [ "org.mpris.MediaPlayer2.*" ];
       })
     ]
   );
