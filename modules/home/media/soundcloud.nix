@@ -24,6 +24,11 @@ let
       notifications
       (try-readwrite dataDir)
       (add-runtime "mkdir -p ${dataDir}")
+
+      # MPRIS control
+      (dbus {
+        own = [ "org.mpris.MediaPlayer2.chrome.instance*" ];
+      })
     ]
   );
 in
