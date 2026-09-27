@@ -93,7 +93,7 @@ let
     "XF86MonBrightnessUp" = "exec light -s sysfs/backlight/amdgpu_bl1 -A 5";
     "XF86AudioMedia" = "exec mate-calc";
 
-    "${modifier}+Shift+s" = "exec grim";
+    "${modifier}+Shift+s" = "exec grim -g \"$(slurp)\" - | pbcopy";
     "${modifier}+Ctrl+l" = "exec swaylock";
 
     # Mouse: Mod + left-drag moves, Mod + right-drag resizes.
