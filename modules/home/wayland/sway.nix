@@ -15,6 +15,8 @@ let
     "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +10%";
     "XF86AudioPrev" = "exec playerctl previous";
     "XF86AudioPlay" = "exec playerctl play-pause";
+    "XF86AudioPause" = "exec playerctl play-pause";
+    "XF86AudioStop" = "exec playerctl stop";
     "XF86AudioNext" = "exec playerctl next";
     "XF86MonBrightnessDown" = "exec light -s sysfs/backlight/amdgpu_bl1 -U 5";
     "XF86MonBrightnessUp" = "exec light -s sysfs/backlight/amdgpu_bl1 -A 5";
