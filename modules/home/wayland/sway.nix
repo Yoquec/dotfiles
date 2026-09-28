@@ -37,8 +37,8 @@ let
     "${modifier}+Shift+Up" = "move up";
     "${modifier}+Shift+Right" = "move right";
 
-    "${modifier}+b" = "splith";
     "${modifier}+v" = "splitv";
+    "${modifier}+Shift+v" = "splith";
     "${modifier}+f" = "fullscreen toggle";
     "${modifier}+a" = "focus parent";
 

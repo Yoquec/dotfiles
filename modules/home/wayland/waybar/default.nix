@@ -5,8 +5,6 @@
   ...
 }:
 let
-  inherit (config.modules.wayland) waybar;
-
   volumestatus = pkgs.writeShellScriptBin "volumestatus" (builtins.readFile ./volumestatus.sh);
   batterystatus = pkgs.writeShellScriptBin "batterystatus" (builtins.readFile ./batterystatus.sh);
 

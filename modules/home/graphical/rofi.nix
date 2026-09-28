@@ -93,8 +93,7 @@ in
       in
       {
         menu = "${rofi} -show run";
-        # HACK: Extend default kkeybindings
-        keybindings = lib.mkOptionDefault {
+        keybindings = {
           "${modifier}+b" = "exec ${rofi} -modi emoji -show emoji";
           "${modifier}+Shift+d" = "exec ${rofi} -show drun";
         };
