@@ -7,10 +7,8 @@
 let
   inherit (config.modules.wayland) waybar;
 
-  volumestatus = pkgs.writeShellScriptBin "volumestatus" (builtins.readFile ./waybar/volumestatus.sh);
-  batterystatus = pkgs.writeShellScriptBin "batterystatus" (
-    builtins.readFile ./waybar/batterystatus.sh
-  );
+  volumestatus = pkgs.writeShellScriptBin "volumestatus" (builtins.readFile ./volumestatus.sh);
+  batterystatus = pkgs.writeShellScriptBin "batterystatus" (builtins.readFile ./batterystatus.sh);
 
   settings = {
     layer = "top";
@@ -68,25 +66,19 @@ let
   };
 in
 {
-  options.modules.wayland.waybar = {
-    enable = lib.mkEnableOption "Enable waybar status bar";
+  programs.waybar = {
+    enable = true;
+    settings = [ settings ];
   };
 
-  config = lib.mkIf waybar.enable {
-    programs.waybar = {
-      enable = true;
-      settings = [ settings ];
-    };
-
-    wayland.windowManager.sway.config = {
-      startup = [
-        {
-          command = "${lib.getExe config.programs.waybar.package}";
-          always = false;
-        }
-      ];
-      # Disable swaybar's native bar
-      bars = lib.mkForce [ ];
-    };
+  wayland.windowManager.sway.config = {
+    startup = [
+      {
+        command = "${lib.getExe config.programs.waybar.package}";
+        always = false;
+      }
+    ];
+    # Disable swaybar's native bar
+    bars = lib.mkForce [ ];
   };
 }

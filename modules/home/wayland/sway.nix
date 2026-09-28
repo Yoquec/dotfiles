@@ -102,12 +102,15 @@ let
   };
 in
 {
+  imports = [
+    ./waybar
+  ];
+
   options.modules.wayland.sway = {
     enable = lib.mkEnableOption "Enable Sway via home-manager";
   };
 
   config = lib.mkIf sway.enable {
-    modules.wayland.waybar.enable = lib.mkForce true;
     modules.graphical.rofi.enable = lib.mkForce true;
     modules.graphical.dunst.enable = lib.mkForce true;
     modules.graphical.ghostty.enable = lib.mkForce true;
