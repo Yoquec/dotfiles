@@ -126,6 +126,17 @@ in
       pbpaste = "wl-paste";
     };
 
+    services.wlsunset = {
+      enable = true;
+      latitude = 40.41;
+      longitude = 3.69;
+
+      temperature = {
+        day = 3600;
+        night = 2000;
+      };
+    };
+
     wayland.windowManager.sway = {
       enable = true;
       xwayland = true;
