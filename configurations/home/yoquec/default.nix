@@ -64,6 +64,7 @@ in
 
   # HACK: Arch linux-related workarounds
   programs.ghostty.package = lib.mkForce (pkgs.callPackage ./ghostty-polyfill.nix { });
+  services.blueman-applet.package = lib.mkForce (pkgs.callPackage ./blueman-polyfill.nix { });
   programs.swaylock.package = lib.mkForce null;
   wayland.windowManager.sway.package = lib.mkForce null;
   services.dunst.enable = lib.mkForce false;

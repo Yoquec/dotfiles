@@ -115,6 +115,10 @@ in
     modules.graphical.dunst.enable = lib.mkForce true;
     modules.graphical.ghostty.enable = lib.mkForce true;
     programs.swaylock.enable = true;
+    services.blueman-applet = {
+      enable = true;
+      systemdTargets = [ "sway-session.target" ];
+    };
 
     home.packages = with pkgs; [
       wl-clipboard-rs
@@ -201,10 +205,6 @@ in
           }
           {
             command = "nm-applet --indicator";
-            always = false;
-          }
-          {
-            command = "blueberry-tray";
             always = false;
           }
           {
