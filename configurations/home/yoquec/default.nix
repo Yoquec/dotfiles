@@ -70,6 +70,9 @@ in
   services.dunst.enable = lib.mkForce false;
   services.ssh-agent.enable = lib.mkForce true;
   home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+  wayland.windowManager.sway.config.startup = [
+    { command = "ibus start --type wayland"; }
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
