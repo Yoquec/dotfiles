@@ -10,6 +10,19 @@ let
 
   cfg = config.wayland.windowManager.sway.config;
 
+  # Small wrapper to screenshot areas of the screen into the clipboard
+  screenshot = pkgs.writeShellApplication {
+    name = "screenshot";
+    runtimeInputs = with pkgs; [
+      wl-clipboard-rs
+      grim
+      slurp
+    ];
+    text = ''
+      grim -g "$(slurp)" - | wl-copy 
+    '';
+  };
+
   keybindings = {
     # Default keybinds
     # See: https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/sway.nix#L78
@@ -93,12 +106,13 @@ let
     "XF86MonBrightnessUp" = "exec light -s sysfs/backlight/amdgpu_bl1 -A 5";
     "XF86AudioMedia" = "exec mate-calc";
 
-    "${modifier}+Shift+s" = "exec grim -g \"$(slurp)\" - | pbcopy";
     "${modifier}+Ctrl+l" = "exec swaylock";
 
     # Mouse: Mod + left-drag moves, Mod + right-drag resizes.
     "${modifier}+button1" = "move position mouse";
     "${modifier}+button3" = "resize set width 50 ppt height 50 ppt";
+
+    "${modifier}+Shift+s" = "exec ${lib.getExe screenshot}";
   };
 in
 {
