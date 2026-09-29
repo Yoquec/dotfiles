@@ -70,8 +70,19 @@ in
   services.dunst.enable = lib.mkForce false;
   services.ssh-agent.enable = lib.mkForce true;
   home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+
+  # Accent support in GTK applications (e.g. Ghostty)
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.waylandFrontend = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk
+    ];
+  };
+
   wayland.windowManager.sway.config.startup = [
-    { command = "ibus start --type wayland"; }
+    { command = "fcitx5 -d"; }
   ];
 
   # Let Home Manager install and manage itself.
