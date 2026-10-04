@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    flake.inputs.nixvim.homeManagerModules.nixvim
+    flake.inputs.nixvim.homeModules.nixvim
     ./options.nix
     ./keymaps.nix
     ./stylix.nix
