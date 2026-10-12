@@ -5,8 +5,8 @@
       den.batteries.define-user
       den.batteries.primary-user
       (den.batteries.user-shell "zsh")
-      yoq.neovim
       yoq.zk
+      yoq.development
     ];
 
     # user can provide NixOS configurations
