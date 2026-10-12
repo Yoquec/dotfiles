@@ -54,7 +54,7 @@
                 "${pkgs.base16-schemes}/share/themes/tomorrow.yaml";
 
             # TODO: point this at your own wallpaper.
-            image = ../../assets/wallpapers/wallpaper.png;
+            # image = ../../assets/wallpapers/wallpaper.png;
 
             fonts = {
               monospace = {

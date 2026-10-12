@@ -6,6 +6,7 @@
       den.batteries.primary-user
       (den.batteries.user-shell "zsh")
       yoq.neovim
+      yoq.zk
     ];
 
     # user can provide NixOS configurations
