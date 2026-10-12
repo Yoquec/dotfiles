@@ -1,0 +1,37 @@
+{ inputs, yoq, ... }:
+{
+  flake-file.inputs.darwin.url = "github:LnL7/nix-darwin";
+
+  yoq.darwin = {
+    includes = [ yoq.aerospace ];
+
+    darwin =
+      { pkgs, ... }:
+      {
+        system.defaults.dock.autohide = true;
+        system.defaults.trackpad.Clicking = true;
+        system.defaults.trackpad.TrackpadThreeFingerDrag = true;
+        system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
+        system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
+
+        # TODO: Integrate with theme switching
+        system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
+
+        system.keyboard.enableKeyMapping = true;
+        system.keyboard.remapCapsLockToEscape = true;
+
+        security.pam.services.sudo_local.touchIdAuth = true;
+
+        font.packages = with pkgs; [
+          nerd-fonts.code-new-roman
+        ];
+
+        environment.systemPackages = with inputs.darwin.packages.${pkgs.stdenvNoCC.hostPlatform.system}; [
+          darwin-option
+          darwin-rebuild
+          darwin-version
+          darwin-uninstaller
+        ];
+      };
+  };
+}
