@@ -30,6 +30,11 @@
       };
     in
     {
+      # dconf activation (triggered by stylix's gtk/dconf targets) needs the
+      # system dbus service registered, or home-manager activation fails with
+      # "The name ca.desrt.dconf was not provided by any .service files"
+      provides.to-hosts.nixos.programs.dconf.enable = true;
+
       homeManager =
         { pkgs, ... }:
         {
