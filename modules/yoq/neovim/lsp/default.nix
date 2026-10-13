@@ -21,6 +21,7 @@
             nil_ls.enable = true;
             ty.enable = true;
             gopls.enable = true;
+            # TODO: migrate over to tsc when available
             tsgo.enable = true;
             zls.enable = true;
             gleam.enable = true;
