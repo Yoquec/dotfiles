@@ -1,86 +1,53 @@
 { ... }:
 {
-  yoq.neovim.homeManager =
-    { pkgs, ... }:
-    {
-      programs.nixvim = {
-        extraPlugins = [ pkgs.vimPlugins.formatter-nvim ];
+  yoq.neovim.homeManager = {
+    programs.nixvim = {
+      plugins.conform-nvim = {
+        enable = true;
+        autoInstall.enable = true;
 
-        keymaps = [
-          {
-            mode = [
-              "n"
-              "v"
+        settings = {
+          formatters_by_ft = {
+            lua = [ "stylua" ];
+            nix = [ "nixfmt" ];
+            javascript = [ "prettier" ];
+            typescript = [ "prettier" ];
+            typescriptreact = [ "prettier" ];
+            html = [ "prettier" ];
+            htmldjango = [ "prettier" ];
+            css = [ "prettier" ];
+            markdown = [ "prettier" ];
+            rust = [ "rustfmt" ];
+            go = [
+              "gofumpt"
+              "goimports"
+              "golines"
             ];
-            key = "<leader>F";
-            action = "<cmd>Format<CR>";
-            options.desc = "Formatter.nvim format the current file";
-          }
-        ];
-
-        extraConfigLua = ''
-          require("formatter").setup({
-            filetype = {
-              lua = {
-                require("formatter.filetypes.lua").stylua,
-              },
-              nix = {
-                require("formatter.filetypes.nix").nixfmt,
-              },
-              javascript = {
-                require("formatter.filetypes.javascript").prettier,
-              },
-              typescript = {
-                require("formatter.filetypes.typescript").prettier,
-              },
-              typescriptreact = {
-                require("formatter.filetypes.typescriptreact").prettier,
-              },
-              html = {
-                require("formatter.filetypes.html").prettier,
-              },
-              htmldjango = {
-                require("formatter.filetypes.html").prettier,
-              },
-              css = {
-                require("formatter.filetypes.css").prettier,
-              },
-              cs = {
-                require("formatter.filetypes.cs").csharpier,
-              },
-              markdown = {
-                require("formatter.filetypes.markdown").prettier,
-              },
-              rust = {
-                require("formatter.filetypes.rust").rustfmt,
-              },
-              go = {
-                require("formatter.filetypes.go").gofumpt,
-                require("formatter.filetypes.go").goimports,
-                require("formatter.filetypes.go").golines,
-              },
-              rmd = {
-                require("formatter.filetypes.markdown").prettier,
-              },
-              Rmd = {
-                require("formatter.filetypes.markdown").prettier,
-              },
-              python = {
-                require("formatter.filetypes.python").black,
-                require("formatter.filetypes.python").isort,
-              },
-              sql = {
-                require("formatter.filetypes.sql").pgformat,
-              },
-              sh = {
-                require("formatter.filetypes.sh").shfmt,
-              },
-              ocaml = {
-                require("formatter.filetypes.ocaml").ocamlformat,
-              },
-            },
-          })
-        '';
+            python = [
+              "black"
+              "isort"
+            ];
+            sql = [ "sleek" ];
+            sh = [ "shfmt" ];
+          };
+        };
       };
+
+      keymaps = [
+        {
+          mode = [
+            "n"
+            "v"
+          ];
+          key = "<leader>F";
+          action.__raw = ''
+            function()
+              require("conform").format()
+            end
+          '';
+          options.desc = "conform.nvim format the current file";
+        }
+      ];
     };
+  };
 }
