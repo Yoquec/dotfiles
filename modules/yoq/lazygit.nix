@@ -2,7 +2,10 @@
 { yoq, ... }:
 {
   yoq.lazygit = {
-    includes = [ yoq.theme ];
+    includes = [
+      yoq.git
+      yoq.theme
+    ];
 
     homeManager = {
       programs.lazygit.enable = true;
