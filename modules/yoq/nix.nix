@@ -22,6 +22,13 @@ in
     # evaluate the bellow because it executes only in `home` contexts
     # See: https://github.com/denful/den/blob/main/modules/aspects/batteries/user-shell.nix#L43
     includes = [ provides.home-manager-standalone-nix ];
-    provides.home-manager-standalone-nix = { home, ... }: { homeManager = settings; };
+    provides.home-manager-standalone-nix =
+      { home, ... }:
+      {
+        homeManager = settings // {
+          # standalone installs need home-manager's CLI to run switches.
+          programs.home-manager.enable = true;
+        };
+      };
   };
 }
