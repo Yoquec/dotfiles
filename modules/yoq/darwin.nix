@@ -3,7 +3,10 @@
   flake-file.inputs.darwin.url = "github:LnL7/nix-darwin";
 
   yoq.darwin = {
-    includes = [ yoq.aerospace ];
+    includes = [
+      yoq.nix
+      yoq.aerospace
+    ];
 
     darwin =
       { pkgs, ... }:
