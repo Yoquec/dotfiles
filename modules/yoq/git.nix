@@ -14,6 +14,8 @@
           userEmail = user.identity.email;
         };
 
+        programs.eza.git = true;
+
         programs.difftastic = {
           enable = true;
           git = {

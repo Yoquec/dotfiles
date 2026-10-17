@@ -4,7 +4,6 @@
     includes = [
       den.batteries.define-user
       den.batteries.primary-user
-      (den.batteries.user-shell "zsh")
       yoq.zk
       yoq.development
     ];

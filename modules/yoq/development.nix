@@ -4,6 +4,7 @@
   yoq.development.includes = [
     yoq.bat
     yoq.fzf
+    yoq.zsh
     yoq.tmux
     yoq.direnv
     yoq.neovim
