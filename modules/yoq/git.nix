@@ -8,10 +8,10 @@
         programs.git = {
           enable = true;
           lfs.enable = true;
-          settings.pager.difftool = true;
-
-          userName = user.identity.name;
-          userEmail = user.identity.email;
+          settings.settings = {
+            pager.difftool = true;
+            user = { inherit (user.identity) name email; };
+          };
         };
 
         programs.eza.git = true;

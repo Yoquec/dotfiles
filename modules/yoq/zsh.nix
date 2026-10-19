@@ -20,7 +20,7 @@
           defaultKeymap = "viins";
           enableCompletion = true;
           autosuggestion.enable = true;
-          fastSyntaxHighlighting.enable = true;
+          syntaxHighlighting.enable = true;
           dotDir = "${config.xdg.configHome}/zsh";
 
           initContent = ''
