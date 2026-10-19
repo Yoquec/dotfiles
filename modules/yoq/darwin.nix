@@ -1,4 +1,8 @@
-{ inputs, yoq, ... }:
+{
+  inputs,
+  yoq,
+  ...
+}:
 {
   flake-file.inputs.darwin.url = "github:LnL7/nix-darwin";
 

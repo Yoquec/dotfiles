@@ -1,6 +1,5 @@
-{ lib, ... }:
+{ lib, burrow, ... }:
 {
-  den.default.nixos.system.stateVersion = "26.05";
-  den.default.homeManager.home.stateVersion = "26.05";
+  den.default.includes = [ burrow.base ];
   den.schema.user.classes = lib.mkDefault [ "homeManager" ];
 }

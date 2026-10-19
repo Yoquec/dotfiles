@@ -1,5 +1,8 @@
+{ yoq, ... }:
 {
   den.aspects.framework = {
+    includes = [ yoq.nix ];
+
     nixos =
       { pkgs, ... }:
       {

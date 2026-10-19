@@ -1,7 +1,8 @@
 # basic development tooling aspects.
-{ yoq, ... }:
+{ yoq, burrow, ... }:
 {
   yoq.development.includes = [
+    burrow.base
     yoq.bat
     yoq.fzf
     yoq.zsh
