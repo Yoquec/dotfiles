@@ -12,6 +12,14 @@
       home.shellAliases = {
         lg = "lazygit";
       };
+
+      programs.yazi.keymap.mgr.prepend_keymap = [
+        {
+          on = [ "<C-g>" ];
+          run = "shell lazygit --confirm --block";
+          desc = "Open lazygit in the current directory";
+        }
+      ];
     };
   };
 }
