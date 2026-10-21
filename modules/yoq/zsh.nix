@@ -3,6 +3,7 @@
 {
   yoq.zsh = {
     includes = [
+      yoq.theme
       yoq.starship
       (den.batteries.user-shell "zsh")
     ];
@@ -30,6 +31,8 @@
             bindkey '^y' autosuggest-accept
           '';
         };
+
+        programs.tmux.shell = "${lib.getExe config.programs.zsh.package}";
 
         home.shellAliases = {
           rm = "rm -i";
