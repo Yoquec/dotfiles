@@ -15,6 +15,8 @@
           icons = "auto";
         };
 
+        programs.fzf.enable = true;
+
         programs.zsh = {
           enable = true;
           defaultKeymap = "viins";
