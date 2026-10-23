@@ -10,6 +10,7 @@
     includes = [
       yoq.nix
       yoq.aerospace
+      yoq.betterdisplay
     ];
 
     darwin =
