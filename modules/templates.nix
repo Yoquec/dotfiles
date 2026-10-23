@@ -19,6 +19,7 @@ in
     description = "A nix-darwin host preconfigured with yoq.darwin (aerospace, nix settings, betterdisplay, theme, etc.)";
     welcomeText = withLogo ''
       Next steps:
+
       1. Rename the placeholder host/user in `modules/hosts.nix` (`myhost`/`myuser`),
          and fill in your own name/email passed to `yoq.identity`.
       2. `nix run .#write-flake` to fill in `flake.nix`'s `inputs` block, then
