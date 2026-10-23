@@ -41,6 +41,7 @@
         };
 
         home.shell.enableZshIntegration = true;
+        programs.ghostty.enableZshIntegration = true;
 
         home.sessionVariables = {
           SHELL = "${lib.getExe config.programs.zsh.package}";
