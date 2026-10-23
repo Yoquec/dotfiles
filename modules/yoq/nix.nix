@@ -1,5 +1,5 @@
 # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
-{ lib, burrow,... }:
+{ lib, burrow, ... }:
 let
   settings = {
     nix.settings.experimental-features = lib.mkDefault [
