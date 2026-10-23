@@ -2,9 +2,11 @@
 
 let
   logo = ''
+    ```
     ▌▌▛▌▛▌
     ▙▌▙▌▙▌
     ▄▌   ▌
+    ```
 
     Made with ❤️ by Alvaro Viejo (a.k.a. yoquec)
   '';
