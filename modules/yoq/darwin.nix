@@ -9,9 +9,19 @@
   yoq.darwin = {
     includes = [
       yoq.nix
+      yoq.theme
       yoq.aerospace
       yoq.betterdisplay
     ];
+
+    homeManager =
+      { pkgs, ... }:
+      {
+        stylix.fonts.monospace = {
+          package = pkgs.nerd-fonts.code-new-roman;
+          name = "CodeNewRoman Nerd Font Mono";
+        };
+      };
 
     darwin =
       { pkgs, ... }:
