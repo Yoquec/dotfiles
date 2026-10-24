@@ -5,6 +5,7 @@
     burrow.base
     yoq.bat
     yoq.zsh
+    yoq.yazi
     yoq.tmux
     yoq.direnv
     yoq.neovim
