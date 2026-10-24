@@ -1,4 +1,4 @@
-# bootstraps flake-file's generator and den's dendritic wiring, pulling in 
+# bootstraps flake-file's generator and den's dendritic wiring, pulling in
 # yoquec-dotfiles's shared-inputs.
 { inputs, ... }:
 {
