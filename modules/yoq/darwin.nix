@@ -40,7 +40,7 @@
 
         security.pam.services.sudo_local.touchIdAuth = true;
 
-        font.packages = with pkgs; [
+        fonts.packages = with pkgs; [
           nerd-fonts.code-new-roman
         ];
 
