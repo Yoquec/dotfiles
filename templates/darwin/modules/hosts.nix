@@ -1,18 +1,21 @@
-# USER TODO: rename myhost/myuser to your actual machine/username, and fill
-# in your identity below (yoq.identity sets git's user.name/user.email).
+# USER TODO: rename host/user to your actual machine/username, and fill
+# in your identity below.
 { den, yoq, ... }:
+let
+  host = "myhost";
+  user = "myuser";
+  name = "Your Name";
+  email = "you@example.com";
+in
 {
-  den.aspects.myhost.includes = [ yoq.darwin ];
-  den.hosts.aarch64-darwin.myhost.users.myuser.classes = [ "homeManager" ];
+  den.aspects."${host}".includes = [ yoq.darwin ];
+  den.hosts.aarch64-darwin."${host}".users."${user}".classes = [ "homeManager" ];
 
-  den.aspects.myuser.includes = [
+  den.aspects."${user}".includes = [
     yoq.development
     den.batteries.define-user
     den.batteries.primary-user
     den.batteries.host-aspects
-    (yoq.identity {
-      name = "Your Name";
-      email = "you@example.com";
-    })
+    (yoq.identity { inherit name email; })
   ];
 }
