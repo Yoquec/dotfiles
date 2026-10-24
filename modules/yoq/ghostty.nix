@@ -12,11 +12,6 @@
           package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
 
           settings = {
-            font-style = "Medium";
-            font-style-bold = "Bold";
-            font-style-italic = "Medium Italic";
-            font-style-bold-italic = "Bold Italic";
-
             cursor-style = "block";
             cursor-style-blink = false;
 
@@ -28,6 +23,11 @@
             window-theme = "system";
             gtk-titlebar = false;
             gtk-single-instance = true;
+
+            font-style = "Medium";
+            font-style-bold = "Bold";
+            font-style-italic = "Medium Italic";
+            font-style-bold-italic = "Bold Italic";
           }
           // lib.optionalAttrs pkgs.stdenv.isDarwin {
             font-thicken = true;
