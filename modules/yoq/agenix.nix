@@ -5,7 +5,7 @@
     agenix-rekey.url = "github:oddlama/agenix-rekey";
   };
 
-  burrow.agenix = {
+  yoq.agenix = {
     homeManager = {
       imports = [
         inputs.agenix.homeManagerModules.default
