@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake-file.inputs.darwin.url = "github:LnL7/nix-darwin";
+  flake-file.inputs.darwin.url = "github:LnL7/nix-darwin/nix-darwin-26.05";
 
   yoq.darwin = {
     includes = [
