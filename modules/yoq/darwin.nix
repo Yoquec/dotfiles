@@ -1,6 +1,7 @@
 {
   inputs,
   yoq,
+  burrow,
   ...
 }:
 {
@@ -8,8 +9,10 @@
 
   yoq.darwin = {
     includes = [
+      burrow.base
       yoq.nix
       yoq.theme
+      yoq.ghostty
       yoq.aerospace
       yoq.betterdisplay
     ];
