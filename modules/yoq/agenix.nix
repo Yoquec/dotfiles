@@ -1,0 +1,18 @@
+{ inputs, lib, ... }:
+{
+  flake-file.inputs = {
+    agenix.url = "github:ryantm/agenix";
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
+  };
+
+  burrow.agenix = {
+    homeManager = {
+      imports = [
+        inputs.agenix.homeManagerModules.default
+        inputs.agenix-rekey.homeManagerModules.default
+      ];
+
+      agenix.rekey.storageMode = lib.mkDefault "local";
+    };
+  };
+}
