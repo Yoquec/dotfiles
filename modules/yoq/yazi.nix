@@ -7,11 +7,6 @@
     homeManager =
       { pkgs, config, ... }:
       {
-        home.packages = [
-          pkgs.feh
-          pkgs.zathura
-        ];
-
         programs.yazi = {
           enable = true;
           shellWrapperName = "yy";
