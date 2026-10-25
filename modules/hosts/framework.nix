@@ -1,7 +1,16 @@
-{ yoq, ... }:
+{ yoq, burrow, ... }:
+let
+  wallpaper = ../../assets/wallpapers/charcoal_creation_of_adam.png;
+in
 {
   den.aspects.framework = {
-    includes = [ yoq.nix ];
+    includes = [
+      yoq.nix
+      yoq.ghostty
+      burrow.sway
+    ];
+
+    provides.to-users.homeManager.stylix.image = wallpaper;
 
     nixos =
       { pkgs, ... }:

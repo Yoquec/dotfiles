@@ -5,5 +5,6 @@
     (inputs.den.namespace "burrow" false) # personal, not exported
   ];
 
-  config._module.args.__findFile = den.lib.__findFile;
+  flake-file.inputs.self.lfs = true;
+  _module.args.__findFile = den.lib.__findFile;
 }

@@ -4,6 +4,7 @@
     includes = [
       den.batteries.define-user
       den.batteries.primary-user
+      den.batteries.host-aspects
       yoq.nix
       yoq.zk
       yoq.development
