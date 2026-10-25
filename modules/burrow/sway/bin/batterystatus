@@ -24,7 +24,7 @@ get_icon() {
 
 icon=$(get_icon "${battery_level}")
 
-if [[ -z $(echo "${battery_status}" | grep charg) ]]; then
+if ! grep -q "charg" <<< "${battery_status}"; then
     echo "${icon} ${battery_percentage}"
 else
     echo "${icon} ${battery_percentage} "
