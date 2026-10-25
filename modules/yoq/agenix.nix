@@ -12,7 +12,7 @@
         inputs.agenix-rekey.homeManagerModules.default
       ];
 
-      agenix.rekey.storageMode = lib.mkDefault "local";
+      age.rekey.storageMode = lib.mkDefault "local";
     };
   };
 }
