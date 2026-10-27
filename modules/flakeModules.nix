@@ -1,7 +1,7 @@
 # flake-parts module exporting shared inputs for consumers of flake templates
 { ... }:
 {
-  flake.flakeModules.shared-inputs = {
+  flake.flakeModules.default = {
     flake-file.inputs = {
       # nixpkgs/flake-parts/flake-file/import-tree get defaulted by
       # flake-file's own dendritic bundle (modules/dendritic/*.nix), and den
