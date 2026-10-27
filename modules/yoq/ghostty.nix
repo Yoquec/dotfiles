@@ -41,11 +41,8 @@
             font-thicken = true;
             macos-titlebar-style = "hidden";
           };
-        };
 
-        stylix.targets.ghostty.colors.override = {
-          base03 = colors.base02;
-          withHashtag.base03 = colors.withHashtag.base02;
+          themes.stylix.cursor-color = lib.mkForce colors.withHashtag.base0E;
         };
 
         wayland.windowManager.sway.config.terminal = "ghostty";
