@@ -6,7 +6,7 @@
       programs.git = {
         enable = true;
         lfs.enable = true;
-        settings.settings.pager.difftool = true;
+        settings.pager.difftool = true;
       };
 
       programs.eza.git = true;
