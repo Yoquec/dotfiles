@@ -5,7 +5,15 @@
     includes = [ yoq.theme ];
 
     homeManager =
-      { pkgs, lib, ... }:
+      {
+        pkgs,
+        lib,
+        config,
+        ...
+      }:
+      let
+        inherit (config.lib.stylix) colors;
+      in
       {
         programs.ghostty = {
           enable = true;
@@ -33,6 +41,11 @@
             font-thicken = true;
             macos-titlebar-style = "hidden";
           };
+        };
+
+        stylix.targets.ghostty.colors.override = {
+          base03 = colors.base02;
+          withHashtag.base03 = colors.withHashtag.base02;
         };
 
         wayland.windowManager.sway.config.terminal = "ghostty";
