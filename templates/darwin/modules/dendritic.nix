@@ -8,5 +8,8 @@
     inputs.yoquec-dotfiles.flakeModules.default
   ];
 
-  flake-file.inputs.yoquec-dotfiles.url = "github:yoquec/dotfiles";
+  # a git-based scheme (not the `github:` tarball/API fetcher) is required
+  # here -- self.lfs = true (see modules/den.nix) only works when this flake
+  # is located through a real git fetcher that can run git filters.
+  flake-file.inputs.yoquec-dotfiles.url = "git+https://github.com/yoquec/dotfiles";
 }
