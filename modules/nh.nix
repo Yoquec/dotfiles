@@ -1,8 +1,17 @@
-{ den, ... }:
-{
-  perSystem =
-    { pkgs, ... }:
+# https://github.com/nix-community/nh
+{ ... }:
+let
+  nhModule =
+    { den, ... }:
     {
-      packages = den.lib.nh.denPackages { fromFlake = true; } pkgs;
+      perSystem =
+        { pkgs, ... }:
+        {
+          packages = den.lib.nh.denPackages { fromFlake = true; } pkgs;
+        };
     };
+in
+{
+  imports = [ nhModule ];
+  flake.flakeModules.default = nhModule;
 }
