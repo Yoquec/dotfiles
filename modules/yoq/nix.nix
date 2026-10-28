@@ -35,9 +35,9 @@ in
             # standalone home-manager doesn't inherit a nix package from a
             # nixos/darwin module.
             nix.package = lib.mkDefault pkgs.nix;
-            # standalone installs need home-manager's own CLI to run switches,
-            # since there's no nixos/darwin-rebuild to drive activation for them.
+            # standalone installs need home-manager's and nh's CLI to run switches
             programs.home-manager.enable = true;
+            programs.nh.enable = true;
           };
       };
   };
