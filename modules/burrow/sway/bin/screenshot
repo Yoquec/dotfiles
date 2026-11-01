@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-grim -g "$(slurp)" - | wl-copy
+grim -g "$(slurp)" - | swappy -f -

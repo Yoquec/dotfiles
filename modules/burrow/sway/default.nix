@@ -25,7 +25,7 @@ in
           runtimeInputs = with pkgs; [
             grim
             slurp
-            wl-clipboard-rs
+            swappy
           ];
           text = builtins.readFile ./bin/screenshot;
         };
