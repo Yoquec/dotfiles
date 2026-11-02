@@ -8,6 +8,7 @@ in
   burrow.sway = {
     includes = [
       burrow.network-manager-applet
+      burrow.nextcloud
     ];
 
     nixos = {
@@ -16,26 +17,12 @@ in
 
     homeManager =
       {
-        lib,
         pkgs,
         config,
         ...
       }:
       let
         cfg = config.wayland.windowManager.sway.config;
-
-        screenshot = pkgs.writeShellApplication {
-          name = "screenshot";
-          runtimeInputs = with pkgs; [
-            grim
-            slurp
-            satty
-          ];
-          text = ''
-            region=$(slurp) || exit 0
-            grim -g "$region" - | satty --filename -
-          '';
-        };
 
         keybindings = {
           # Default keybinds
@@ -125,8 +112,6 @@ in
           # Mouse: Mod + left-drag moves, Mod + right-drag resizes.
           "${modifier}+button1" = "move position mouse";
           "${modifier}+button3" = "resize set width 50 ppt height 50 ppt";
-
-          "${modifier}+Shift+s" = "exec ${lib.getExe screenshot}";
         };
       in
       {
@@ -208,10 +193,6 @@ in
             startup = [
               {
                 command = "swayidle";
-                always = false;
-              }
-              {
-                command = "nextcloud";
                 always = false;
               }
             ];
