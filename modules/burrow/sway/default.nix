@@ -7,8 +7,8 @@ in
 
   burrow.sway = {
     includes = [
-      burrow.network-manager-applet
       burrow.nextcloud
+      burrow.network-manager-applet
     ];
 
     nixos = {
@@ -121,7 +121,6 @@ in
           wl-clipboard-rs
           grim
           slurp
-          swayidle
           swaybg
         ];
 
@@ -189,13 +188,6 @@ in
             input."type:touchpad" = {
               natural_scroll = "enabled";
             };
-
-            startup = [
-              {
-                command = "swayidle";
-                always = false;
-              }
-            ];
           };
         };
       };
