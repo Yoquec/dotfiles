@@ -25,9 +25,12 @@ in
           runtimeInputs = with pkgs; [
             grim
             slurp
-            swappy
+            satty
           ];
-          text = builtins.readFile ./bin/screenshot;
+          text = ''
+            region=$(slurp) || exit 0
+            grim -g "$region" - | satty --filename -
+          '';
         };
 
         keybindings = {
