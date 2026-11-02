@@ -12,6 +12,7 @@
             nix = [ "nixfmt" ];
             javascript = [ "prettier" ];
             typescript = [ "prettier" ];
+            bib = [ "bibtex-tidy" ];
             typescriptreact = [ "prettier" ];
             html = [ "prettier" ];
             htmldjango = [ "prettier" ];
