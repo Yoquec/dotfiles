@@ -1,11 +1,15 @@
 # https://swaywm.org
-{ ... }:
+{ burrow, ... }:
 let
   modifier = "Mod4";
 in
 {
 
   burrow.sway = {
+    includes = [
+      burrow.network-manager-applet
+    ];
+
     nixos = {
       hardware.graphics.enable = true;
     };
@@ -204,10 +208,6 @@ in
             startup = [
               {
                 command = "swayidle";
-                always = false;
-              }
-              {
-                command = "nm-applet --indicator";
                 always = false;
               }
               {
