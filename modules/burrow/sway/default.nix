@@ -7,6 +7,7 @@ in
 
   burrow.sway = {
     includes = [
+      burrow.notifications
       burrow.nextcloud
       burrow.network-manager-applet
     ];
