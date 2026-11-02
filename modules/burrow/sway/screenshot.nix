@@ -2,7 +2,12 @@
 { ... }:
 {
   burrow.sway.homeManager =
-    { pkgs, lib, config, ... }:
+    {
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
     let
       inherit (config.wayland.windowManager.sway.config) modifier;
 
@@ -20,6 +25,7 @@
       };
     in
     {
-      wayland.windowManager.sway.config.keybindings."${modifier}+Shift+s" = "exec ${lib.getExe screenshot}";
+      wayland.windowManager.sway.config.keybindings."${modifier}+Shift+s" =
+        "exec ${lib.getExe screenshot}";
     };
 }
