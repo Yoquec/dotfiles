@@ -10,7 +10,10 @@ in
       burrow.sway
     ];
 
-    provides.to-users.homeManager.stylix.image = wallpaper;
+    provides.to-users.homeManager = {
+      stylix.image = wallpaper;
+      wayland.windowManager.sway.config.output."eDP-1".scale = "1.33";
+    };
 
     nixos =
       { pkgs, ... }:

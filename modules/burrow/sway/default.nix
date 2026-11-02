@@ -151,10 +151,6 @@ in
             workspaceLayout = "default";
             defaultWorkspace = "workspace number 1";
 
-            output."eDP-1" = {
-              scale = "1.33";
-            };
-
             window = {
               border = 5;
               titlebar = false;
