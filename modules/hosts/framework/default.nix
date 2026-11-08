@@ -1,6 +1,6 @@
 { yoq, burrow, ... }:
 let
-  wallpaper = ../../assets/wallpapers/charcoal_creation_of_adam.png;
+  wallpaper = ../../../assets/wallpapers/charcoal_creation_of_adam.png;
 in
 {
   den.aspects.framework = {
