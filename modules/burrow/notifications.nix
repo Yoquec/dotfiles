@@ -4,8 +4,11 @@
   burrow.notifications = {
     includes = [ yoq.theme ];
 
-    homeManager = {
-      services.mako.enable = true;
-    };
+    homeManager =
+      { pkgs, ... }:
+      {
+        services.mako.enable = true;
+        home.packages = [ pkgs.libnotify ];
+      };
   };
 }
