@@ -8,6 +8,7 @@ in
       yoq.nix
       yoq.ghostty
       burrow.sway
+      burrow.fprint
     ];
 
     provides.to-users.homeManager = {
