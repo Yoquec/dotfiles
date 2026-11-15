@@ -2,8 +2,8 @@
 {
   den.aspects.yoquec = {
     includes = [
+      yoq.primary-user
       den.batteries.define-user
-      den.batteries.primary-user
       den.batteries.host-aspects
       yoq.nix
       yoq.zk
