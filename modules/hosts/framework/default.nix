@@ -7,6 +7,7 @@ in
     includes = [
       yoq.nix
       yoq.ghostty
+      yoq.browser
       burrow.sway
       burrow.fprint
     ];

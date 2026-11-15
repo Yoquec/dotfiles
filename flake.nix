@@ -47,6 +47,11 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     self = {
       lfs = true;
     };
@@ -56,6 +61,7 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
       };
+      inputs.nur.follows = "nur";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";

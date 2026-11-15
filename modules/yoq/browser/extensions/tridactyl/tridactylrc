@@ -1,0 +1,8 @@
+set searchurls.dd https://duckduckgo.com/?q=%s
+set searchurls.yt https://www.youtube.com/results?search_query=%s
+set searchurls.w https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s
+set searchurls.gh https://github.com/search?q=%s
+set searchurls.ghu https://github.com/search?q=%s&type=users
+set searchurls.ghi https://github.com/search?q=%s&type=issues
+set searchurls.ghp https://github.com/search?q=%s&type=pullrequests
+set searchurls.ghr https://github.com/search?q=%s&type=repositories
