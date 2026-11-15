@@ -12,6 +12,7 @@ in
       burrow.notifications
       burrow.nextcloud
       burrow.network-manager-applet
+      burrow.bluetooth
     ];
 
     nixos = {
