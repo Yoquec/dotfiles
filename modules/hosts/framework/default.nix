@@ -11,9 +11,24 @@ in
       burrow.fprint
     ];
 
-    provides.to-users.homeManager = {
-      stylix.image = wallpaper;
-    };
+    provides.to-users.homeManager =
+      { pkgs, ... }:
+      let
+        dimWallpaper =
+          pkgs.runCommand "wallpaper-dim.png"
+            {
+              nativeBuildInputs = [ pkgs.imagemagick ];
+            }
+            ''
+              magick ${wallpaper} -blur 0x2 -modulate 15 "$out"
+            '';
+      in
+      {
+        stylix = {
+          image = wallpaper;
+          targets.swaylock.image.override = "${dimWallpaper}";
+        };
+      };
 
     nixos =
       { pkgs, ... }:
