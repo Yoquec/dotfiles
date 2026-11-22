@@ -26,6 +26,8 @@
           startInBackground = true;
         };
 
+        programs.zk.settings.notebook.dir = "${config.home.homeDirectory}/Nextcloud/Notes";
+
         home.packages = [
           (inputs.self.lib.mkContainerizedWebapp
             {
