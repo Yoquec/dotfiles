@@ -1,7 +1,9 @@
 # https://librewolf.net
-{ ... }:
+{ burrow, ... }:
 {
   yoq.browser = {
+    includes = [ burrow.graphics ];
+
     homeManager =
       { host, lib, ... }:
       let

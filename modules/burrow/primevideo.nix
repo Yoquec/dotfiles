@@ -3,12 +3,14 @@
   inputs,
   den,
   yoq,
+  burrow,
   ...
 }:
 {
   burrow.primevideo = {
     includes = [
       yoq.lib.jail
+      burrow.graphics
       (den.batteries.unfree [ "google-chrome" ])
     ];
 

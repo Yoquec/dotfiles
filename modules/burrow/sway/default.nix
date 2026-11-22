@@ -6,18 +6,7 @@ in
 {
 
   burrow.sway = {
-    includes = [
-      burrow.audio
-      burrow.input
-      burrow.notifications
-      burrow.nextcloud
-      burrow.network-manager-applet
-      burrow.bluetooth
-    ];
-
-    nixos = {
-      hardware.graphics.enable = true;
-    };
+    includes = [ burrow.graphics ];
 
     homeManager =
       {
