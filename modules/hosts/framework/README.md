@@ -22,7 +22,7 @@ From a booted NixOS minimal installer, with network up:
 
    ```sh
    sudo nix --extra-experimental-features "nix-command flakes" run \
-     github:nix-community/disko -- --mode destroy,format,mount .#framework
+     github:nix-community/disko -- --mode destroy,format,mount --flake .#framework
    ```
 
    You'll be prompted for the `cryptvolume` LUKS passphrase here (typed
@@ -31,7 +31,7 @@ From a booted NixOS minimal installer, with network up:
 3. Install.
 
    ```sh
-   sudo nixos-install --flake .#framework
+   sudo nixos-install --no-root-password --flake .#framework
    ```
 
    `nixos-install` will ask you to set the root password.
@@ -39,7 +39,7 @@ From a booted NixOS minimal installer, with network up:
 4. Set a password for `yoquec`, while still chrooted into `/mnt`.
 
    ```sh
-   nixos-enter --root /mnt -c 'passwd yoquec'
+   sudo nixos-enter --root /mnt -c 'passwd yoquec'
    ```
 
 5. Reboot into the new system.
