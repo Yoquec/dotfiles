@@ -6,7 +6,7 @@
     [
       (builtin: {
         confirm-mount-cwd = builtin.compose [
-          (builtin.add-runtime ''
+          (builtin.add-runtime /* bash */ ''
             query="Allow $0 to access $(pwd)?"
             LINES=$(stty size | cut -d " " -f1)
             COLUMNS=$(stty size | cut -d " " -f2)
