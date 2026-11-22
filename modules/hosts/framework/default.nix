@@ -7,7 +7,7 @@ in
     includes = [
       yoq.nix
       burrow.bootloader
-      burrow.graphical
+      burrow.desktop
       yoq.browser
       yoq.ghostty
       burrow.fprint

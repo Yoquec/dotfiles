@@ -47,3 +47,9 @@ From a booted NixOS minimal installer, with network up:
    ```sh
    reboot
    ```
+
+6. Enroll a fingerprint (see [`burrow.fprint`](../../burrow/fprint.nix)).
+
+   ```sh
+   fprintd-enroll
+   ```

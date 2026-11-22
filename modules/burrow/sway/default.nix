@@ -1,20 +1,11 @@
 # https://swaywm.org
-{ burrow, ... }:
+{ ... }:
 let
   modifier = "Mod4";
 in
 {
 
   burrow.sway = {
-    includes = [
-      burrow.audio
-      burrow.input
-      burrow.notifications
-      burrow.nextcloud
-      burrow.network-manager-applet
-      burrow.bluetooth
-    ];
-
     nixos = {
       hardware.graphics.enable = true;
     };
