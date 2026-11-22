@@ -12,6 +12,7 @@ in
       burrow.fprint
       burrow.office
       burrow.multimedia
+      burrow.fwupd
     ];
 
     provides.to-users.homeManager =
