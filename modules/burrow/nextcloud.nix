@@ -1,8 +1,11 @@
 # https://github.com/nextcloud/desktop
-{ inputs, yoq, ... }:
+{ inputs, yoq, burrow, ... }:
 {
   burrow.nextcloud = {
-    includes = [ yoq.lib.jail ];
+    includes = [
+      yoq.lib.jail
+      burrow.graphics
+    ];
 
     homeManager =
       {

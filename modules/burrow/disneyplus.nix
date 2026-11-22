@@ -3,12 +3,14 @@
   inputs,
   den,
   yoq,
+  burrow,
   ...
 }:
 {
   burrow.disneyplus = {
     includes = [
       yoq.lib.jail
+      burrow.graphics
       (den.batteries.unfree [ "google-chrome" ])
     ];
 

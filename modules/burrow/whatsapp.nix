@@ -1,8 +1,11 @@
 # https://web.whatsapp.com
-{ inputs, yoq, ... }:
+{ inputs, yoq, burrow, ... }:
 {
   burrow.whatsapp = {
-    includes = [ yoq.lib.jail ];
+    includes = [
+      yoq.lib.jail
+      burrow.graphics
+    ];
 
     homeManager =
       {

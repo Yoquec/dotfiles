@@ -1,14 +1,12 @@
 # https://swaywm.org
-{ ... }:
+{ burrow, ... }:
 let
   modifier = "Mod4";
 in
 {
 
   burrow.sway = {
-    nixos = {
-      hardware.graphics.enable = true;
-    };
+    includes = [ burrow.graphics ];
 
     homeManager =
       {

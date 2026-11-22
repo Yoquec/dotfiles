@@ -1,8 +1,11 @@
 # https://mail.tutanota.com
-{ inputs, yoq, ... }:
+{ inputs, yoq, burrow, ... }:
 {
   burrow.tutanota = {
-    includes = [ yoq.lib.jail ];
+    includes = [
+      yoq.lib.jail
+      burrow.graphics
+    ];
 
     homeManager =
       {

@@ -1,8 +1,11 @@
 # https://ghostty.org
-{ yoq, ... }:
+{ yoq, burrow, ... }:
 {
   yoq.ghostty = {
-    includes = [ yoq.theme ];
+    includes = [
+      yoq.theme
+      burrow.graphics
+    ];
 
     homeManager =
       {

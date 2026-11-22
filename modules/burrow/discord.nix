@@ -1,8 +1,11 @@
 # https://discord.com
-{ inputs, yoq, ... }:
+{ inputs, yoq, burrow, ... }:
 {
   burrow.discord = {
-    includes = [ yoq.lib.jail ];
+    includes = [
+      yoq.lib.jail
+      burrow.graphics
+    ];
 
     homeManager =
       {
