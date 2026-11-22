@@ -37,6 +37,9 @@
     import-tree = {
       url = "github:denful/import-tree";
     };
+    jail-nix = {
+      url = "sourcehut:~alexdavid/jail.nix";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-26.05";
     };
@@ -49,8 +52,10 @@
     };
     nur = {
       url = "github:nix-community/NUR";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     self = {
       lfs = true;
@@ -60,8 +65,8 @@
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
+        nur.follows = "nur";
       };
-      inputs.nur.follows = "nur";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
