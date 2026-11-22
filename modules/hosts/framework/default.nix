@@ -12,11 +12,9 @@ in
       burrow.bootloader
       burrow.desktop
       yoq.browser
-      yoq.ghostty
       burrow.fprint
       burrow.office
       burrow.multimedia
-      burrow.fwupd
     ];
 
     provides.to-users.homeManager =
