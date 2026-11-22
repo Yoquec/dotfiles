@@ -44,6 +44,10 @@
     jail-nix = {
       url = "sourcehut:~alexdavid/jail.nix";
     };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-26.05";
     };
