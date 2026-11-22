@@ -1,5 +1,5 @@
 # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
-{ lib, burrow,... }:
+{ lib, burrow, ... }:
 let
   settings = {
     nix.settings.experimental-features = lib.mkDefault [
@@ -28,11 +28,17 @@ in
     provides.home-manager-standalone-nix =
       { home, ... }:
       {
-        homeManager = settings // {
-          # standalone installs need home-manager's own CLI to run switches,
-          # since there's no nixos/darwin-rebuild to drive activation for them.
-          programs.home-manager.enable = true;
-        };
+        homeManager =
+          { pkgs, lib, ... }:
+          {
+            imports = [ settings ];
+            # standalone home-manager doesn't inherit a nix package from a
+            # nixos/darwin module.
+            nix.package = lib.mkDefault pkgs.nix;
+            # standalone installs need home-manager's own CLI to run switches,
+            # since there's no nixos/darwin-rebuild to drive activation for them.
+            programs.home-manager.enable = true;
+          };
       };
   };
 }

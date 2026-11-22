@@ -1,20 +1,10 @@
-{ inputs, lib, ... }:
+{ yoq, ... }:
 {
-  flake-file.inputs = {
-    agenix.url = "github:ryantm/agenix";
-    agenix-rekey.url = "github:oddlama/agenix-rekey";
-  };
-
   burrow.agenix = {
+    includes = [ yoq.agenix ];
+
     homeManager = {
-      imports = [
-        inputs.agenix.homeManagerModules.default
-        inputs.agenix-rekey.homeManagerModules.default
-      ];
-
       age.rekey = {
-        storageMode = lib.mkDefault "local";
-
         # yubikey identities used for decryption
         # See: https://github.com/oddlama/agenix-rekey/pull/28
         masterIdentities = [

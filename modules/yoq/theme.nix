@@ -36,7 +36,7 @@
       provides.to-hosts.nixos.programs.dconf.enable = true;
 
       homeManager =
-        { pkgs, ... }:
+        { pkgs, lib, ... }:
         {
           imports = [ inputs.stylix.homeModules.stylix ];
 
@@ -57,7 +57,7 @@
             # image = ../../assets/wallpapers/wallpaper.png;
 
             fonts = {
-              monospace = {
+              monospace = lib.mkDefault {
                 package = pkgs.nerd-fonts.intone-mono;
                 name = "IntoneMono Nerd Font Mono";
               };

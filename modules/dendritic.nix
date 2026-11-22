@@ -4,6 +4,7 @@
     (inputs.flake-file.flakeModules.dendritic or { })
     (inputs.den.flakeModules.dendritic or { })
     (inputs.flake-file.flakeModules.auto-follow or { })
+    inputs.flake-parts.flakeModules.flakeModules
   ];
 
   flake-file.inputs = {

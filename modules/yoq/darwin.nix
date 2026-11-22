@@ -1,16 +1,30 @@
 {
   inputs,
   yoq,
+  burrow,
   ...
 }:
 {
-  flake-file.inputs.darwin.url = "github:LnL7/nix-darwin";
+  flake-file.inputs.darwin.url = "github:LnL7/nix-darwin/nix-darwin-26.05";
 
   yoq.darwin = {
     includes = [
+      burrow.base
       yoq.nix
+      yoq.theme
+      yoq.ghostty
       yoq.aerospace
+      yoq.betterdisplay
     ];
+
+    homeManager =
+      { pkgs, ... }:
+      {
+        stylix.fonts.monospace = {
+          package = pkgs.nerd-fonts.code-new-roman;
+          name = "CodeNewRoman Nerd Font Mono";
+        };
+      };
 
     darwin =
       { pkgs, ... }:
@@ -29,7 +43,7 @@
 
         security.pam.services.sudo_local.touchIdAuth = true;
 
-        font.packages = with pkgs; [
+        fonts.packages = with pkgs; [
           nerd-fonts.code-new-roman
         ];
 
