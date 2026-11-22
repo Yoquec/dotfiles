@@ -41,8 +41,7 @@
 
         signcolumn = "yes";
 
-        # TODO: integrate with theme switching
-        background = "dark";
+        background = config.yoq.theme.polarity;
 
         updatetime = 50;
         spell = true;

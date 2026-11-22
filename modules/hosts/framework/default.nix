@@ -1,6 +1,9 @@
 { yoq, burrow, ... }:
 let
-  wallpaper = ../../../assets/wallpapers/charcoal_creation_of_adam.png;
+  wallpapers = {
+    dark = ../../../assets/wallpapers/charcoal_creation_of_adam.png;
+    light = ../../../assets/wallpapers/stone_creation_of_adam_dark.png;
+  };
 in
 {
   den.aspects.framework = {
@@ -17,8 +20,10 @@ in
     ];
 
     provides.to-users.homeManager =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       let
+        wallpaper = wallpapers.${config.yoq.theme.polarity};
+
         dimWallpaper =
           pkgs.runCommand "wallpaper-dim.png"
             {

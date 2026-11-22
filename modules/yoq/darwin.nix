@@ -27,7 +27,12 @@
       };
 
     darwin =
-      { pkgs, ... }:
+      {
+        pkgs,
+        lib,
+        config,
+        ...
+      }:
       {
         system.defaults.dock.autohide = true;
         system.defaults.trackpad.Clicking = true;
@@ -35,8 +40,8 @@
         system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
         system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
 
-        # TODO: Integrate with theme switching
-        system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        system.defaults.NSGlobalDomain.AppleInterfaceStyle =
+          if config.yoq.theme.polarity == "dark" then "Dark" else "Light";
 
         system.keyboard.enableKeyMapping = true;
         system.keyboard.remapCapsLockToEscape = true;

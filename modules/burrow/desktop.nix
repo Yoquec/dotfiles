@@ -7,6 +7,7 @@
     burrow.portals
     burrow.fwupd
     burrow.zathura
+    burrow.feh
     burrow.nextcloud
     burrow.network-manager-applet
     burrow.audio
