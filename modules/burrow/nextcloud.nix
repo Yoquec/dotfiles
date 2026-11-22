@@ -1,5 +1,10 @@
 # https://github.com/nextcloud/desktop
-{ inputs, yoq, burrow, ... }:
+{
+  inputs,
+  yoq,
+  burrow,
+  ...
+}:
 {
   burrow.nextcloud = {
     includes = [

@@ -1,5 +1,10 @@
 # https://mail.tutanota.com
-{ inputs, yoq, burrow, ... }:
+{
+  inputs,
+  yoq,
+  burrow,
+  ...
+}:
 {
   burrow.tutanota = {
     includes = [

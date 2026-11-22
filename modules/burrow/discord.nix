@@ -1,5 +1,10 @@
 # https://discord.com
-{ inputs, yoq, burrow, ... }:
+{
+  inputs,
+  yoq,
+  burrow,
+  ...
+}:
 {
   burrow.discord = {
     includes = [

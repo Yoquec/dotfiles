@@ -1,5 +1,10 @@
 # https://web.whatsapp.com
-{ inputs, yoq, burrow, ... }:
+{
+  inputs,
+  yoq,
+  burrow,
+  ...
+}:
 {
   burrow.whatsapp = {
     includes = [
