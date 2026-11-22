@@ -9,6 +9,7 @@
   burrow.nextcloud = {
     includes = [
       yoq.lib.jail
+      burrow.keyring
       burrow.graphics
     ];
 
