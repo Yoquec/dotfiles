@@ -7,7 +7,7 @@
 
 My own [neovim] configuration using declared using [nixvim] and themed through [stylix].
 
-<!-- TODO: updated screenshot -->
+<div align="center"><img width="80%" alt="neovim" src="https://github.com/user-attachments/assets/fe001fff-cb6b-4180-9f5e-9d1dccda25ac" /></div>
 
 [neovim]: https://neovim.io/
 [stylix]: https://nix-community.github.io/stylix/
