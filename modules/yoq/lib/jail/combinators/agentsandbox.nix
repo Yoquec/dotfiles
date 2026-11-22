@@ -5,7 +5,15 @@
     { pkgs, lib, ... }:
     [
       (builtin: {
-        tools = {
+        agentsandbox = {
+          neovim = builtin.compose (
+            with builtin;
+            [
+              (set-env "EDITOR" "nvim --clean")
+              (add-pkg-deps [ pkgs.neovim ])
+            ]
+          );
+
           bash = builtin.compose (
             let
               shell = pkgs.bashNonInteractive;
