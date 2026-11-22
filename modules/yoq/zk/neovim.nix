@@ -1,0 +1,104 @@
+# zk.nvim plugin declaration
+{ ... }:
+{
+  yoq.zk.homeManager.programs.nixvim = {
+    plugins.zk = {
+      enable = true;
+      settings.picker = "snacks_picker";
+    };
+
+    extraConfigLua = ''
+      function with_title(cb)
+        vim.ui.input({ prompt = "Title" }, function(title)
+          if title == nil or title == "" then
+            print("Operation canceled")
+          else
+            cb(title)
+          end
+        end)
+      end
+    '';
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>zz";
+        action.__raw = "vim.cmd.ZkNotes";
+        options.desc = "Open notes";
+      }
+      {
+        mode = "n";
+        key = "<leader>zo";
+        action = "<Cmd>ZkNotes { sort = { 'modified' } }<cr>";
+        options.desc = "Open recent notes";
+      }
+      {
+        mode = "n";
+        key = "<leader>zt";
+        action.__raw = "vim.cmd.ZkTags";
+        options.desc = "Open tags";
+      }
+      {
+        mode = "n";
+        key = "<leader>zB";
+        action.__raw = "vim.cmd.ZkBacklinks";
+        options.desc = "Backlinks for current note";
+      }
+      {
+        mode = "n";
+        key = "<leader>zl";
+        action.__raw = "vim.cmd.ZkLinks";
+        options.desc = "Links for current note";
+      }
+      {
+        mode = "n";
+        key = "<leader>zL";
+        action.__raw = "vim.cmd.ZkInsertLink";
+        options.desc = "Insert a link under the cursor";
+      }
+      {
+        mode = "n";
+        key = "<leader>zb";
+        action.__raw = "vim.cmd.ZkBuffers";
+        options.desc = "Open picker with open note buffers";
+      }
+      {
+        mode = "v";
+        key = "<leader>zL";
+        action = "<cmd>'<,'>ZkInsertLinkAtSelection { sort = {'modified' } }<cr>";
+        options.desc = "Insert a link over the current selection";
+      }
+      {
+        mode = "v";
+        key = "<leader>zft";
+        action = "<cmd>'<,'>ZkNewFromTitleSelection<cr>";
+        options.desc = "Create new note using the selected content as title";
+      }
+      {
+        mode = "v";
+        key = "<leader>zfc";
+        action.__raw = ''
+          function()
+            with_title(function(title)
+              vim.cmd([['<,'>ZkNewFromContentSelection { title = ']] .. title .. [[' }]])
+            end)
+          end
+        '';
+        options.desc = "Create new note with the selected content";
+      }
+      {
+        mode = "n";
+        key = "<leader>zn";
+        action.__raw = ''
+          function()
+              with_title(function(title)
+                local new = require("zk.commands").get("ZkNew")
+                new({ title = title })
+              end)
+          end
+        '';
+        options.desc = "Create a new zettlekasten note";
+      }
+    ];
+  };
+}
