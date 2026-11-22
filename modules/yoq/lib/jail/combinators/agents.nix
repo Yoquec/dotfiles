@@ -1,3 +1,4 @@
+# Tools for sandboxed agents
 { ... }:
 {
   yoq.lib.jail.combinators =
@@ -5,8 +6,6 @@
     [
       (builtin: {
         tools = {
-          git = builtin.add-pkg-deps [ pkgs.git ];
-
           bash = builtin.compose (
             let
               shell = pkgs.bashNonInteractive;
