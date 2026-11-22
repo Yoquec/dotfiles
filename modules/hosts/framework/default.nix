@@ -10,6 +10,8 @@ in
       yoq.browser
       burrow.sway
       burrow.fprint
+      burrow.office
+      burrow.multimedia
     ];
 
     provides.to-users.homeManager =
