@@ -5,6 +5,6 @@
   yoq.identity =
     { name, email }:
     {
-      homeManager.programs.git.settings.settings.user = { inherit name email; };
+      homeManager.programs.git.settings.user = { inherit name email; };
     };
 }

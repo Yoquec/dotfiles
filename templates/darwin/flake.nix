@@ -8,7 +8,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
 
   inputs = {
-    yoquec-dotfiles.url = "github:yoquec/dotfiles";
+    yoquec-dotfiles.url = "git+https://github.com/yoquec/dotfiles";
     nixpkgs.follows = "yoquec-dotfiles/nixpkgs";
     flake-parts.follows = "yoquec-dotfiles/flake-parts";
     import-tree.follows = "yoquec-dotfiles/import-tree";

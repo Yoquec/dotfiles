@@ -47,6 +47,9 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    self = {
+      lfs = true;
+    };
     stylix = {
       url = "github:nix-community/stylix/release-26.05";
       inputs = {

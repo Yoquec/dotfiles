@@ -1,5 +1,6 @@
-{
-  perSystem =
+{ inputs, ... }:
+let
+  devShell =
     { pkgs, config, ... }:
     {
       devShells.default = pkgs.mkShellNoCC {
@@ -9,4 +10,14 @@
         ];
       };
     };
+in
+{
+  imports = [ inputs.agenix-rekey.flakeModule ];
+  perSystem = devShell;
+
+  # export the dev shell to consumers
+  flake.flakeModules.shell = {
+    imports = [ inputs.agenix-rekey.flakeModule ];
+    perSystem = devShell;
+  };
 }

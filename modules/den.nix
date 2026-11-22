@@ -5,5 +5,13 @@
     (inputs.den.namespace "burrow" false) # personal, not exported
   ];
 
-  config._module.args.__findFile = den.lib.__findFile;
+  flake-file.inputs.self.lfs = true;
+  _module.args.__findFile = den.lib.__findFile;
+
+  # expected consuming architectures of the flake
+  den.systems = [
+    "x86_64-linux"
+    "aarch64-linux"
+    "aarch64-darwin"
+  ];
 }

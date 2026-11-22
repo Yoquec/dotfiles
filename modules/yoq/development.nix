@@ -3,6 +3,7 @@
 {
   yoq.development.includes = [
     burrow.base
+    yoq.nix
     yoq.bat
     yoq.zsh
     yoq.yazi

@@ -53,9 +53,6 @@
               else
                 "${pkgs.base16-schemes}/share/themes/tomorrow.yaml";
 
-            # TODO: point this at your own wallpaper.
-            # image = ../../assets/wallpapers/wallpaper.png;
-
             fonts = {
               monospace = lib.mkDefault {
                 package = pkgs.nerd-fonts.intone-mono;
