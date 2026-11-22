@@ -7,3 +7,7 @@
   sense under that one; keep native exec/startup blocks for things that need
   compositor-context ordering or aren't suited to being long-running
   services.
+
+## Tooling
+
+- Formatting is done via `nix fmt` (see `modules/formatter.nix`).

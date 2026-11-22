@@ -6,9 +6,13 @@ in
   den.aspects.framework = {
     includes = [
       yoq.nix
+      burrow.graphical
+      yoq.browser
       yoq.ghostty
-      burrow.sway
       burrow.fprint
+      burrow.office
+      burrow.multimedia
+      burrow.fwupd
     ];
 
     provides.to-users.homeManager =
