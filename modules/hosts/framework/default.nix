@@ -6,6 +6,7 @@ in
   den.aspects.framework = {
     includes = [
       yoq.nix
+      burrow.bootloader
       burrow.graphical
       yoq.browser
       yoq.ghostty

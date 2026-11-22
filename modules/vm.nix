@@ -1,19 +1,8 @@
 # enables `nix run .#vm`. it is very useful to have a VM
 # you can edit your config and launch the VM to test stuff
 # instead of having to reboot each time.
-{ inputs, den, ... }:
+{ inputs, ... }:
 {
-
-  # USER TODO: remove this tty-autologin used for the VM
-  den.aspects.framework.includes = [ (den.batteries.tty-autologin "yoquec") ];
-
-  # User TODO: REMOVE THIS
-  den.aspects.yoquec.nixos = {
-    boot.loader.grub.enable = false;
-    fileSystems."/".device = "/dev/fake";
-    fileSystems."/".fsType = "auto";
-  };
-
   perSystem =
     { pkgs, ... }:
     {
@@ -23,7 +12,7 @@
           let
             host = inputs.self.nixosConfigurations.framework.config;
           in
-          ''
+          /* bash */ ''
             ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
           '';
       };
