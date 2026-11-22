@@ -1,5 +1,10 @@
 # https://soundcloud.com
-{ inputs, den, yoq, ... }:
+{
+  inputs,
+  den,
+  yoq,
+  ...
+}:
 {
   burrow.soundcloud = {
     includes = [
@@ -8,26 +13,33 @@
     ];
 
     homeManager =
-      { jail, pkgs, lib, config, ... }:
+      {
+        jail,
+        pkgs,
+        lib,
+        config,
+        ...
+      }:
       {
         # uses proprietary google chrome for DRM
         home.packages = [
-          (inputs.self.lib.mkContainerizedWebapp {
-            inherit pkgs lib jail;
-            inherit (config.home) homeDirectory;
-          } {
-            name = "soundcloud";
-            browser = pkgs.google-chrome;
-            url = "https://soundcloud.com";
-            description = "SoundCloud";
-            extraCombinators =
-              with jail.combinators;
-              [
+          (inputs.self.lib.mkContainerizedWebapp
+            {
+              inherit pkgs lib jail;
+              inherit (config.home) homeDirectory;
+            }
+            {
+              name = "soundcloud";
+              browser = pkgs.google-chrome;
+              url = "https://soundcloud.com";
+              description = "SoundCloud";
+              extraCombinators = with jail.combinators; [
                 notifications
                 # MPRIS control
                 (dbus { own = [ "org.mpris.MediaPlayer2.*" ]; })
               ];
-          })
+            }
+          )
         ];
       };
   };
