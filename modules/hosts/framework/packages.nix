@@ -5,6 +5,7 @@
       yoq.ghostty
       burrow.blanket
       burrow.keepassxc
+      burrow.ssh-agent
       burrow.claude-code
     ];
 
