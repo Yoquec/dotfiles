@@ -1,6 +1,6 @@
 { yoq, burrow, ... }:
 let
-  wallpaper = ../../assets/wallpapers/charcoal_creation_of_adam.png;
+  wallpaper = ../../../assets/wallpapers/charcoal_creation_of_adam.png;
 in
 {
   den.aspects.framework = {
@@ -8,12 +8,27 @@ in
       yoq.nix
       yoq.ghostty
       burrow.sway
+      burrow.fprint
     ];
 
-    provides.to-users.homeManager = {
-      stylix.image = wallpaper;
-      wayland.windowManager.sway.config.output."eDP-1".scale = "1.33";
-    };
+    provides.to-users.homeManager =
+      { pkgs, ... }:
+      let
+        dimWallpaper =
+          pkgs.runCommand "wallpaper-dim.png"
+            {
+              nativeBuildInputs = [ pkgs.imagemagick ];
+            }
+            ''
+              magick ${wallpaper} -blur 0x2 -modulate 15 "$out"
+            '';
+      in
+      {
+        stylix = {
+          image = wallpaper;
+          targets.swaylock.image.override = "${dimWallpaper}";
+        };
+      };
 
     nixos =
       { pkgs, ... }:

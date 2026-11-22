@@ -14,7 +14,7 @@ in
   den.aspects."${user}".includes = [
     yoq.development
     den.batteries.define-user
-    den.batteries.primary-user
+    yoq.primary-user
     den.batteries.host-aspects
     (yoq.identity { inherit name email; })
   ];
