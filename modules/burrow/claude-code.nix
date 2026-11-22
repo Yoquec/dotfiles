@@ -1,8 +1,11 @@
 # https://github.com/anthropics/claude-code
-{ yoq, ... }:
+{ den, yoq, ... }:
 {
   burrow.claude-code = {
-    includes = [ yoq.lib.jail ];
+    includes = [
+      yoq.lib.jail
+      (den.batteries.unfree [ "claude-code" ])
+    ];
 
     homeManager =
       { jail, pkgs, ... }:
