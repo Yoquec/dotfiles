@@ -6,9 +6,9 @@ in
   den.aspects.framework = {
     includes = [
       yoq.nix
-      yoq.ghostty
+      burrow.graphical
       yoq.browser
-      burrow.sway
+      yoq.ghostty
       burrow.fprint
       burrow.office
       burrow.multimedia
