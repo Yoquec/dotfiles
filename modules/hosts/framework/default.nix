@@ -36,14 +36,21 @@ in
       };
 
     nixos =
-      { pkgs, ... }:
+      { pkgs, lib, ... }:
       {
         environment.systemPackages = [ pkgs.hello ];
 
-        # VM's store is a read-only mount of the host's, so home-manager's
-        # default activation-time profile build fails there; bake user
-        # packages into the system closure instead, for the VM only.
-        virtualisation.vmVariant.home-manager.useUserPackages = true;
+        virtualisation.vmVariant = {
+          # VM's store is a read-only mount of the host's, so home-manager's
+          # default activation-time profile build fails there; bake user
+          # packages into the system closure instead, for the VM only.
+          home-manager.useUserPackages = true;
+
+          # disko sets this to the real swap partition (for hibernation
+          # resume), which doesn't exist on the VM's synthetic disk and
+          # otherwise hangs boot waiting for its device unit.
+          boot.resumeDevice = lib.mkVMOverride "";
+        };
       };
   };
 }
