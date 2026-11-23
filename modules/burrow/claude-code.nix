@@ -15,6 +15,13 @@
         jailedClaude = jail "claude" pkgs.claude-code (
           with jail.combinators;
           [
+            # claude's persistent config/session state (incl. login credentials).
+            # must come before confirm-mount-cwd so the cwd bind (more specific,
+            # added later) overlays on top of this whole-home bind instead of
+            # being shadowed by it.
+            # see: https://alexdav.id/projects/jail-nix/combinators/#persist-home
+            (persist-home "claude-code")
+
             confirm-mount-cwd
             network
             time-zone
@@ -26,11 +33,6 @@
               pkgs.git
               pkgs.python3Minimal
             ])
-
-            # claude's own persistent config/session state
-            # see: https://alexdav.id/projects/jail-nix/combinators/#noescape
-            (try-readwrite (noescape "~/.claude"))
-            (try-readwrite (noescape "~/.claude.json"))
 
             # resolve ca certificates (fixes UNABLE_TO_GET_ISSUER_CERT_LOCALLY)
             # see: https://github.com/anthropics/claude-code/issues/2816
