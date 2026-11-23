@@ -14,6 +14,7 @@
         jq
         pciutils
         wdisplays
+        signal-desktop
         yubikey-manager
       ];
     };
