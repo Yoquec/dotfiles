@@ -93,11 +93,12 @@
             inherit (config.wayland.windowManager.sway.config) modifier;
             rofi = lib.getExe config.programs.rofi.package;
           in
-          {
-            menu = "${rofi} -show run";
+          rec {
+            menu = "${rofi} -show drun";
             keybindings = {
+              "${modifier}+d" = "exec ${menu}";
+              "${modifier}+Shift+d" = "exec ${rofi} -show run";
               "${modifier}+b" = "exec ${rofi} -modi emoji -show emoji";
-              "${modifier}+Shift+d" = "exec ${rofi} -show drun";
             };
           };
       };

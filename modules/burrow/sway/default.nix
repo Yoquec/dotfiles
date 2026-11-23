@@ -21,7 +21,6 @@ in
           # Default keybinds
           # See: https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/sway.nix#L78
           "${modifier}+Shift+q" = "kill";
-          "${modifier}+d" = "exec ${cfg.menu}";
           "${modifier}+Return" = "exec ${cfg.terminal}"; # terminal should be set by its module
 
           "${modifier}+${cfg.left}" = "focus left";
