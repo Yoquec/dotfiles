@@ -1,6 +1,10 @@
 # https://github.com/Alexays/Waybar
 { ... }:
 {
+  # upower CLI (used by batterystatus) needs the upowerd D-Bus service running.
+  # see: https://wiki.nixos.org/wiki/Upower
+  burrow.sway.nixos.services.upower.enable = true;
+
   burrow.sway.homeManager =
     {
       lib,
