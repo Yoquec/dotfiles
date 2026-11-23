@@ -69,46 +69,17 @@
         in
         {
           imports = [ inputs.stylix.homeModules.stylix ];
-
           options.yoq.theme.polarity = mkPolarityOption lib;
-
           config = {
-            fonts.fontconfig.enable = true;
-
-            gtk.iconTheme = {
-              package = pkgs.papirus-icon-theme;
-              name = if polarity == "dark" then "Papirus-Dark" else "Papirus-Light";
-            };
-
             stylix = {
               inherit polarity;
               enable = true;
               autoEnable = true;
-
               base16Scheme =
                 if polarity == "dark" then
                   tomorrowNightBright
                 else
                   "${pkgs.base16-schemes}/share/themes/tomorrow.yaml";
-
-              fonts = {
-                monospace = lib.mkDefault {
-                  package = pkgs.nerd-fonts.intone-mono;
-                  name = "IntoneMono Nerd Font Mono";
-                };
-                sansSerif = {
-                  package = pkgs.inter;
-                  name = "Inter";
-                };
-                serif = {
-                  package = pkgs.libertinus;
-                  name = "Libertinus Serif";
-                };
-                emoji = {
-                  package = pkgs.noto-fonts-color-emoji;
-                  name = "Noto Color Emoji";
-                };
-              };
             };
           };
         };

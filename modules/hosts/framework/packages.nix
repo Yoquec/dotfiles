@@ -1,8 +1,9 @@
 { yoq, burrow, ... }: {
   den.aspects.framework = {
     includes = [
-      burrow.fwupd
       yoq.ghostty
+      burrow.fwupd
+      burrow.nextcloud
       burrow.blanket
       burrow.keepassxc
       burrow.ssh-agent
