@@ -1,5 +1,10 @@
 # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
-{ lib, burrow, ... }:
+{
+  inputs,
+  lib,
+  burrow,
+  ...
+}:
 let
   settings = {
     nix.settings.experimental-features = lib.mkDefault [
@@ -10,6 +15,11 @@ let
       automatic = true;
       options = "--delete-older-than 30d";
     };
+  };
+
+  # Sets this flake's pinned nixpkgs the default in the registry
+  pinNixpkgsRegistry = {
+    nix.registry.nixpkgs.flake = inputs.nixpkgs;
   };
 in
 {
@@ -23,8 +33,14 @@ in
       provides.home-manager-standalone-nix
     ];
 
-    nixos = settings;
-    darwin = settings;
+    nixos.imports = [
+      settings
+      pinNixpkgsRegistry
+    ];
+    darwin.imports = [
+      settings
+      pinNixpkgsRegistry
+    ];
     provides.home-manager-standalone-nix =
       { home, ... }:
       {
