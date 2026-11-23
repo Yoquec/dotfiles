@@ -36,6 +36,7 @@
                 "firefox-compact-light@mozilla.org";
           };
 
+          containersForce = true;
           containers.AI = {
             id = 1;
             icon = "fingerprint";
