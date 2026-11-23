@@ -41,7 +41,7 @@ in
     nixos =
       { pkgs, lib, ... }:
       {
-        environment.systemPackages = [ pkgs.hello ];
+        time.timeZone = "Europe/Madrid";
 
         virtualisation.vmVariant = {
           # VM's store is a read-only mount of the host's, so home-manager's
