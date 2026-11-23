@@ -1,8 +1,11 @@
 # https://librewolf.net
-{ burrow, ... }:
+{ yoq, burrow, ... }:
 {
   yoq.browser = {
-    includes = [ burrow.graphics ];
+    includes = [
+      yoq.theme
+      burrow.graphics
+    ];
 
     homeManager =
       {
