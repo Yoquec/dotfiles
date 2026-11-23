@@ -5,7 +5,12 @@
     includes = [ burrow.graphics ];
 
     homeManager =
-      { host, lib, ... }:
+      {
+        host,
+        lib,
+        config,
+        ...
+      }:
       let
         isDarwin = lib.hasSuffix "-darwin" host.system;
 
@@ -14,12 +19,24 @@
           isDefault = true;
 
           settings = {
-            # Enables sidebars
+            # Enables sidebars, vertical tabs.
             "sidebar.revamp" = true;
             "sidebar.visibility" = "always-show";
+            "sidebar.verticalTabs" = true;
 
-            # built-in dark theme, no extension needed.
-            "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+            "browser.nova.enabled" = false;
+
+            "extensions.activeThemeID" =
+              if config.yoq.theme.polarity == "dark" then
+                "firefox-compact-dark@mozilla.org"
+              else
+                "firefox-compact-light@mozilla.org";
+          };
+
+          containers.AI = {
+            id = 1;
+            icon = "fingerprint";
+            color = "yellow";
           };
 
           search = {
@@ -31,12 +48,18 @@
             };
           };
         };
+
+        # Sites kept out of "clear history"/cookie purges.`.
+        policies.Cookies.Allow = [
+          "https://perplexity.ai"
+          "https://github.com"
+        ];
       in
       if isDarwin then
         {
           stylix.targets.firefox.profileNames = [ "default" ];
           programs.firefox = {
-            inherit profiles;
+            inherit profiles policies;
             enable = true;
           };
         }
@@ -44,7 +67,7 @@
         {
           stylix.targets.librewolf.profileNames = [ "default" ];
           programs.librewolf = {
-            inherit profiles;
+            inherit profiles policies;
             enable = true;
           };
         };
