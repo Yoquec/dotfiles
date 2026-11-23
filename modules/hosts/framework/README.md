@@ -5,20 +5,27 @@ Destructive: this wipes the disk at
 [disko.nix](./disko.nix)). Double check that id still matches before
 continuing:
 
-```console
+```sh
 ls -la /dev/disk/by-id/ | grep nvme
 ```
 
-From a booted NixOS minimal installer, with network up:
+From a booted NixOS minimal installer:
 
-1. Clone this repo.
+1. Connect to wifi.
+
+   ```sh
+   nmcli device wifi list
+   nmcli device wifi connect "<SSID>" --ask
+   ```
+
+2. Clone this repo.
 
    ```sh
    nix-shell -p git --run "git clone git@github.com:yoquec/dotfiles.git"
    cd dotfiles
    ```
 
-2. Partition, format and mount, via disko.
+3. Partition, format and mount, via disko.
 
    ```sh
    sudo nix --extra-experimental-features "nix-command flakes" run \
@@ -28,7 +35,7 @@ From a booted NixOS minimal installer, with network up:
    You'll be prompted for the `cryptvolume` LUKS passphrase here (typed
    twice, to set it) — it isn't stored anywhere in this repo.
 
-3. Install.
+4. Install.
 
    ```sh
    sudo nixos-install --no-root-password --flake .#framework
@@ -36,19 +43,19 @@ From a booted NixOS minimal installer, with network up:
 
    `nixos-install` will ask you to set the root password.
 
-4. Set a password for `yoquec`, while still chrooted into `/mnt`.
+5. Set a password for `yoquec`, while still chrooted into `/mnt`.
 
    ```sh
    sudo nixos-enter --root /mnt -c 'passwd yoquec'
    ```
 
-5. Reboot into the new system.
+6. Reboot into the new system.
 
    ```sh
    reboot
    ```
 
-6. Enroll a fingerprint (see [`burrow.fprint`](../../burrow/fprint.nix)).
+7. Enroll a fingerprint (see [`burrow.fprint`](../../burrow/fprint.nix)).
 
    ```sh
    fprintd-enroll
