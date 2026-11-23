@@ -105,7 +105,7 @@
                 "g"
                 ":"
               ];
-              run = "cd ${config.home.homeDirectory}/workplace/dotfiles";
+              run = "cd ${config.home.homeDirectory}/.dotfiles";
               desc = "Go to the dotfiles directory";
             }
             {
