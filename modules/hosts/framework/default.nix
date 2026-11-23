@@ -39,7 +39,7 @@ in
       };
 
     nixos =
-      { pkgs, lib, ... }:
+      { ... }:
       {
         time.timeZone = "Europe/Madrid";
 
@@ -48,11 +48,6 @@ in
           # default activation-time profile build fails there; bake user
           # packages into the system closure instead, for the VM only.
           home-manager.useUserPackages = true;
-
-          # disko sets this to the real swap partition (for hibernation
-          # resume), which doesn't exist on the VM's synthetic disk and
-          # otherwise hangs boot waiting for its device unit.
-          boot.resumeDevice = lib.mkVMOverride "";
         };
       };
   };
