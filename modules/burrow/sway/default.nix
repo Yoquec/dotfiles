@@ -88,8 +88,6 @@ in
           "${modifier}+r" = "mode resize";
 
           # Media keys.
-          "XF86MonBrightnessDown" = "exec light -s sysfs/backlight/amdgpu_bl1 -U 5";
-          "XF86MonBrightnessUp" = "exec light -s sysfs/backlight/amdgpu_bl1 -A 5";
           "XF86AudioMedia" = "exec mate-calc";
 
           "${modifier}+Ctrl+l" = "exec swaylock";
@@ -107,6 +105,7 @@ in
           grim
           slurp
           swaybg
+          brightnessctl
         ];
 
         home.shellAliases = {
