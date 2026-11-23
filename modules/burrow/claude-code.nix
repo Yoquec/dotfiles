@@ -22,7 +22,10 @@
             agentsandbox.bash
             agentsandbox.neovim
 
-            (add-pkg-deps [ pkgs.python3Minimal ])
+            (add-pkg-deps [
+              pkgs.git
+              pkgs.python3Minimal
+            ])
 
             # claude's own persistent config/session state
             # see: https://alexdav.id/projects/jail-nix/combinators/#noescape
